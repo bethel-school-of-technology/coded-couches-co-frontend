@@ -8,7 +8,7 @@ return (
         <p>Create Password</p>
         <input type="password" name="password" placeholder="password"></input>
         <br></br>
-        <button type="submit">Submit</button>
+        <button type="submit">Sign Up</button>
     </form>
 )
 
