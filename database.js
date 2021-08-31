@@ -9,7 +9,10 @@ async function main() {
   try {
     await client.connect();
 
-    await listDatabases(client);
+    await createUser(client, {
+      name: "Zach",
+      password: "zachpassword",
+    });
   } catch (e) {
     console.error(e);
   } finally {
@@ -18,6 +21,15 @@ async function main() {
 }
 
 main().catch(console.error);
+
+async function createUser(client, newUser) {
+  const result = await client
+    .db("codedCouchesCompany")
+    .collection("users")
+    .insertOne(newUser);
+
+  console.log(`New user created with the following id: ${result.insertedId}`);
+}
 
 async function listDatabases(client) {
   const databasesList = await client.db().admin().listDatabases();
