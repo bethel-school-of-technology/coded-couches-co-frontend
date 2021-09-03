@@ -1,0 +1,17 @@
+header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+div {
+    margin: 100px;
+}
+
+img {
+    height: 250px;
+    width: 250px;
+    padding: 50px;
+    outline: solid black 1px;
+    
+}
