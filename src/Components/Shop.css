@@ -1,10 +1,17 @@
-.Shop {
-    text-align: center;
+header {
+    display: flex;
+    justify-content: center;
+}
+
+div {
+    margin: 100px;
 }
 
 img {
-    height: 150px;
-    width: 150px;
-    padding: 10px;
+    height: 250px;
+    width: 250px;
+    padding: 50px;
+    outline: solid black 1px;
+    
 }
 
