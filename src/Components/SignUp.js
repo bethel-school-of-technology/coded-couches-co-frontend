@@ -11,22 +11,28 @@ const SignUp = () => {
     const [actor, setActors] = useState();
 
     useEffect(() => {
+    
         axios.get("http://localhost:3000/actor").then(result => {
-        console.log(result);
         setActors(result.data);
+        
         })
     }, []);
 
+function test() {
+    console.log(actor);
+}
+
     return (
     <div>
-        <h1>All the Users</h1>
+    <h1>All the Users</h1>
     <ul>
-        {/* { actor.first_name.map(actors => 
-            <li key={actor.id}>
-                {actor.first_name}
+        { actor.map(actors => 
+            <li key={actors.actor_id}>
+                {actors.actor_id} {actors.first_name} {actors.last_name}
             </li>
-            ) } */}
-    </ul>
+            ) }
+    </ul> 
+    <button onClick={test}>this is a test</button>
     </div>
 );
 }
