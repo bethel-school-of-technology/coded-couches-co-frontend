@@ -10,6 +10,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Cart from './Components/Cart';
 
 
 function App() {
@@ -28,10 +29,13 @@ function App() {
               <Link to="/shop">Shop</Link>
             </li>
             <li>
+              <Link to="/login">Login</Link>
+            </li>
+            <li>
               <Link to="/signup">Signup</Link>
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              <Link to="/cart">Cart</Link>
             </li>
           </ul>
         </nav>
@@ -44,12 +48,16 @@ function App() {
           <Route path="/about">
             <AboutMe />
           </Route>
-          <Route path="/signup">
-            <SignUp />
-          </Route>
           <Route path="/shop">
             <Shop />
           </Route>
+          <Route path="/cart">
+            <Cart />
+          </Route>
+          <Route path="/signup">
+            <SignUp />
+          </Route>
+          
         </Switch>
       </div>
     </Router>
