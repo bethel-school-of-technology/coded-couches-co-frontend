@@ -1,6 +1,7 @@
 header {
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 div {
@@ -14,4 +15,6 @@ img {
     outline: solid black 1px;
     
 }
-
+.first-item {
+    order: -1;
+}
