@@ -8,7 +8,7 @@ import React, { useEffect, useState } from "react";
 //have to make crud functions on backend 
 
 const SignUp = () => {
-    const [actor, setActors] = useState();
+    const [actor, setActors] = useState([]);
 
     useEffect(() => {
     
@@ -26,7 +26,7 @@ function test() {
     <div>
     <h1>All the Users</h1>
     <ul>
-        { actor.map(actors => 
+    { actor.map(actors => 
             <li key={actors.actor_id}>
                 {actors.actor_id} {actors.first_name} {actors.last_name}
             </li>
