@@ -1,17 +1,34 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+
+//set initial state?
+
+//connect inputs and buttons to functions
+
+//have to make crud functions on backend 
 
 const SignUp = () => {
-return (
-    <form>
-        <p>Add Name</p>
-        <input type="text" name="name" placeholder="name"></input>
-        <p>Create Password</p>
-        <input type="password" name="password" placeholder="password"></input>
-        <br></br>
-        <button type="submit">Sign Up</button>
-    </form>
-)
+    const [actor, setActors] = useState();
 
+    useEffect(() => {
+        axios.get("http://localhost:3000/actor").then(result => {
+        console.log(result);
+        setActors(result.data);
+        })
+    }, []);
+
+    return (
+    <div>
+        <h1>All the Users</h1>
+    <ul>
+        {/* { actor.first_name.map(actors => 
+            <li key={actor.id}>
+                {actor.first_name}
+            </li>
+            ) } */}
+    </ul>
+    </div>
+);
 }
 
 export default SignUp;
