@@ -1,40 +1,35 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-
-//set initial state?
-
-//connect inputs and buttons to functions
-
-//have to make crud functions on backend 
+import React, { useEffect, useState } from "react"; 
 
 const SignUp = () => {
-    const [actor, setActors] = useState([]);
+    const [inventories, setInv] = useState([]);
 
     useEffect(() => {
-    
-        axios.get("http://localhost:3000/actor").then(result => {
-        setActors(result.data);
+                //change url to new DB, change all actor to new user or inv
+        axios.get("http://localhost:3000/inventories").then(result => {
+        setInv(result.data);
         
         })
     }, []);
 
 function test() {
-    console.log(actor);
+    console.log(inventories);
 }
 
     return (
     <div>
-    <h1>All the Users</h1>
+    <h1>All the Inventory</h1>
     <ul>
-    { actor.map(actors => 
-            <li key={actors.actor_id}>
-                {actors.actor_id} {actors.first_name} {actors.last_name}
+    { inventories.map(inventories => 
+            <li key={inventories.id}>
+                Inventory ID:{inventories.id} <br /> NAME: {inventories.name} <br /> DESCRIPTION: {inventories.description}
             </li>
             ) }
     </ul> 
     <button onClick={test}>this is a test</button>
     </div>
 );
+
 }
 
 export default SignUp;
