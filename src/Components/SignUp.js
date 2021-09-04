@@ -1,34 +1,34 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react"; 
+import React, { useState } from "react"; 
 
 const SignUp = () => {
-    const [inventories, setInv] = useState([]);
-
-    useEffect(() => {
-                //change url to new DB, change all actor to new user or inv
-        axios.get("http://localhost:3000/inventories").then(result => {
-        setInv(result.data);
+    const [name, setName] = useState("");
+    const [description, setDescription] = useState("");
+    
+    const signIn = (e) => {
+        e.preventDefault();
         
-        })
-    }, []);
-
-function test() {
-    console.log(inventories);
-}
-
-    return (
-    <div>
-    <h1>All the Inventory</h1>
-    <ul>
-    { inventories.map(inventories => 
-            <li key={inventories.id}>
-                Inventory ID:{inventories.id} <br /> NAME: {inventories.name} <br /> DESCRIPTION: {inventories.description}
-            </li>
-            ) }
-    </ul> 
-    <button onClick={test}>this is a test</button>
-    </div>
-);
+        if (name !== "" && description !== "") {
+            const req = {
+                name: name,
+                description: description
+            };
+                //add "post user url" in place or url
+            axios.post("http://localhost:3000/inventories", req).then(result => {
+                console.log(result.data);
+            })
+        }
+    };
+    return (<div>
+        <form onSubmit={ signIn }>
+            <h1>Sign Up!</h1>
+            <label>Item Name</label>
+            <input type="text" name="name" onChange={ e => setName(e.target.value)}></input> <br></br>
+            <label>Description</label> 
+            <input type="text" name="description" onChange={ e => setDescription(e.target.value)}></input> <br></br>
+            <button>Add Item</button>
+        </form>
+    </div>);
 
 }
 
