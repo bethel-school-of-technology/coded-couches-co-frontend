@@ -5,12 +5,12 @@ header {
 }
 
 div {
-    margin: 100px;
+    margin: 50px;
 }
 
 img {
     height: 250px;
-    width: 250px;
+    width: 220px;
     padding: 50px;
     outline: solid black 1px;
     

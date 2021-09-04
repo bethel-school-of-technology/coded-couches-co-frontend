@@ -14,7 +14,7 @@ class Shop extends Component{
             return(
                 <div className="wrapper" key={item.id}>
                     <div className="itemImage">
-                        <img src={item.img} alt={item.title}/>
+                        <img src={item.img} alt={item.title}/><br></br>
                         <span>{item.title}</span>
                         
                     </div>
