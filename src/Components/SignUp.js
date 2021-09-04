@@ -21,7 +21,7 @@ const SignUp = () => {
     };
     return (<div>
         <form onSubmit={ signIn }>
-            <h1>Sign Up!</h1>
+            <h1>Inventory</h1>
             <label>Item Name</label>
             <input type="text" name="name" onChange={ e => setName(e.target.value)}></input> <br></br>
             <label>Description</label> 
