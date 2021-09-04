@@ -53,4 +53,7 @@ li {
   padding: 5px;
   list-style-type: none;
 }
+.logo{
+  align-items: flex-start;
+}
 
