@@ -1,4 +1,11 @@
 import React from 'react';
+import image1 from '../Images/image1.jpg';
+import image2 from '../Images/image2.jpg';
+import image3 from '../Images/image3.jpg';
+import image4 from '../Images/image4.jpg';
+import image5 from '../Images/image5.jpg';
+import image6 from '../Images/image6.jpg';
+
 import './Shop.css';
 
 const Shop = () => {
@@ -7,12 +14,12 @@ const Shop = () => {
         <header>
         <div>
             
-            <img src={'https://images.pexels.com/photos/154161/pexels-photo-154161.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'} alt='img1' /><br/>
-            <img src={'https://images.pexels.com/photos/276534/pexels-photo-276534.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'} alt='img2' /><br/>
-            <img src={'https://images.pexels.com/photos/667838/pexels-photo-667838.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'} alt='img3' /><br/>
-            <img src={'https://images.pexels.com/photos/842950/pexels-photo-842950.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'} alt='img4' /><br/>
-            <img src={'https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'} alt='img5' /><br/>
-            <img src={'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'} alt='img6' /><br/>
+            <img src={image1} alt='image1' /><br/>
+            <img src={image2} alt='image2' /><br/>
+            <img src={image3} alt='image3' /><br/>
+            <img src={image4} alt='image4' /><br/>
+            <img src={image5} alt='image5' /><br/>
+            <img src={image6} alt='image6' /><br/>
             
             
         </div>
