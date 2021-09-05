@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import logo from './Images/logo.jpg';
 import AboutMe from './Components/AboutMe';
 import SignUp from './Components/SignUp';
 import Home from './Components/Home';
@@ -13,11 +14,13 @@ import {
 import Cart from './Components/Cart';
 
 
+
 function App() {
   return (
     <Router>
       <div>
         <nav>
+        <img className="logo" src={logo} alt="logo" />
           <ul>
             <li>
               <Link to="/">Home</Link>
