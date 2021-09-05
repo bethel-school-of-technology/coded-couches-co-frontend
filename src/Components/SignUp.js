@@ -1,40 +1,38 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"; 
 
-//set initial state?
+///////Is not functional right now, needs to be connected to backend and db see axios post url
 
-//connect inputs and buttons to functions
-
-//have to make crud functions on backend 
 
 const SignUp = () => {
-    const [actor, setActors] = useState([]);
-
-    useEffect(() => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
     
-        axios.get("http://localhost:3000/actor").then(result => {
-        setActors(result.data);
+    const signIn = (e) => {
+        e.preventDefault();
         
-        })
-    }, []);
+        if (username !== "" && password !== "") {
+            const req = {
+                username: username,
+                password: password
+            };
+                //add "post user url" in place or url
+            axios.post("url", req).then(result => {
+                console.log(result.data);
+            })
+        }
+    };
+    return (<div>
+        <form onSubmit={ signIn }>
+            <h1>Sign Up!</h1>
+            <label>Username</label>
+            <input type="text" name="username" onChange={ e => setUsername(e.target.value)}></input> <br></br>
+            <label>Password</label> 
+            <input type="text" name="password" onChange={ e => setPassword(e.target.value)}></input> <br></br>
+            <button>Sign In</button>
+        </form>
+    </div>);
 
-function test() {
-    console.log(actor);
-}
-
-    return (
-    <div>
-    <h1>All the Users</h1>
-    <ul>
-    { actor.map(actors => 
-            <li key={actors.actor_id}>
-                {actors.actor_id} {actors.first_name} {actors.last_name}
-            </li>
-            ) }
-    </ul> 
-    <button onClick={test}>this is a test</button>
-    </div>
-);
 }
 
 export default SignUp;
