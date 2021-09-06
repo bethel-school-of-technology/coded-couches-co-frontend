@@ -5,6 +5,8 @@ import AboutMe from './Components/AboutMe';
 import SignUp from './Components/SignUp';
 import Home from './Components/Home';
 import Shop from './Components/Shop';
+import Login from './Components/Login';
+import Admin from './Components/Admin';
 import {
   BrowserRouter as Router,
   Switch,
@@ -34,6 +36,9 @@ function App() {
             <li>
               <Link to="/login">Login</Link>
             </li>
+            <li>
+              <Link to="/admin">Admin</Link>
+            </li>
           </ul>
         </nav>
 
@@ -45,6 +50,21 @@ function App() {
           <Route path="/about">
             <AboutMe />
           </Route>
+<<<<<<< HEAD
+=======
+          <Route path="/shop">
+            <Shop />
+          </Route>
+          <Route path="/cart">
+            <Cart />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/admin">
+            <Admin />
+          </Route>
+>>>>>>> 9ce1608f1560ab7d4bdd2e2d62100a22703ea927
           <Route path="/signup">
             <SignUp />
           </Route>
