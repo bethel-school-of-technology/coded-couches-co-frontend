@@ -5,6 +5,8 @@ import AboutMe from './Components/AboutMe';
 import SignUp from './Components/SignUp';
 import Home from './Components/Home';
 import Shop from './Components/Shop';
+import Login from './Components/Login';
+import Admin from './Components/Admin';
 import {
   BrowserRouter as Router,
   Switch,
@@ -40,6 +42,9 @@ function App() {
             <li>
               <Link to="/cart">Cart</Link>
             </li>
+            <li>
+              <Link to="/admin">Admin</Link>
+            </li>
           </ul>
         </nav>
 
@@ -56,6 +61,12 @@ function App() {
           </Route>
           <Route path="/cart">
             <Cart />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/admin">
+            <Admin />
           </Route>
           <Route path="/signup">
             <SignUp />

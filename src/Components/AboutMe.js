@@ -1,60 +1,19 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react"; 
+import React from 'react';
 
-const AboutMe = () => {
-    const [inventories, setInv] = useState([]);
-
-    useEffect(() => {
-                
-        axios.get("http://localhost:3000/inventories").then(result => {
-        setInv(result.data);
-        
-        })
-    }, []);
-
-function test() {
-    console.log(inventories);
-}
-
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
-    
-    const signIn = () => {
-
-        
-        if (name !== "" && description !== "") {
-            const req = {
-                name: name,
-                description: description
-            };
-            axios.post("http://localhost:3000/inventories", req).then(result => {
-                console.log(result.data);
-            })
-        }
-    };
-
+const AboutME = () => {
     return (
-    <div>
-        <form onSubmit={ signIn }>
-            <h1>Add Inventory</h1>
-            <label>Item Name</label>
-            <input type="text" name="name" onChange={ e => setName(e.target.value)}></input> <br></br>
-            <label>Description</label> 
-            <input type="text" name="description" onChange={ e => setDescription(e.target.value)}></input> <br></br>
-            <button>Add Item</button>
-        </form>
-    <h1>All the Inventory</h1>
-    <ul>
-    { inventories.map(inventories => 
-            <li key={inventories.id}>
-                Inventory ID:{inventories.id} <br /> NAME: {inventories.name} <br /> DESCRIPTION: {inventories.description}
-            </li>
-            ) }
-    </ul> 
-    <button onClick={test}>this is a test</button>
-    </div>
-);
-
+        <div>
+            <h1>
+            Welcome to Coded Couches Company!
+        </h1>
+        <h3>Nichole O'Neill</h3>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        <h3>Zach Brinsley</h3>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        <h3>Steven Galland</h3>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        </div>
+    )
 }
 
-export default AboutMe;
+export default AboutME; 
