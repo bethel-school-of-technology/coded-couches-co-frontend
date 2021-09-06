@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import logo from './Images/logo.jpg';
 import AboutMe from './Components/AboutMe';
 import SignUp from './Components/SignUp';
 import Home from './Components/Home';
@@ -11,16 +10,12 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Cart from './Components/Cart';
-
-
 
 function App() {
   return (
     <Router>
-      <div>
+    <div>
         <nav>
-        <img className="logo" src={logo} alt="logo" />
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -32,13 +27,10 @@ function App() {
               <Link to="/shop">Shop</Link>
             </li>
             <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
               <Link to="/signup">Signup</Link>
             </li>
             <li>
-              <Link to="/cart">Cart</Link>
+              <Link to="/login">Login</Link>
             </li>
           </ul>
         </nav>
@@ -51,20 +43,15 @@ function App() {
           <Route path="/about">
             <AboutMe />
           </Route>
-          <Route path="/shop">
-            <Shop />
-          </Route>
-          <Route path="/cart">
-            <Cart />
-          </Route>
           <Route path="/signup">
             <SignUp />
           </Route>
-          
+          <Route path="/shop">
+            <Shop />
+          </Route>
         </Switch>
       </div>
     </Router>
   );
 }
-
 export default App;
