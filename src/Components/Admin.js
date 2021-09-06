@@ -26,8 +26,8 @@ const Admin = ({history}) => {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
-    
-    const signIn = () => {
+
+    const create = () => {
 
         
         if (name !== "" && description !== "") {
@@ -35,28 +35,37 @@ const Admin = ({history}) => {
                 name: name,
                 description: description
             };
+            // const token = localStorage.getItem("myJWT");
+            // if(!token) {
+            //     history.push("/login")
+            // }
+            // const options = {
+            //     headers: {
+            //         "Authorization": `Bearer ${token}`
+            //     }
+            // }
 
-            const token = localStorage.getItem("myJWT");
-
-            if(!token) {
-                history.push("/login")
-            }
-
-            const options = {
-                headers: {
-                    "Authorization": `Bearer ${token}`
-                }
-            }
-
-            axios.post("http://localhost:3000/inventories", req, options).then(result => {
+// add ",options" after req when ready for jwt
+            axios.post("http://localhost:3000/inventories", req).then(result => {
                 console.log(result.data);
             });
         }
     };
 
+
+    // can manually delete with this function, but cant automate it.
+    const Delete = (e) => {
+        e.preventDefault();
+        axios
+    .delete(`http://localhost:3000/inventories/inv/${inventories.id}`)
+    .then(res => res.data)
+    }
+
+
+
     return (
     <div>
-        <form onSubmit={ signIn }>
+        <form onSubmit={ create }>
             <h1>Add Inventory</h1>
             <label>Item Name</label>
             <input type="text" name="name" onChange={ e => setName(e.target.value)}></input> <br></br>
@@ -66,11 +75,15 @@ const Admin = ({history}) => {
         </form>
     <h1>All the Inventory</h1>
     <ul>
+    <form>
     { inventories.map(inventories => 
             <li key={inventories.id}>
-                IINVENTORY ID:{inventories.id} <br /> NAME: {inventories.name} <br /> DESCRIPTION: {inventories.description}
+                INVENTORY ID:{inventories.id} <br /> NAME: {inventories.name} <br /> DESCRIPTION: {inventories.description}
+                <button onClick={ Delete }>REMOVE</button>
             </li>
+            
             ) }
+    </form>
     </ul> 
     {/* <button onClick={test}>this is a test</button> */}
 
