@@ -26,6 +26,7 @@ const Admin = ({history}) => {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    // const [id, setId] = useState("");
 
     const create = () => {
 
@@ -55,9 +56,10 @@ const Admin = ({history}) => {
 
     // can manually delete with this function, but cant automate it.
     const Delete = (e) => {
+        const url = `http://localhost:3000/inventories/inv/${inventories.id}`;
         e.preventDefault();
-        axios
-    .delete(`http://localhost:3000/inventories/inv/${inventories.id}`)
+        //update url to match zachs coding, this is a temporary url.
+        axios.delete(url)
     .then(res => res.data)
     }
 
@@ -78,7 +80,7 @@ const Admin = ({history}) => {
     <form>
     { inventories.map(inventories => 
             <li key={inventories.id}>
-                INVENTORY ID:{inventories.id} <br /> NAME: {inventories.name} <br /> DESCRIPTION: {inventories.description}
+                INVENTORY ID:{inventories.id} <br /> NAME: {inventories.name} <br /> DESCRIPTION: {inventories.description} <br />
                 <button onClick={ Delete }>REMOVE</button>
             </li>
             
