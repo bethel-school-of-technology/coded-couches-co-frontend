@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from './Images/logo.jpg';
 import './App.css';
 import AboutMe from './Components/AboutMe';
 import SignUp from './Components/SignUp';
@@ -16,6 +17,7 @@ function App() {
     <Router>
     <div>
         <nav>
+        <img className="logo" src={logo} alt="logo" />
           <ul>
             <li>
               <Link to="/">Home</Link>
