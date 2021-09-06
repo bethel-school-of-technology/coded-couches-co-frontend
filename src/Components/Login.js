@@ -4,7 +4,7 @@ import React, { useState } from "react";
 ///////Is not functional right now, needs to be connected to backend and db see axios post url
 
 
-const SignUp = () => {
+const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     
@@ -24,15 +24,15 @@ const SignUp = () => {
     };
     return (<div>
         <form onSubmit={ signIn }>
-            <h1>Sign Up!</h1>
+            <h1>Login!</h1>
             <label>Username</label>
             <input type="text" name="username" onChange={ e => setUsername(e.target.value)}></input> <br></br>
             <label>Password</label> 
             <input type="text" name="password" onChange={ e => setPassword(e.target.value)}></input> <br></br>
-            <button>Sign Up</button>
+            <button>Login</button>
         </form>
     </div>);
 
 }
 
-export default SignUp;
+export default Login;
