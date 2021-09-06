@@ -2,18 +2,25 @@ import axios from "axios";
 import React, { useEffect, useState } from "react"; 
 
 const Admin = () => {
+    //get inventory 
     const [inventories, setInv] = useState([]);
-
-    useEffect(() => {
-                
+    useEffect(() => {   
         axios.get("http://localhost:3000/inventories").then(result => {
         setInv(result.data);
-        
         })
     }, []);
 
+        //get users
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+        axios.get("http://localhost:3000/users").then(result => {
+            setUsers(result.data);
+        })
+    }, []);
+
+    // test button for users
 function test() {
-    console.log(inventories);
+    console.log(users);
 }
 
     const [name, setName] = useState("");
@@ -47,7 +54,18 @@ function test() {
     <ul>
     { inventories.map(inventories => 
             <li key={inventories.id}>
-                Inventory ID:{inventories.id} <br /> NAME: {inventories.name} <br /> DESCRIPTION: {inventories.description}
+                IINVENTORY ID:{inventories.id} <br /> NAME: {inventories.name} <br /> DESCRIPTION: {inventories.description}
+            </li>
+            ) }
+    </ul> 
+    {/* <button onClick={test}>this is a test</button> */}
+
+
+    <h1>All the Users</h1>
+    <ul>
+    { users.map(users => 
+            <li key={users.id}>
+                USER ID:{users.id} <br /> NAME: {users.username} <br /> PASSWORD: {users.password}
             </li>
             ) }
     </ul> 
