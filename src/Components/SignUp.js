@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react"; 
+import { withRouter } from "react-router-dom";
 
 ///////Is not functional right now, needs to be connected to backend and db see axios post url
 
@@ -35,4 +36,4 @@ const SignUp = () => {
 
 }
 
-export default SignUp;
+export default withRouter(SignUp);

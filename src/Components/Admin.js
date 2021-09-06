@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react"; 
+import { withRouter } from "react-router-dom";
 
-const Admin = () => {
+const Admin = ({history}) => {
     //get inventory 
     const [inventories, setInv] = useState([]);
     useEffect(() => {   
@@ -19,9 +20,9 @@ const Admin = () => {
     }, []);
 
     // test button for users
-function test() {
-    console.log(users);
-}
+// function test() {
+//     console.log(users);
+// }
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
@@ -34,9 +35,22 @@ function test() {
                 name: name,
                 description: description
             };
-            axios.post("http://localhost:3000/inventories", req).then(result => {
+
+            const token = localStorage.getItem("myJWT");
+
+            if(!token) {
+                history.push("/login")
+            }
+
+            const options = {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            }
+
+            axios.post("http://localhost:3000/inventories", req, options).then(result => {
                 console.log(result.data);
-            })
+            });
         }
     };
 
@@ -69,10 +83,10 @@ function test() {
             </li>
             ) }
     </ul> 
-    <button onClick={test}>this is a test</button>
+    {/* <button onClick={test}>this is a test</button> */}
     </div>
 );
 
 }
 
-export default Admin;
+export default withRouter(Admin);
