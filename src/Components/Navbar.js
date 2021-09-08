@@ -7,6 +7,7 @@ import Shop from '../Components/Shop';
 import Login from '../Components/Login';
 import Cart from '../Components/Cart';
 import Admin from '../Components/Admin';
+
 import {
   BrowserRouter as Router,
   Switch,

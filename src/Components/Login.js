@@ -1,10 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react"; 
 import { withRouter } from "react-router";
-///////Is not functional right now, needs to be connected to backend and db see axios post url
 
 
-const Login = (history) => {
+const Login = (props) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     
@@ -21,7 +20,9 @@ const Login = (history) => {
                 //when jwt is working and ready uncomment below code min 52 video
                 const token = result.data.jwt;
                 localStorage.setItem("myJWT", token);
-                // history.push("/home");
+                if (token) {
+                    props.history.push("/admin");
+                };
                 console.log(result.data);
             })
         }
