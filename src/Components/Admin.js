@@ -29,7 +29,8 @@ const Admin = ({history}) => {
 
     
     // create inventory
-    const create = () => {
+    const create = (e) => {
+        e.preventDefault();
         if (name !== "" && description !== "") {
             const req = {
                 name: name,
@@ -46,7 +47,7 @@ const Admin = ({history}) => {
             // }
 
 // add ",options" after req when ready for jwt
-            axios.post("http://localhost:3000/inventories", req).then(result => {
+            axios.post("http://localhost:3000/inventories/create", req).then(result => {
                 console.log(result.data);
             });
         }
@@ -55,11 +56,18 @@ const Admin = ({history}) => {
     
     // delete inventory :from axios website axios.delete(url[, config])
     // can manually delete with this function, but cant automate it. update url to match zachs coding, this is a temporary url.
-    const Delete = (id) => {
-        const url = ("http://localhost:3000/inventories/inv/" + id);
+    const DeleteInv = (id) => {
+        const url = ("http://localhost:3000/inventories/" + id);
         axios.delete(url)
     .then(res => res.data)
-    }
+    };
+
+    // delete user, need to change url route
+    // const DeleteUser = (id) => {
+    //     const url = ("http://localhost:3000/inventories/inv/" + id);
+    //     axios.delete(url)
+    // .then(res => res.data)
+    // }
 
 
 
@@ -83,7 +91,7 @@ const Admin = ({history}) => {
     { inventories.map(inventories => 
             <li key={inventories.id}>
                 INVENTORY ID:{inventories.id} <br /> NAME: {inventories.name} <br /> DESCRIPTION: {inventories.description} <br />
-                <button onClick={() => Delete(inventories.id) }>REMOVE</button>
+                <button onClick={() => DeleteInv(inventories.id) }>REMOVE</button>
             </li>
             
             ) }
@@ -95,7 +103,8 @@ const Admin = ({history}) => {
     <ul>
     { users.map(users => 
             <li key={users.id}>
-                USER ID:{users.id} <br /> NAME: {users.username} <br /> PASSWORD: {users.password}
+                USER ID:{users.id} <br /> NAME: {users.username} <br /> PASSWORD: {users.password} <br />
+                {/* <button onClick={() => DeleteUser(users.id) }>REMOVE</button> */}
             </li>
             ) }
     </ul> 

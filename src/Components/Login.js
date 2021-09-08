@@ -17,11 +17,11 @@ const Login = (history) => {
                 password: password
             };
                 //add "post user url" in place or url
-            axios.post("http://localhost:3000/users", req).then(result => {
+            axios.post("http://localhost:3000/users/login", req).then(result => {
                 //when jwt is working and ready uncomment below code min 52 video
                 const token = result.data.jwt;
                 localStorage.setItem("myJWT", token);
-                history.push("/shop");
+                // history.push("/home");
                 console.log(result.data);
             })
         }
@@ -33,7 +33,7 @@ const Login = (history) => {
             <input type="text" name="username" onChange={ e => setUsername(e.target.value)}></input> <br></br>
             <label>Password</label> 
             <input type="text" name="password" onChange={ e => setPassword(e.target.value)}></input> <br></br>
-            <button>Login</button>
+            <button >Login</button>
         </form>
     </div>);
 
