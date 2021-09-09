@@ -1,35 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Cart = (props) => {
-    const { product } = props;
-    const [ cartItems, setCartItems ] = useState([]);
-    const exist = cartItems.find((x) => x.id === product.id);
-
-    const onAdd = (product) => {
-        if (exist) {
-            setCartItems(
-                cartItems.map((x) =>
-                x.id === product.id ? {...exist, qty: exist.qty + 1}: x
-                )
-            );
-        } else {
-            setCartItems([...cartItems, {...product, qty: 1}]);
-        }
-    };
-    const onRemove = (product) => {
-        if (exist.qty === 1) {
-            setCartItems(
-                cartItems.filter((x) =>
-                x.id !== product.id));
-        } else {
-            setCartItems(
-                cartItems.map((x) =>
-                x.id === product.id ? {...exist, qty: exist.qty - 1}: x
-                )
-            );
-        }
-    };
-
+    const {cartItems, onAdd, onRemove } = props;
     return (
         <div>
             <h2>Cart Items</h2>
@@ -38,6 +10,7 @@ const Cart = (props) => {
                 {cartItems.map((item) => (
                     <div key={item.id}>
                         <div>{item.name}</div>
+                        <img className="small" src={item.image} alt={item.name}></img>
                         <div className="button">
                             <button onClick={() => onRemove(item)} className="remove"> - </button>
                         </div>

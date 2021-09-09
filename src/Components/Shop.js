@@ -1,10 +1,8 @@
 import React from "react";
-import data from '../data';
 import Product from "./Product";
 
 const Shop = (props) => {
-    const { products } = data;
-    const { onAdd } = props;
+    const { products, onAdd } = props;
     return(
         <div className="shop">
             <h2>Products</h2>

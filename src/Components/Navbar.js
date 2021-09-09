@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import logo from '../Images/logo.jpg';
 
-const Navbar = () => {
+const Navbar = (props) => {
+    const {countCartItems} = props;
     return(
         <div className="navbar">
             <nav>
@@ -26,7 +27,13 @@ const Navbar = () => {
                     <Link to="/signup">SignUp</Link>
                     </li>
                     <li>
-                    <Link to="/cart">Cart</Link>
+                    <Link to="/cart">
+                        Cart{' '}
+                        {countCartItems ? (
+                            <button className="badge">{countCartItems}</button>
+                            ) : (' ')}
+                    
+                    </Link>
                     </li>
                 </ul>
             </nav>
