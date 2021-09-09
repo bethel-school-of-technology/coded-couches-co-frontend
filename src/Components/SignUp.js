@@ -18,7 +18,7 @@ const SignUp = () => {
                 password: password
             };
                 //add "post user url" in place or url
-            axios.post("url", req).then(result => {
+            axios.post("http://localhost:3000/users/", req).then(result => {
                 console.log(result.data);
             })
         }
