@@ -101,12 +101,14 @@ const Admin = ({history}) => {
 
     <h1>All the Users</h1>
     <ul>
+        <form>
     { users.map(users => 
             <li key={users.id}>
                 USER ID:{users.id} <br /> NAME: {users.username} <br /> PASSWORD: {users.password} <br />
                 {/* <button onClick={() => DeleteUser(users.id) }>REMOVE</button> */}
             </li>
             ) }
+            </form>
     </ul> 
     </div>
 );
