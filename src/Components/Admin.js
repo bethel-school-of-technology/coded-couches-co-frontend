@@ -29,8 +29,7 @@ const Admin = ({history}) => {
 
     
     // create inventory
-    const create = (e) => {
-        e.preventDefault();
+    const create = () => {
         if (name !== "" && description !== "") {
             const req = {
                 name: name,
@@ -47,7 +46,7 @@ const Admin = ({history}) => {
             // }
 
 // add ",options" after req when ready for jwt
-            axios.post("http://localhost:3000/inventories/create", req).then(result => {
+            axios.post("http://localhost:3000/inventories", req).then(result => {
                 console.log(result.data);
             });
         }
@@ -68,6 +67,11 @@ const Admin = ({history}) => {
     //     axios.delete(url)
     // .then(res => res.data)
     // }
+
+    const EditInv = (id) => {
+        const url = ("http://localhost:3000/inventories/" + id);
+        
+    }
 
 
 
@@ -91,7 +95,7 @@ const Admin = ({history}) => {
     { inventories.map(inventories => 
             <li key={inventories.id}>
                 INVENTORY ID:{inventories.id} <br /> NAME: {inventories.name} <br /> DESCRIPTION: {inventories.description} <br />
-                <button onClick={() => DeleteInv(inventories.id) }>REMOVE</button>
+                <button onClick={() => DeleteInv(inventories.id) }>REMOVE</button><button onClick={() => EditInv(inventories.id)}>Edit</button>
             </li>
             
             ) }
