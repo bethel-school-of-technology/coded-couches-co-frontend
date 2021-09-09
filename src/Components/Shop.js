@@ -2,14 +2,15 @@ import React from "react";
 import data from '../data';
 import Product from "./Product";
 
-const Shop = () => {
-    const {products} = data;
+const Shop = (props) => {
+    const { products } = data;
+    const { onAdd } = props;
     return(
         <div className="shop">
             <h2>Products</h2>
             <div className="block">
                 {products.map((product) => (
-                    <Product key={product.id} product={product}></Product>
+                    <Product key={product.id} product={product} onAdd={onAdd}></Product>
                 ))}
             </div>
         </div>
