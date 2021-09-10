@@ -2,20 +2,25 @@ import axios from "axios";
 import React, { useEffect, useState } from "react"; 
 import { withRouter } from "react-router-dom";
 
-const Admin = ({history}) => {
-    
+const Admin = () => {
+    const [name, setName] = useState("");
+    const [description, setDescription] = useState("");
+    const [inventories, setInv] = useState([]);
+    const [users, setUsers] = useState([]);
+        // const [id, setId] = useState("");
+
     
     //get inventory 
-    const [inventories, setInv] = useState([]);
     useEffect(() => {   
         axios.get("http://localhost:3000/inventories").then(result => {
         setInv(result.data);
+        console.log(name)
         })
-    }, []);
+    }, [name]);
 
         
+
     //get users
-    const [users, setUsers] = useState([]);
     useEffect(() => {
         axios.get("http://localhost:3000/users").then(result => {
             setUsers(result.data);
@@ -23,13 +28,10 @@ const Admin = ({history}) => {
     }, []);
 
 
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
-    // const [id, setId] = useState("");
-
     
     // create inventory
-    const create = () => {
+    const create = (e) => {
+        e.preventDefault()
         if (name !== "" && description !== "") {
             const req = {
                 name: name,
@@ -47,10 +49,14 @@ const Admin = ({history}) => {
 
 // add ",options" after req when ready for jwt
             axios.post("http://localhost:3000/inventories", req).then(result => {
+                // this.setName({
+                //     name: "",
+                // })
                 console.log(result.data);
             });
         }
     };
+
 
     
     // delete inventory :from axios website axios.delete(url[, config])
@@ -108,7 +114,7 @@ const Admin = ({history}) => {
         <form>
     { users.map(users => 
             <li key={users.id}>
-                USER ID:{users.id} <br /> NAME: {users.username} <br /> PASSWORD: {users.password} <br />
+                USER ID:{users.id} <br /> NAME: {users.username} <br /> CREATED: {users.createdAt} <br />
                 {/* <button onClick={() => DeleteUser(users.id) }>REMOVE</button> */}
             </li>
             ) }

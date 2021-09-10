@@ -7,10 +7,12 @@ const Login = (props) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     
+
+    //user id 16 = admins admins has admin true
     const signIn = (e) => {
         e.preventDefault();
         
-        if (username !== "" && password !== "") {
+        if (username.length >= 3 && password.length >= 6) {
             const req = {
                 username: username,
                 password: password
@@ -20,9 +22,14 @@ const Login = (props) => {
                 //when jwt is working and ready uncomment below code min 52 video
                 const token = result.data.jwt;
                 localStorage.setItem("myJWT", token);
+                let admin = false
                 if (token) {
-                    props.history.push("/admin");
-                };
+                    if (admin = true) {
+                        props.history.push("/admin");
+                    } else {
+                        props.history.push("/shop");
+                    };
+                }
                 console.log(result.data);
             })
         }
@@ -31,9 +38,9 @@ const Login = (props) => {
         <form onSubmit={ signIn }>
             <h1>Login!</h1>
             <label>Username</label>
-            <input type="text" name="username" onChange={ e => setUsername(e.target.value)}></input> <br></br>
+            <input type="text" name="username" minlength="3" onChange={ e => setUsername(e.target.value)}></input> <br></br>
             <label>Password</label> 
-            <input type="text" name="password" onChange={ e => setPassword(e.target.value)}></input> <br></br>
+            <input type="text" name="password" minlength="6" onChange={ e => setPassword(e.target.value)}></input> <br></br>
             <button >Login</button>
         </form>
     </div>);
