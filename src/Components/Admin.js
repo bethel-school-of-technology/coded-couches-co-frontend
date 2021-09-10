@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 
 const Admin = ({history}) => {
+    
+    
     //get inventory 
     const [inventories, setInv] = useState([]);
     useEffect(() => {   
@@ -11,7 +13,8 @@ const Admin = ({history}) => {
         })
     }, []);
 
-        //get users
+        
+    //get users
     const [users, setUsers] = useState([]);
     useEffect(() => {
         axios.get("http://localhost:3000/users").then(result => {
@@ -19,18 +22,14 @@ const Admin = ({history}) => {
         })
     }, []);
 
-    // test button for users
-// function test() {
-//     console.log(users);
-// }
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     // const [id, setId] = useState("");
 
+    
+    // create inventory
     const create = () => {
-
-        
         if (name !== "" && description !== "") {
             const req = {
                 name: name,
@@ -53,15 +52,27 @@ const Admin = ({history}) => {
         }
     };
 
-
-    // can manually delete with this function, but cant automate it.
-    const Delete = (e) => {
-        const url = `http://localhost:3000/inventories/inv/${inventories.id}`;
-        e.preventDefault();
-        //update url to match zachs coding, this is a temporary url.
+    
+    // delete inventory :from axios website axios.delete(url[, config])
+    // can manually delete with this function, but cant automate it. update url to match zachs coding, this is a temporary url.
+    const DeleteInv = (id) => {
+        const url = ("http://localhost:3000/inventories/" + id);
         axios.delete(url)
     .then(res => res.data)
+    };
+
+    // delete user, need to change url route
+    // const DeleteUser = (id) => {
+    //     const url = ("http://localhost:3000/inventories/inv/" + id);
+    //     axios.delete(url)
+    // .then(res => res.data)
+    // }
+
+    const EditInv = (id) => {
+        const url = ("http://localhost:3000/inventories/" + id);
+        
     }
+
 
 
 
@@ -75,30 +86,34 @@ const Admin = ({history}) => {
             <input type="text" name="description" onChange={ e => setDescription(e.target.value)}></input> <br></br>
             <button>Add Item</button>
         </form>
+
+
+        
     <h1>All the Inventory</h1>
     <ul>
     <form>
     { inventories.map(inventories => 
             <li key={inventories.id}>
                 INVENTORY ID:{inventories.id} <br /> NAME: {inventories.name} <br /> DESCRIPTION: {inventories.description} <br />
-                <button onClick={ Delete }>REMOVE</button>
+                <button onClick={() => DeleteInv(inventories.id) }>REMOVE</button><button onClick={() => EditInv(inventories.id)}>Edit</button>
             </li>
             
             ) }
     </form>
     </ul> 
-    {/* <button onClick={test}>this is a test</button> */}
 
 
     <h1>All the Users</h1>
     <ul>
+        <form>
     { users.map(users => 
             <li key={users.id}>
-                USER ID:{users.id} <br /> NAME: {users.username} <br /> PASSWORD: {users.password}
+                USER ID:{users.id} <br /> NAME: {users.username} <br /> PASSWORD: {users.password} <br />
+                {/* <button onClick={() => DeleteUser(users.id) }>REMOVE</button> */}
             </li>
             ) }
+            </form>
     </ul> 
-    {/* <button onClick={test}>this is a test</button> */}
     </div>
 );
 

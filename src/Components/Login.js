@@ -1,10 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react"; 
 import { withRouter } from "react-router";
-///////Is not functional right now, needs to be connected to backend and db see axios post url
 
 
-const Login = (history) => {
+const Login = (props) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     
@@ -17,11 +16,13 @@ const Login = (history) => {
                 password: password
             };
                 //add "post user url" in place or url
-            axios.post("http://localhost:3000/users", req).then(result => {
+            axios.post("http://localhost:3000/users/login", req).then(result => {
                 //when jwt is working and ready uncomment below code min 52 video
                 const token = result.data.jwt;
                 localStorage.setItem("myJWT", token);
-                history.push("/shop");
+                if (token) {
+                    props.history.push("/admin");
+                };
                 console.log(result.data);
             })
         }
@@ -33,7 +34,7 @@ const Login = (history) => {
             <input type="text" name="username" onChange={ e => setUsername(e.target.value)}></input> <br></br>
             <label>Password</label> 
             <input type="text" name="password" onChange={ e => setPassword(e.target.value)}></input> <br></br>
-            <button>Login</button>
+            <button >Login</button>
         </form>
     </div>);
 
