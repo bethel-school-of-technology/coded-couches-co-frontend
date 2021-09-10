@@ -18,7 +18,6 @@ const Admin = () => {
         })
     }, [name]);
 
-        
 
     //get users
     useEffect(() => {
@@ -60,7 +59,6 @@ const Admin = () => {
 
     
     // delete inventory :from axios website axios.delete(url[, config])
-    // can manually delete with this function, but cant automate it. update url to match zachs coding, this is a temporary url.
     const DeleteInv = (id) => {
         const url = ("http://localhost:3000/inventories/" + id);
         axios.delete(url)
@@ -69,13 +67,22 @@ const Admin = () => {
 
     // delete user, need to change url route
     // const DeleteUser = (id) => {
-    //     const url = ("http://localhost:3000/inventories/inv/" + id);
+    //     const url = ("http://localhost:3000/users/" + id);
     //     axios.delete(url)
     // .then(res => res.data)
     // }
 
     const EditInv = (id) => {
         const url = ("http://localhost:3000/inventories/" + id);
+        if (name !== "" && description !== "") {
+            const req = {
+                name: name,
+                description: description
+            };
+            axios.put(url, req).then(result => {
+                console.log(result.data);
+            });
+        }
         
     }
 
@@ -101,7 +108,13 @@ const Admin = () => {
     { inventories.map(inventories => 
             <li key={inventories.id}>
                 INVENTORY ID:{inventories.id} <br /> NAME: {inventories.name} <br /> DESCRIPTION: {inventories.description} <br />
-                <button onClick={() => DeleteInv(inventories.id) }>REMOVE</button><button onClick={() => EditInv(inventories.id)}>Edit</button>
+                <button onClick={() => DeleteInv(inventories.id) }>REMOVE</button> <br/>
+
+                <label>Item Name</label>
+                <input type="text" name="changeName" onChange={ e => setName(e.target.value)}></input> <br></br>
+                <label>Description</label> 
+                <input type="text" name="changeDescription" onChange={ e => setDescription(e.target.value)}></input> <br></br>
+                <button onClick={() => EditInv(inventories.id)}>Edit</button>
             </li>
             
             ) }

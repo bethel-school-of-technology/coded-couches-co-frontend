@@ -24,6 +24,7 @@ const Login = (props) => {
                 localStorage.setItem("myJWT", token);
                 let admin = false
                 if (token) {
+                    //this isnt working correctly yet
                     if (admin = true) {
                         props.history.push("/admin");
                     } else {
