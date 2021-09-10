@@ -5,9 +5,11 @@ import { withRouter } from "react-router-dom";
 const Admin = () => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    // const [username, setUserame] = useState("");
+    // const [password, setPassword] = useState("");
     const [inventories, setInv] = useState([]);
     const [users, setUsers] = useState([]);
-        // const [id, setId] = useState("");
+    // const [id, setId] = useState("");
 
     
     //get inventory 
@@ -16,8 +18,7 @@ const Admin = () => {
         setInv(result.data);
         console.log(name)
         })
-    }, [name]);
-
+    }, []);
 
     //get users
     useEffect(() => {
@@ -27,8 +28,13 @@ const Admin = () => {
     }, []);
 
 
-    
-    // create inventory
+    const getAll = () => {
+        axios.get("http://localhost:3000/inventories").then(result => {
+                    setInv(result.data);
+                    console.log(name)
+                    })
+    }
+    // create inventor
     const create = (e) => {
         e.preventDefault()
         if (name !== "" && description !== "") {
@@ -45,32 +51,57 @@ const Admin = () => {
             //         "Authorization": `Bearer ${token}`
             //     }
             // }
-
-// add ",options" after req when ready for jwt
+            // add ",options" after req when ready for jwt
             axios.post("http://localhost:3000/inventories", req).then(result => {
-                // this.setName({
-                //     name: "",
-                // })
                 console.log(result.data);
+                getAll();
             });
         }
     };
 
 
-    
+
+
+    // create USER
+    // const createUser = (e) => {
+    //     e.preventDefault()
+    //     if (username !== "" && password !== "") {
+    //         const req = {
+    //             username: username,
+    //             password: password
+    //         };
+            // const token = localStorage.getItem("myJWT");
+            // if(!token) {
+            //     history.push("/login")
+            // }
+            // const options = {
+            //     headers: {
+            //         "Authorization": `Bearer ${token}`
+            //     }
+            // }
+            // add ",options" after req when ready for jwt
+    //         axios.post("http://localhost:3000/users", req).then(result => {
+    //             console.log(result.data);
+    //         });
+    //     }
+    // };
+
+
+
     // delete inventory :from axios website axios.delete(url[, config])
     const DeleteInv = (id) => {
         const url = ("http://localhost:3000/inventories/" + id);
         axios.delete(url)
     .then(res => res.data)
     };
-
-    // delete user, need to change url route
+    // delete USER
     // const DeleteUser = (id) => {
     //     const url = ("http://localhost:3000/users/" + id);
     //     axios.delete(url)
     // .then(res => res.data)
     // }
+
+
 
     const EditInv = (id) => {
         const url = ("http://localhost:3000/inventories/" + id);
@@ -85,6 +116,19 @@ const Admin = () => {
         }
         
     }
+    // const EditUser = (id) => {
+    //     const url = ("http://localhost:3000/users/" + id);
+    //     if (username !== "" && password !== "") {
+    //         const req = {
+    //             username: username,
+    //             password: password
+    //         };
+    //         axios.put(url, req).then(result => {
+    //             console.log(result.data);
+    //         });
+    //     }
+        
+    // }
 
 
 
@@ -110,11 +154,11 @@ const Admin = () => {
                 INVENTORY ID:{inventories.id} <br /> NAME: {inventories.name} <br /> DESCRIPTION: {inventories.description} <br />
                 <button onClick={() => DeleteInv(inventories.id) }>REMOVE</button> <br/>
 
-                <label>Item Name</label>
+                <label>INVENTORY NAME</label>
                 <input type="text" name="changeName" onChange={ e => setName(e.target.value)}></input> <br></br>
-                <label>Description</label> 
+                <label>DESCRIPTION</label> 
                 <input type="text" name="changeDescription" onChange={ e => setDescription(e.target.value)}></input> <br></br>
-                <button onClick={() => EditInv(inventories.id)}>Edit</button>
+                <button onClick={() => EditInv(inventories.id)}>Edit Inv</button>
             </li>
             
             ) }
@@ -129,6 +173,12 @@ const Admin = () => {
             <li key={users.id}>
                 USER ID:{users.id} <br /> NAME: {users.username} <br /> CREATED: {users.createdAt} <br />
                 {/* <button onClick={() => DeleteUser(users.id) }>REMOVE</button> */}
+
+                {/* <label>User Name</label>
+                <input type="text" name="changeUser" onChange={ e => setUser(e.target.value)}></input> <br></br>
+                <label>Description</label> 
+                <input type="text" name="changePassword" onChange={ e => setPassword(e.target.value)}></input> <br></br>
+                <button onClick={() => EditUser(users.id)}>Edit User</button> */}
             </li>
             ) }
             </form>

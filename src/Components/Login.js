@@ -22,9 +22,10 @@ const Login = (props) => {
                 //when jwt is working and ready uncomment below code min 52 video
                 const token = result.data.jwt;
                 localStorage.setItem("myJWT", token);
-                let admin = false
+                //need to find where admin in teh json will be stored to verify if true or not...
+                let admin = false;
                 if (token) {
-                    //this isnt working correctly yet
+                    //this isnt working correctly yet need to set it too if(admin), when there is an admin table created
                     if (admin = true) {
                         props.history.push("/admin");
                     } else {
