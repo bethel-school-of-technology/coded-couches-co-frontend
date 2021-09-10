@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../Images/logo.jpg';
 
 const Navbar = (props) => {
-    const {countCartItems} = props;
+    const {countCartItems} =props
     return(
         <div className="navbar">
             <nav>
@@ -30,8 +30,8 @@ const Navbar = (props) => {
                     <Link to="/cart">
                         Cart{' '}
                         {countCartItems ? (
-                            <button className="badge">{countCartItems}</button>
-                            ) : (' ')}                    
+                        <button className="badge">{countCartItems}</button>
+                        ) : (' ')}
                     </Link>
                     </li>
                 </ul>

@@ -7,7 +7,8 @@ import Shop from './Components/Shop';
 import Login from './Components/Login';
 import Cart from './Components/Cart';
 import Admin from './Components/Admin';
-import data from "./data";
+//import Profile from "./Components/Profile";
+import data from './data';
 import { useState } from 'react';
 
 function App() {
@@ -43,9 +44,7 @@ function App() {
       <Router>
         <Navbar countCartItems={cartItems.length}></Navbar>
         <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
+          <Route exact path="/" component={Home} />
           <Route path="/about" component={AboutMe} />
           <Route path="/shop">
             <Shop 
@@ -63,15 +62,17 @@ function App() {
             <SignUp />
           </Route>
           <Route path="/cart">
-            <Cart 
+            <Cart
               cartItems={cartItems}
               onAdd={onAdd}
               onRemove={onRemove}>
             </Cart>
           </Route>
+          
         </Switch>
       </Router>
     </div>
   );
 }
 export default App;
+// <Route path="/profile" component={Profile} />
