@@ -7,7 +7,7 @@ import Shop from './Components/Shop';
 import Login from './Components/Login';
 import Cart from './Components/Cart';
 import Admin from './Components/Admin';
-//import Profile from "./Components/Profile";
+import Profile from "./Components/Profile";
 import data from './data';
 import { useState } from 'react';
 
@@ -68,11 +68,10 @@ function App() {
               onRemove={onRemove}>
             </Cart>
           </Route>
-          
+          <Route path="/profile" component={Profile} />
         </Switch>
       </Router>
     </div>
   );
 }
 export default App;
-// <Route path="/profile" component={Profile} />
