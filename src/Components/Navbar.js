@@ -31,8 +31,7 @@ const Navbar = (props) => {
                         Cart{' '}
                         {countCartItems ? (
                             <button className="badge">{countCartItems}</button>
-                            ) : (' ')}
-                    
+                            ) : (' ')}                    
                     </Link>
                     </li>
                 </ul>
