@@ -3,10 +3,6 @@ import users from '../users';
 
 const Profile = () => {
     const { user } = users;
-
-    // const logginUser = () => {
-
-    // }
     
     return(
         <div>

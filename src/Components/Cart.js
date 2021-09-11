@@ -1,25 +1,8 @@
 import React from 'react';
 
-
 const Cart = (props) => {
-  const {cartItems, onAdd, onRemove } = props;
+  const { cartItems, onAdd, onRemove, onCheckout } = props;
     
-//   const [ checkout, setCheckout ] = useState();
-//   const itemsInCart = cartItems.find((x) => x.qty > 0);
-    
-//   const onCheckout = (product) => {
-//     if (itemsInCart) {
-//         setCheckout (
-//             checkout.map((x) =>
-//             x.qty > 0 ? {...itemsInCart, qty: itemsInCart.qty } : x
-//             )
-//         );
-//     } else {
-//         setCheckout([...cartItems, {...product, qty: 1}]);
-//     }
-//     console.log("Checked Out!");
-// };
-
     return (
         <div>
             <h2>Cart Items</h2>
@@ -37,11 +20,19 @@ const Cart = (props) => {
                         </div>
                         <div>
                             {item.qty} x ${item.price.toFixed(2)}
-                        </div>                    
+                        </div> 
+                         
+                        <div>
+                            <div>
+                                <button onClick={() => onCheckout(item)}>Checkout</button>
+                            </div>    
+                        </div>                 
                     </div>
+                    
                 ))}
                 
             </div>
+            
         </div>
 
     );
@@ -49,6 +40,3 @@ const Cart = (props) => {
 
 export default Cart;
 
-// <div>
-//                   <button onClick={() => onCheckout(product)}>Checkout</button>
-//                 </div>    
