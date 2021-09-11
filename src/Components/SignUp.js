@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 
 
-//user id 16 = admins admins has admin true
+
 const SignUp = (props) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
