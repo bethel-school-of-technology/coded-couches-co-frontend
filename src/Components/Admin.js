@@ -131,8 +131,8 @@ const Admin = () => {
                 getInv();
             });
         }
-        
-    }
+    };
+
     const EditUser = (id) => {
         const url = ("http://localhost:3000/users/" + id);
         if (username !== "" && password !== "") {
@@ -145,7 +145,6 @@ const Admin = () => {
                 getUser();
             });
         }
-        
     };
 
 
