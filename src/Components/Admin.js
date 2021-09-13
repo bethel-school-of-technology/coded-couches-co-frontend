@@ -5,6 +5,8 @@ import { withRouter } from "react-router-dom";
 const Admin = () => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    const [price, setPrice] = useState("");
+    const [quantity, setQuantity] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [inventories, setInv] = useState([]);
@@ -48,7 +50,9 @@ const Admin = () => {
         if (name !== "" && description !== "") {
             const req = {
                 name: name,
-                description: description
+                description: description,
+                price: price,
+                quantity: quantity
             };
             // const token = localStorage.getItem("myJWT");
             // if(!token) {
@@ -124,7 +128,9 @@ const Admin = () => {
         if (name !== "" && description !== "") {
             const req = {
                 name: name,
-                description: description
+                description: description,
+                price: price,
+                quantity: quantity
             };
             axios.put(url, req).then(result => {
                 console.log(result.data);
@@ -158,6 +164,10 @@ const Admin = () => {
             <input type="text" name="name" onChange={ e => setName(e.target.value)}></input> <br></br>
             <label>Description</label> 
             <input type="text" name="description" onChange={ e => setDescription(e.target.value)}></input> <br></br>
+            <label>Price</label> 
+            <input type="text" name="price" onChange={ e => setPrice(e.target.value)}></input> <br></br>
+            <label>Quantity</label> 
+            <input type="text" name="quantity" onChange={ e => setQuantity(e.target.value)}></input> <br></br>
             <button>Add Item</button>
         </form>
 
@@ -169,6 +179,7 @@ const Admin = () => {
     { inventories.map(inventories => 
             <li key={inventories.id}>
                 INVENTORY ID:{inventories.id} <br /> NAME: {inventories.name} <br /> DESCRIPTION: {inventories.description} <br />
+                PRICE: {inventories.price} <br /> QUANTITY: {inventories.quantity} <br />
                 <button onClick={() => DeleteInv(inventories.id) }>REMOVE</button> <br/>
 
 
@@ -177,6 +188,10 @@ const Admin = () => {
                 <input type="text" name="changeName" onChange={ e => setName(e.target.value)}></input> <br></br>
                 <label>DESCRIPTION</label> 
                 <input type="text" name="changeDescription" onChange={ e => setDescription(e.target.value)}></input> <br></br>
+                <label>PRICE</label> 
+                <input type="text" name="price" onChange={ e => setPrice(e.target.value)}></input> <br></br>
+                <label>QUANTITY</label> 
+                <input type="text" name="quantity" onChange={ e => setQuantity(e.target.value)}></input> <br></br>
                 <button onClick={() => EditInv(inventories.id)}>Edit Inv</button>
             </li>
             
