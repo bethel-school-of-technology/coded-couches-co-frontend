@@ -1,11 +1,13 @@
 .navbar{
   display: flex;
   justify-content: flex-end;
-  flex-direction: row;
   background-color: #e0e0e0;
   padding: 1rem;
   margin: 0.5rem;
   border-radius: 0.5rem;
+}
+button.badge{
+  max-width: 1.5rem;
 }
 .logo{
   max-height: 15rem;

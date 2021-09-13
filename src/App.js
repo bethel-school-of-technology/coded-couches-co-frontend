@@ -7,16 +7,52 @@ import Shop from './Components/Shop';
 import Login from './Components/Login';
 import Cart from './Components/Cart';
 import Admin from './Components/Admin';
+import Profile from "./Components/Profile";
+import data from './data';
+import { useState } from 'react';
 
 function App() {
+  const { products } = data;
+  const [cartItems, setCartItems] = useState([]);
+  
+  const onAdd = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id);
+    if (exist) {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, qty: 1 }]);
+    }
+  };
+  const onRemove = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id);
+    if (exist.qty === 1) {
+      setCartItems(cartItems.filter((x) => x.id !== product.id));
+    } else {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+        )
+      );
+    }
+  };
+
   return (
     <div>
       <Router>
-        <Navbar />
+        <Navbar countCartItems={cartItems.length}></Navbar>
         <Switch>
-          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/" component={Home} />
           <Route path="/about" component={AboutMe} />
-          <Route path="/shop" component={Shop}></Route>
+          <Route path="/shop">
+            <Shop 
+              products={products} 
+              onAdd={onAdd}>
+            </Shop>
+          </Route>
           <Route path="/login">
             <Login />
           </Route>
@@ -26,7 +62,14 @@ function App() {
           <Route path="/signup">
             <SignUp />
           </Route>
-          <Route path="/cart" component={Cart}></Route>
+          <Route path="/cart">
+            <Cart
+              cartItems={cartItems}
+              onAdd={onAdd}
+              onRemove={onRemove}>
+            </Cart>
+          </Route>
+          <Route path="/profile" component={Profile} />
         </Switch>
       </Router>
     </div>
