@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react"; 
 import { withRouter } from "react-router-dom";
 
+//User id 33 ADMINS, ADMINS, has admin property true
+
 const Admin = () => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
@@ -9,6 +11,7 @@ const Admin = () => {
     const [quantity, setQuantity] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    // const [admin, setAdmin] = useState("")
     const [inventories, setInv] = useState([]);
     const [users, setUsers] = useState([]);
     // const [id, setId] = useState("");
@@ -23,6 +26,9 @@ const Admin = () => {
     const getUser = () => {
         axios.get("http://localhost:3000/users").then(result => {
                     setUsers(result.data);
+                    console.log(result.data);
+                    console.log(users.data);
+                    console.log(result.data.admin);
                     })
     };
 
@@ -83,7 +89,8 @@ const Admin = () => {
         if (username !== "" && password !== "") {
             const req = {
                 username: username,
-                password: password
+                password: password,
+                // admin: admin
             };
             // const token = localStorage.getItem("myJWT");
             // if(!token) {
@@ -144,7 +151,8 @@ const Admin = () => {
         if (username !== "" && password !== "") {
             const req = {
                 username: username,
-                password: password
+                password: password,
+                // admin: admin
             };
             axios.put(url, req).then(result => {
                 console.log(result.data);
@@ -203,9 +211,12 @@ const Admin = () => {
 <h1>Create a User</h1>
         <form onSubmit={ createUser }>
             <label>Username</label>
-            <input type="text" name="username" minlength="3" onChange={ e => setUsername(e.target.value)} ></input> <br></br>
+            <input type="text" name="username" minLength="3" onChange={ e => setUsername(e.target.value)} ></input> <br></br>
             <label>Password</label> 
-            <input type="text" name="password" minlength="6" onChange={ e => setPassword(e.target.value)} ></input> <br></br>
+            <input type="text" name="password" minLength="6" onChange={ e => setPassword(e.target.value)} ></input> <br></br>
+            {/* <label>If Admin Check</label> 
+            <input type="checkbox" name="admin" onChange={ e => setAdmin(e.target.type === "checkbox" ? e.target.checked : e.target.value)} >
+                </input> <br></br> */}
             <button>Create</button>
         </form>
 
@@ -214,12 +225,12 @@ const Admin = () => {
         <form>
     { users.map(users => 
             <li key={users.id}>
-                USER ID:{users.id} <br /> NAME: {users.username} <br /> CREATED: {users.createdAt} <br />
+                USER ID:{users.id} <br /> NAME: {users.username} <br /> Admin: {users.admin} <br /> CREATED: {users.createdAt} <br />
                 <button onClick={() => DeleteUser(users.id) }>REMOVE</button> <br />
 
                 <label>User Name</label>
                 <input type="text" name="changeUser" onChange={ e => setUsername(e.target.value)}></input> <br></br>
-                <label>Description</label> 
+                <label>Change Password</label> 
                 <input type="text" name="changePassword" onChange={ e => setPassword(e.target.value)}></input> <br></br>
                 <button onClick={() => EditUser(users.id)}>Edit User</button>
             </li>

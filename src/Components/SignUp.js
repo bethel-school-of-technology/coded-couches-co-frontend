@@ -29,9 +29,9 @@ const SignUp = (props) => {
         <form onSubmit={ signIn }>
             <h1>Sign Up!</h1>
             <label>Username</label>
-            <input type="text" name="username" minlength="3" onChange={ e => setUsername(e.target.value)} ></input> <br></br>
+            <input type="text" name="username" minLength="3" onChange={ e => setUsername(e.target.value)} ></input> <br></br>
             <label>Password</label> 
-            <input type="text" name="password" minlength="6" onChange={ e => setPassword(e.target.value)} ></input> <br></br>
+            <input type="text" name="password" minLength="6" onChange={ e => setPassword(e.target.value)} ></input> <br></br>
             <button>Sign Up</button>
         </form>
     </div>);
