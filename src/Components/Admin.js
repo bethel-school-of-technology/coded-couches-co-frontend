@@ -16,6 +16,12 @@ const Admin = () => {
     const [users, setUsers] = useState([]);
     // const [id, setId] = useState("");
 
+
+const resetFieldUser = () => {
+    setUsername("");
+    setPassword("");
+}
+
     //function for updating state of inventories
     const getInv = () => {
         axios.get("http://localhost:3000/inventories").then(result => {
@@ -109,23 +115,33 @@ const Admin = () => {
         }
     };
 
-    
+    // const handleInputChange = (e) => {
+    //     e.preventDefault();
+
+    //   const { value } = e.target;
+    //     setPassword(value);
+
+
+    // }
 
         // NEED TO ADD PREVENT DEFAULT TO THESE ROUTES WITHOUT AFFECTING PARAMETERS
     // delete inventory :from axios website axios.delete(url[, config])
     const DeleteInv = (id) => {
-        // e.preventDefault();
         const url = ("http://localhost:3000/inventories/" + id);
         axios.delete(url)
-    .then(res => res.data)
-    getInv();
+    .then(res => {
+        // res.data;
+        getInv();
+    })
+    
     };
+
     // delete USER
     const DeleteUser = (id) => {
         const url = ("http://localhost:3000/users/" + id);
         axios.delete(url)
-    .then(res => res.data);
-        getUser();
+    .then(res => {
+        getUser();});
     }
 
 
@@ -140,7 +156,6 @@ const Admin = () => {
                 quantity: quantity
             };
             axios.put(url, req).then(result => {
-                console.log(result.data);
                 getInv();
             });
         }
@@ -155,7 +170,6 @@ const Admin = () => {
                 // admin: admin
             };
             axios.put(url, req).then(result => {
-                console.log(result.data);
                 getUser();
             });
         }
@@ -183,7 +197,7 @@ const Admin = () => {
         
     <h1>All the Inventory</h1>
     <ul>
-    <form>
+    <div>
     { inventories.map(inventories => 
             <li key={inventories.id}>
                 INVENTORY ID:{inventories.id} <br /> NAME: {inventories.name} <br /> DESCRIPTION: {inventories.description} <br />
@@ -204,12 +218,13 @@ const Admin = () => {
             </li>
             
             ) }
-    </form>
+    </div>
     </ul> 
 
 
+
 <h1>Create a User</h1>
-        <form onSubmit={ createUser }>
+        <form onSubmit={ createUser } id="myform">
             <label>Username</label>
             <input type="text" name="username" minLength="3" onChange={ e => setUsername(e.target.value)} ></input> <br></br>
             <label>Password</label> 
@@ -222,7 +237,7 @@ const Admin = () => {
 
     <h1>All the Users</h1>
     <ul>
-        <form>
+        <div>
     { users.map(users => 
             <li key={users.id}>
                 USER ID:{users.id} <br /> NAME: {users.username} <br /> Admin: {users.admin} <br /> CREATED: {users.createdAt} <br />
@@ -235,7 +250,7 @@ const Admin = () => {
                 <button onClick={() => EditUser(users.id)}>Edit User</button>
             </li>
             ) }
-            </form>
+            </div>
     </ul> 
     </div>
 );

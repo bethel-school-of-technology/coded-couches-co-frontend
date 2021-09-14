@@ -37,20 +37,19 @@ const Login = (props) => {
             axios.post("http://localhost:3000/users/login", req).then(result => {
                 getUser();
                 //when jwt is working and ready uncomment below code min 52 video
-                console.log(users.data)
+                console.log(result.data)
                 const token = result.data.jwt;
                 localStorage.setItem("myJWT", token);
                 //need to find where admin in teh json will be stored to verify if true or not...
                 const admin = result.data;
                 if (token) {
                     //this isnt working correctly yet need to set it too if(admin), when there is an admin table created
-                    if (admin) {
-                        props.history.push("/admin");
-                    } else {
-                        props.history.push("/shop");
-                    };
+                    // if (admin) {
+                    //     props.history.push("/admin");
+                    // } else {
+                    //     props.history.push("/shop");
+                    // };
                 }
-                console.log(result.data);
             })
         }
     };
@@ -58,9 +57,9 @@ const Login = (props) => {
         <form onSubmit={ signIn }>
             <h1>Login!</h1>
             <label>Username</label>
-            <input type="text" name="username" minlength="3" onChange={ e => setUsername(e.target.value)}></input> <br></br>
+            <input type="text" name="username" minLength="3" onChange={ e => setUsername(e.target.value)}></input> <br></br>
             <label>Password</label> 
-            <input type="text" name="password" minlength="6" onChange={ e => setPassword(e.target.value)}></input> <br></br>
+            <input type="text" name="password" minLength="6" onChange={ e => setPassword(e.target.value)}></input> <br></br>
             <button >Login</button>
         </form>
     </div>);
