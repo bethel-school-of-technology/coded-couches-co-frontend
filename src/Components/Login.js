@@ -1,16 +1,32 @@
 import axios from "axios";
-import React, { useState } from "react"; 
+import React, { useState, useEffect } from "react"; 
 import { withRouter } from "react-router";
 
 
 const Login = (props) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:3000/users").then(result => {
+            setUsers(result.data);
+        })
+    }, []);
+
+    //function for updating state of users
+    const getUser = () => {
+        axios.get("http://localhost:3000/users").then(result => {
+                    setUsers(result.data);
+                    console.log(result.data);
+                    })
+    };
     
 
     //user id 16 = admins admins has admin true
     const signIn = (e) => {
         e.preventDefault();
+        
         
         if (username.length >= 3 && password.length >= 6) {
             const req = {
@@ -19,20 +35,21 @@ const Login = (props) => {
             };
                 //add "post user url" in place or url
             axios.post("http://localhost:3000/users/login", req).then(result => {
+                getUser();
                 //when jwt is working and ready uncomment below code min 52 video
+                console.log(result.data)
                 const token = result.data.jwt;
                 localStorage.setItem("myJWT", token);
                 //need to find where admin in teh json will be stored to verify if true or not...
-                let admin = false;
+                const admin = result.data;
                 if (token) {
                     //this isnt working correctly yet need to set it too if(admin), when there is an admin table created
-                    if (admin = true) {
-                        props.history.push("/admin");
-                    } else {
-                        props.history.push("/shop");
-                    };
+                    // if (admin) {
+                    //     props.history.push("/admin");
+                    // } else {
+                    //     props.history.push("/shop");
+                    // };
                 }
-                console.log(result.data);
             })
         }
     };
@@ -40,9 +57,9 @@ const Login = (props) => {
         <form onSubmit={ signIn }>
             <h1>Login!</h1>
             <label>Username</label>
-            <input type="text" name="username" minlength="3" onChange={ e => setUsername(e.target.value)}></input> <br></br>
+            <input type="text" name="username" minLength="3" onChange={ e => setUsername(e.target.value)}></input> <br></br>
             <label>Password</label> 
-            <input type="text" name="password" minlength="6" onChange={ e => setPassword(e.target.value)}></input> <br></br>
+            <input type="text" name="password" minLength="6" onChange={ e => setPassword(e.target.value)}></input> <br></br>
             <button >Login</button>
         </form>
     </div>);
