@@ -57,7 +57,7 @@ const resetFieldUser = () => {
 
 
     // create inventory
-    const create = (e) => {
+    const createInv = (e) => {
         e.preventDefault()
         if (name !== "" && description !== "") {
             const req = {
@@ -79,6 +79,7 @@ const resetFieldUser = () => {
             axios.post("http://localhost:3000/inventories", req).then(result => {
                 console.log(result.data);
                 getInv();
+                document.getElementById("createInv").reset();
                 //need to set state of input values to empty
                 // setName("");
                 // setDescription("");
@@ -111,6 +112,7 @@ const resetFieldUser = () => {
             axios.post("http://localhost:3000/users", req).then(result => {
                 console.log(result.data);
                     getUser();
+                    document.getElementById("createUser").reset();
             });
         }
     };
@@ -157,9 +159,15 @@ const resetFieldUser = () => {
             };
             axios.put(url, req).then(result => {
                 getInv();
+                setName("");
+                setDescription("");
+                setPrice("");
+                setQuantity("");
             });
         }
     };
+
+    // const a = document.getElementById("allUsers");
 
     const EditUser = (id) => {
         const url = ("http://localhost:3000/users/" + id);
@@ -171,16 +179,21 @@ const resetFieldUser = () => {
             };
             axios.put(url, req).then(result => {
                 getUser();
+                // document.getElementById("allUsers").reset();
+                // originalState ();
+                // a.value = a.defaultValue;
+                setUsername("");
+                setPassword("");
             });
         }
     };
 
-
+    // const originalState = ("allUsers").html("");
 
 
     return (
     <div> 
-        <form onSubmit={ create }>
+        <form onSubmit={ createInv } id="createInv">
             <h1>Add Inventory</h1>
             <label>Item Name</label>
             <input type="text" name="name" onChange={ e => setName(e.target.value)}></input> <br></br>
@@ -197,7 +210,7 @@ const resetFieldUser = () => {
         
     <h1>All the Inventory</h1>
     <ul>
-    <div>
+    <div id="allInv">
     { inventories.map(inventories => 
             <li key={inventories.id}>
                 INVENTORY ID:{inventories.id} <br /> NAME: {inventories.name} <br /> DESCRIPTION: {inventories.description} <br />
@@ -207,13 +220,13 @@ const resetFieldUser = () => {
 
 
                 <label>INVENTORY</label>
-                <input type="text" name="changeName" onChange={ e => setName(e.target.value)}></input> <br></br>
+                <input type="text" name="changeName" value={name} onChange={ e => setName(e.target.value)}></input> <br></br>
                 <label>DESCRIPTION</label> 
-                <input type="text" name="changeDescription" onChange={ e => setDescription(e.target.value)}></input> <br></br>
+                <input type="text" name="changeDescription" value={description} onChange={ e => setDescription(e.target.value)}></input> <br></br>
                 <label>PRICE</label> 
-                <input type="text" name="price" onChange={ e => setPrice(e.target.value)}></input> <br></br>
+                <input type="text" name="price" value={price} onChange={ e => setPrice(e.target.value)}></input> <br></br>
                 <label>QUANTITY</label> 
-                <input type="text" name="quantity" onChange={ e => setQuantity(e.target.value)}></input> <br></br>
+                <input type="text" name="quantity" value={quantity} onChange={ e => setQuantity(e.target.value)}></input> <br></br>
                 <button onClick={() => EditInv(inventories.id)}>Edit Inv</button>
             </li>
             
@@ -224,7 +237,7 @@ const resetFieldUser = () => {
 
 
 <h1>Create a User</h1>
-        <form onSubmit={ createUser } id="myform">
+        <form onSubmit={ createUser } id="createUser">
             <label>Username</label>
             <input type="text" name="username" minLength="3" onChange={ e => setUsername(e.target.value)} ></input> <br></br>
             <label>Password</label> 
@@ -237,16 +250,16 @@ const resetFieldUser = () => {
 
     <h1>All the Users</h1>
     <ul>
-        <div>
+        <div >
     { users.map(users => 
             <li key={users.id}>
                 USER ID:{users.id} <br /> NAME: {users.username} <br /> Admin: {users.admin} <br /> CREATED: {users.createdAt} <br />
                 <button onClick={() => DeleteUser(users.id) }>REMOVE</button> <br />
 
                 <label>User Name</label>
-                <input type="text" name="changeUser" onChange={ e => setUsername(e.target.value)}></input> <br></br>
+                <input type="text" name="changeUser" value={username} onChange={ e => setUsername(e.target.value)}></input> <br></br>
                 <label>Change Password</label> 
-                <input type="text" name="changePassword" onChange={ e => setPassword(e.target.value)}></input> <br></br>
+                <input type="text" name="changePassword" value={password} onChange={ e => setPassword(e.target.value)}></input> <br></br>
                 <button onClick={() => EditUser(users.id)}>Edit User</button>
             </li>
             ) }
