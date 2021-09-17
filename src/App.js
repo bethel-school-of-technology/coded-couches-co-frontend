@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from './Components/Navbar';
-import AboutMe from './Components/AboutMe';
-import SignUp from './Components/SignUp';
-import Home from './Components/Home';
-import Shop from './Components/Shop';
-import Login from './Components/Login';
-import Cart from './Components/Cart';
-import Admin from './Components/Admin';
-import Profile from "./Components/Profile";
+import Navbar from './components/Navbar';
+import AboutMe from './components/pages/AboutMe';
+import SignUp from './components/pages/user/SignUp';
+import Home from './components/pages/Home';
+import Shop from './components/pages/store/Shop';
+import Login from './components/pages/user/Login';
+import Cart from './components/pages/cart/Cart';
+import Admin from './components/pages/admin/Admin';
+import Profile from "./components/pages/user/Profile";
 import data from './data';
 import { useState } from 'react';
 
