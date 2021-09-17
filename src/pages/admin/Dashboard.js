@@ -11,10 +11,22 @@ return (
         <div id="adminNav">
             <ul>
                 <li>
-                <Link to="/inv">Invetory</Link>
+                <Link to="/inv">Inventory</Link>
+                </li>
+                <li>
+                <Link to="">Create Inventory</Link>
+                </li>
+                <li>
+                <Link to="">Edit Inventory</Link>
                 </li>
                 <li>
                 <Link to="/users">Users</Link>
+                </li>
+                <li>
+                <Link to="/createuser">Create User</Link>
+                </li>
+                <li>
+                <Link to="/edituser">Edit User</Link>
                 </li>
             </ul>
         </div>

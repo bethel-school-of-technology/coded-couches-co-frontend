@@ -12,6 +12,8 @@ import data from './data';
 import Dashboard from "./pages/admin/Dashboard";
 import Inventories from "./pages/admin/Inventories";
 import Users from "./pages/admin/Users";
+import CreateUser from "./pages/admin/CreateUser";
+import EditUser from "./pages/admin/EditUser";
 import { useState } from 'react';
 
 function App() {
@@ -71,6 +73,14 @@ function App() {
           <Route path="/inv">
             <Inventories />
           </Route>
+
+          <Route path="/createuser">
+            <CreateUser />
+          </Route>
+          <Route path="/edituser">
+            <EditUser />
+          </Route>
+
           <Route path="/users">
             <Users />
           </Route>
