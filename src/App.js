@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+<<<<<<< HEAD
 import Navbar from './components/Navbar';
 import AboutMe from './components/pages/AboutMe';
 import SignUp from './components/pages/user/SignUp';
@@ -18,6 +19,27 @@ import EditInventory from "./components/pages/admin/EditInventory";
 
 // import { useState } from 'react';
 // import data from './data';
+=======
+import Navbar from './Components/Navbar';
+import AboutMe from "./Components/pages/AboutMe";
+import SignUp from './Components/pages/user/SignUp';
+import Home from './Components/pages/Home';
+import Shop from './Components/pages/store/Shop';
+import Login from './Components/pages/user/Login';
+import Cart from './Components/pages/cart/Cart';
+import Admin from './Components/pages/admin/Admin';
+import Profile from "./Components/pages/user/Profile";
+import data from './data';
+import Dashboard from "./Components/pages/admin/Dashboard";
+import Inventories from "./Components/pages/admin/Inventories";
+import Users from "./Components/pages/admin/Users";
+import CreateUser from "./Components/pages/admin/CreateUser";
+import EditUser from "./Components/pages/admin/EditUser";
+import CreateInventory from "./Components/pages/admin/CreateInventory";
+import EditInventory from "./Components/pages/admin/EditInventory";
+import { useState } from 'react';
+>>>>>>> 455b742d1618fecc0a4b71c268f173250017f7db
+
 
 function App() {
   // const { products } = data;
