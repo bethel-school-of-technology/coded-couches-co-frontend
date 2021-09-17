@@ -8,58 +8,54 @@ import Login from './components/pages/user/Login';
 import Cart from './components/pages/cart/Cart';
 import Admin from './components/pages/admin/Admin';
 import Profile from "./components/pages/user/Profile";
-import data from './data';
-import Dashboard from "./pages/admin/Dashboard";
-import Inventories from "./pages/admin/Inventories";
-import Users from "./pages/admin/Users";
-import CreateUser from "./pages/admin/CreateUser";
-import EditUser from "./pages/admin/EditUser";
-import CreateInventory from "./pages/admin/CreateInventory";
-import EditInventory from "./pages/admin/EditInventory";
-import { useState } from 'react';
+import Dashboard from "./components/pages/admin/Dashboard";
+import Inventories from "./components/pages/admin/Inventories";
+import Users from "./components/pages/admin/Users";
+import CreateUser from "./components/pages/admin/CreateUser";
+import EditUser from "./components/pages/admin/EditUser";
+import CreateInventory from "./components/pages/admin/CreateInventory";
+import EditInventory from "./components/pages/admin/EditInventory";
+
+// import { useState } from 'react';
+// import data from './data';
 
 function App() {
-  const { products } = data;
-  const [cartItems, setCartItems] = useState([]);
+  // const { products } = data;
+  // const [cartItems, setCartItems] = useState([]);
   
-  const onAdd = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
-    if (exist) {
-      setCartItems(
-        cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
-        )
-      );
-    } else {
-      setCartItems([...cartItems, { ...product, qty: 1 }]);
-    }
-  };
-  const onRemove = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
-    if (exist.qty === 1) {
-      setCartItems(cartItems.filter((x) => x.id !== product.id));
-    } else {
-      setCartItems(
-        cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
-        )
-      );
-    }
-  };
+  // const onAdd = (product) => {
+  //   const exist = cartItems.find((x) => x.id === product.id);
+  //   if (exist) {
+  //     setCartItems(
+  //       cartItems.map((x) =>
+  //         x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+  //       )
+  //     );
+  //   } else {
+  //     setCartItems([...cartItems, { ...product, qty: 1 }]);
+  //   }
+  // };
+  // const onRemove = (product) => {
+  //   const exist = cartItems.find((x) => x.id === product.id);
+  //   if (exist.qty === 1) {
+  //     setCartItems(cartItems.filter((x) => x.id !== product.id));
+  //   } else {
+  //     setCartItems(
+  //       cartItems.map((x) =>
+  //         x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+  //       )
+  //     );
+  //   }
+  // };
 
   return (
     <div>
       <Router>
-        <Navbar countCartItems={cartItems.length}></Navbar>
+        <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/about" component={AboutMe} />
-          <Route path="/shop">
-            <Shop 
-              products={products} 
-              onAdd={onAdd}>
-            </Shop>
-          </Route>
+          <Route path="/shop" component={Shop}/>
           <Route path="/login">
             <Login />
           </Route>
@@ -92,13 +88,7 @@ function App() {
           <Route path="/users">
             <Users />
           </Route>
-          <Route path="/cart">
-            <Cart
-              cartItems={cartItems}
-              onAdd={onAdd}
-              onRemove={onRemove}>
-            </Cart>
-          </Route>
+          <Route path="/cart" component={Cart}/>
           <Route path="/profile" component={Profile} />
         </Switch>
       </Router>
