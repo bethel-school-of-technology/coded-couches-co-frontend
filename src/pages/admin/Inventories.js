@@ -18,7 +18,10 @@ const Inventories = () => {
                 <Link to="/dash">Dashboard</Link>
                 </li>
                 <li>
-                <Link to="/users">Users</Link>
+                <Link to="/createinv">Create Inventory</Link>
+                </li>
+                <li>
+                <Link to="/editinv">Edit Inventory</Link>
                 </li>
             </ul>
         </nav>

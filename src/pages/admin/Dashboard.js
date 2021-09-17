@@ -14,10 +14,10 @@ return (
                 <Link to="/inv">Inventory</Link>
                 </li>
                 <li>
-                <Link to="">Create Inventory</Link>
+                <Link to="/createinv">Create Inventory</Link>
                 </li>
                 <li>
-                <Link to="">Edit Inventory</Link>
+                <Link to="/editinv">Edit Inventory</Link>
                 </li>
                 <li>
                 <Link to="/users">Users</Link>

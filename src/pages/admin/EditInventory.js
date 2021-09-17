@@ -5,21 +5,21 @@ import { Link } from 'react-router-dom';
 // you have a table that lists all users 
 
 
-const Editusers = () => {
+const EditInventory = () => {
 
     
 
 
 
     return (
-        <div>Hello Edit Users
+        <div>Hello Edit Inventory
             <nav>
             <ul>
                 <li>
                 <Link to="/dash">Dashboard</Link>
                 </li>
                 <li>
-                <Link to="/createUser">Create User</Link>
+                <Link to="/createinv">Create Inventory</Link>
                 </li>
             </ul>
         </nav>
@@ -30,4 +30,4 @@ const Editusers = () => {
 
 
 
-export default withRouter(Editusers);
+export default withRouter(EditInventory);

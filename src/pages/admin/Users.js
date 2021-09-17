@@ -38,13 +38,10 @@ const Users = () => {
                 <Link to="/dash">Dashboard</Link>
                 </li>
                 <li>
-                <Link to="/inv">Inventory</Link>
+                <Link to="/createUser">Create User</Link>
                 </li>
                 <li>
-                <Link to="">Dashboard</Link>
-                </li>
-                <li>
-                <Link to="">Inventory</Link>
+                <Link to="/editUser">Edit User</Link>
                 </li>
             </ul>
         </nav>
