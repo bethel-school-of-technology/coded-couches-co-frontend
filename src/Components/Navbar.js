@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import logo from '../images/logo.jpg';
+import logo from '../Images/logo.jpg';
 
 const Navbar = (props) => {
     const {countCartItems} =props
     return(
         <div className="navbar">
             <nav>
-           
-              <img className="logo" src={logo} alt="logo" />
-          
+        
+            <img className="logo" src={logo} alt="logo" />
+        
                 <ul>
                     <li>
                     <Link to="/">Home</Link>
