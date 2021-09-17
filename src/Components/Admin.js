@@ -111,8 +111,10 @@ const resetFieldUser = () => {
             // add ",options" after req when ready for jwt
             axios.post("http://localhost:3000/users", req).then(result => {
                 console.log(result.data);
-                    getUser();
-                    document.getElementById("createUser").reset();
+                // setUsername("");
+                // setPassword("");
+                getUser();
+                document.getElementById("createUser").reset();
             });
         }
     };
@@ -251,16 +253,16 @@ const resetFieldUser = () => {
     <h1>All the Users</h1>
     <ul>
         <div >
-    { users.map(users => 
-            <li key={users.id}>
-                USER ID:{users.id} <br /> NAME: {users.username} <br /> Admin: {users.admin} <br /> CREATED: {users.createdAt} <br />
-                <button onClick={() => DeleteUser(users.id) }>REMOVE</button> <br />
+    { users.map(user => 
+            <li key={user.id}>
+                USER ID:{user.id} <br /> NAME: {user.username} <br /> Admin: {(user.admin === true)? 'is admin': 'is not admin'} <br /> CREATED: {user.createdAt} <br />
+                <button onClick={() => DeleteUser(user.id) }>REMOVE</button> <br />
 
                 <label>User Name</label>
-                <input type="text" name="changeUser" value={username} onChange={ e => setUsername(e.target.value)}></input> <br></br>
+                <input type="text" name="changeUser" value={user.username} onChange={ e => setUsername(e.target.value)}></input> <br></br>
                 <label>Change Password</label> 
-                <input type="text" name="changePassword" value={password} onChange={ e => setPassword(e.target.value)}></input> <br></br>
-                <button onClick={() => EditUser(users.id)}>Edit User</button>
+                <input type="text" name="changePassword" onChange={ e => setPassword(e.target.value)}></input> <br></br>
+                <button onClick={() => EditUser(user.id)}>Edit User</button>
             </li>
             ) }
             </div>

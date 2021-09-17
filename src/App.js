@@ -9,6 +9,9 @@ import Cart from './Components/Cart';
 import Admin from './Components/Admin';
 import Profile from "./Components/Profile";
 import data from './data';
+import Dashboard from "./pages/admin/Dashboard";
+import Inventories from "./pages/admin/Inventories";
+import Users from "./pages/admin/Users";
 import { useState } from 'react';
 
 function App() {
@@ -61,6 +64,15 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignUp />
+          </Route>
+          <Route path="/dash">
+            <Dashboard />
+          </Route>
+          <Route path="/inv">
+            <Inventories />
+          </Route>
+          <Route path="/users">
+            <Users />
           </Route>
           <Route path="/cart">
             <Cart
