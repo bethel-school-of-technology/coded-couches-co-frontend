@@ -1,3 +1,0 @@
-// Compoenents
-// Item
-    // Checkout comp.

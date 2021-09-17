@@ -1,22 +1,23 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from './components/Navbar';
-import AboutMe from './components/pages/AboutMe';
-import SignUp from './components/pages/user/SignUp';
-import Home from './components/pages/Home';
-import Shop from './components/pages/store/Shop';
-import Login from './components/pages/user/Login';
-import Cart from './components/pages/cart/Cart';
-import Admin from './components/pages/admin/Admin';
-import Profile from "./components/pages/user/Profile";
+import Navbar from './Components/Navbar';
+import AboutMe from "./Components/pages/AboutMe";
+import SignUp from './Components/pages/user/SignUp';
+import Home from './Components/pages/Home';
+import Shop from './Components/pages/store/Shop';
+import Login from './Components/pages/user/Login';
+import Cart from './Components/pages/cart/Cart';
+import Admin from './Components/pages/admin/Admin';
+import Profile from "./Components/pages/user/Profile";
 import data from './data';
-import Dashboard from "./pages/admin/Dashboard";
-import Inventories from "./pages/admin/Inventories";
-import Users from "./pages/admin/Users";
-import CreateUser from "./pages/admin/CreateUser";
-import EditUser from "./pages/admin/EditUser";
-import CreateInventory from "./pages/admin/CreateInventory";
-import EditInventory from "./pages/admin/EditInventory";
+import Dashboard from "./Components/pages/admin/Dashboard";
+import Inventories from "./Components/pages/admin/Inventories";
+import Users from "./Components/pages/admin/Users";
+import CreateUser from "./Components/pages/admin/CreateUser";
+import EditUser from "./Components/pages/admin/EditUser";
+import CreateInventory from "./Components/pages/admin/CreateInventory";
+import EditInventory from "./Components/pages/admin/EditInventory";
 import { useState } from 'react';
+
 
 function App() {
   const { products } = data;
