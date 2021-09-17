@@ -18,7 +18,7 @@ const Login = (props) => {
     const getUser = () => {
         axios.get("http://localhost:3000/users").then(result => {
                     setUsers(result.data);
-                    console.log(result.data);
+                    // console.log(result.data);
                     })
     };
     
@@ -43,12 +43,12 @@ const Login = (props) => {
                 //need to find where admin in teh json will be stored to verify if true or not...
                 const admin = result.data;
                 if (token) {
-                    //this isnt working correctly yet need to set it too if(admin), when there is an admin table created
-                    // if (admin) {
-                    //     props.history.push("/admin");
-                    // } else {
-                    //     props.history.push("/shop");
-                    // };
+                    // this isnt working correctly yet need to set it too if(admin), when there is an admin table created
+                    if (admin) {
+                        props.history.push("/admin");
+                    } else {
+                        props.history.push("/shop");
+                    };
                 }
             })
         }

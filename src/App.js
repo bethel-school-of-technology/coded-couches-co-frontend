@@ -9,6 +9,13 @@ import Cart from './components/pages/cart/Cart';
 import Admin from './components/pages/admin/Admin';
 import Profile from "./components/pages/user/Profile";
 import data from './data';
+import Dashboard from "./pages/admin/Dashboard";
+import Inventories from "./pages/admin/Inventories";
+import Users from "./pages/admin/Users";
+import CreateUser from "./pages/admin/CreateUser";
+import EditUser from "./pages/admin/EditUser";
+import CreateInventory from "./pages/admin/CreateInventory";
+import EditInventory from "./pages/admin/EditInventory";
 import { useState } from 'react';
 
 function App() {
@@ -61,6 +68,29 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignUp />
+          </Route>
+          <Route path="/dash">
+            <Dashboard />
+          </Route>
+          <Route path="/inv">
+            <Inventories />
+          </Route>
+
+          <Route path="/createuser">
+            <CreateUser />
+          </Route>
+          <Route path="/edituser">
+            <EditUser />
+          </Route>
+          <Route path="/createinv">
+            <CreateInventory />
+          </Route>
+          <Route path="/editinv">
+            <EditInventory />
+          </Route>
+
+          <Route path="/users">
+            <Users />
           </Route>
           <Route path="/cart">
             <Cart
