@@ -1,6 +1,40 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React from 'react';
+import { useState } from 'react';
 
-const Checkout = () => {
+const URL = process.env.API_URL
+
+const Checkout = (props) => {
+    const { cartItems } = props;
+    const [order, setOrder] = useState([]);
+
+    const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+    const orderTotal = itemPrice;
+
+    const getOrder = async () => {
+        await axios.get(`${URL}/cart/checkout`)
+            .then(result => {
+                setOrder(result.data);
+            }).catch(e => console.error(e))
+    }
+
+    const createOrder = async () => {
+        if (cartItems > 0) {
+            const req = {
+                // userId: userId,
+                // order: order,
+                // orderTotal: orderTotal
+            };
+
+            await axios.post(`${URL}/cart/checkout`, req).then(result => {
+                console.log(result.data);
+                getOrder();
+            })
+        }
+    }
+
+
+
     return(
         <div>
         </div>
@@ -8,22 +42,3 @@ const Checkout = () => {
 }
 
 export default Checkout;
-
-// import Cart from './Cart';
-
-
-    // const [ checkout, setCheckout ] = useState([]);
-    // const itemsInCart = checkout.find((x) => x.qty > 0);
-    
-    // const onCheckout = (item) => {
-    //     if (itemsInCart) {
-    //         setCheckout (
-    //             checkout.map((x) =>
-    //             x.qty > 0 ? {...itemsInCart, qty: itemsInCart.qty } : x
-    //             )
-    //         );
-    //     } else {
-    //         setCheckout([...itemsInCart, {...item, qty: 1}]);
-    //     }
-    //     console.log("Checked Out!");
-    // };
