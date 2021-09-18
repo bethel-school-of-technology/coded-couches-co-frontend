@@ -19,6 +19,9 @@ const Editusers = () => {
                 <Link to="/dash">Dashboard</Link>
                 </li>
                 <li>
+                <Link to="/users">Users</Link>
+                </li>
+                <li>
                 <Link to="/createUser">Create User</Link>
                 </li>
             </ul>
