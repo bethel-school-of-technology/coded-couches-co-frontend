@@ -2,23 +2,16 @@ import axios from "axios";
 import React, { useEffect, useState } from "react"; 
 import { withRouter } from "react-router-dom";
 import { Link } from 'react-router-dom';
-// you have a table that lists all users 
 
 
-const Createusers = () => {
+const Createusers = (props) => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [users, setUsers] = useState([]);
 
-    const getUser = () => {
-        axios.get("http://localhost:3000/users").then(result => {
-                    setUsers(result.data);
-                    })
-    };
 
-     // create USER
-     const createUser = (e) => {
+     // create a user
+    const createUser = (e) => {
         e.preventDefault()
         if (username !== "" && password !== "") {
             const req = {
@@ -40,8 +33,8 @@ const Createusers = () => {
                 console.log(result.data);
                 // setUsername("");
                 // setPassword("");
-                getUser();
                 document.getElementById("createUser").reset();
+                props.history.push("/users");
             });
         }
     };
@@ -49,7 +42,7 @@ const Createusers = () => {
 
 
     return (
-        <div>Hello Create Users
+        <div>
         <nav>
             <ul>
                 <li>
@@ -57,9 +50,6 @@ const Createusers = () => {
                 </li>
                 <li>
                 <Link to="/users">Users</Link>
-                </li>
-                <li>
-                <Link to="/editUser">Edit User</Link>
                 </li>
             </ul>
         </nav>
