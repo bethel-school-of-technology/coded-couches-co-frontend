@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import Shop from './Components/pages/store/Shop';
 import Cart from './Components/pages/cart/Cart';
-import data from './data';
+//import data from './data';
 
-function Store () {
+function Store (props) {
 
-    const { products } = data;
+    const { products } = props;
+    console.log(products);
     const [cartItems, setCartItems] = useState([]);
   
     const onAdd = (product) => {

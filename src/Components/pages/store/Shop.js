@@ -1,16 +1,30 @@
+import axios from "axios";
 import React from "react";
-import data from "../../../data";
+import { useState } from "react";
+import { useEffect } from "react";
+//import data from "../../../data";
 import Product from "./Product";
 
 const Shop = (props) => {
-    const {products} = data;
+
+    const [inventory, setInventory] = useState([]);
+    //console.log(inventory);
+    useEffect (() => {   
+        axios.get("http://localhost:3000/inventories").then(result => {
+            //console.log(result);
+        setInventory(result.data);
+        })
+    }, []);
+
+    //const {products} = data;
     const { onAdd } = props;
     return(
         <div className="shop">
             <h2>Products</h2>
             <div className="block">
-                {products.map((product) => (
-                    <Product key={product.id} product={product} onAdd={onAdd}></Product>
+                {inventory.map((inventory) => (
+                    
+                    <Product key={inventory.id} product={inventory} onAdd={onAdd}></Product>
                 ))}
             </div>
         </div>

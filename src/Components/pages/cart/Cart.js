@@ -2,11 +2,12 @@ import React from 'react';
 import { useHistory } from 'react-router';
 
 const Cart = (props) => {
+    console.log(props);
   let history = useHistory();
   const { cartItems, onAdd, onRemove } = props;
-
-  const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
-  const orderTotal = itemPrice;
+console.log(cartItems);
+//   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+//   const orderTotal = itemPrice;
 
   const onCheckout = () => {
         
@@ -37,18 +38,6 @@ const Cart = (props) => {
                     <div>
                         <hr></hr>
                         <div>
-                            <div>Item Price</div>
-                            <div>${itemPrice.toFixed(2)}</div>
-                        </div>
-                        <div>
-                            <div>
-                                <strong>Order Total</strong>
-                            </div>
-                            <div>
-                                <strong>${orderTotal.toFixed(2)}</strong>
-                            </div>
-                        </div>
-                        <div>
                             <div>
                                 <button onClick={onCheckout}>Checkout</button>
                             </div>    
@@ -61,3 +50,17 @@ const Cart = (props) => {
 };
 
 export default Cart;
+
+// <div>
+//                             <div>Item Price</div>
+//                             <div>${itemPrice.toFixed(2)}</div>
+//                         </div>
+//                         <div>
+//                             <div>
+//                                 <strong>Order Total</strong>
+//                             </div>
+//                             <div>
+//                                 <strong>${orderTotal.toFixed(2)}</strong>
+//                             </div>
+//                         </div>
+                        
