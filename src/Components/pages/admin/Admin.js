@@ -146,7 +146,7 @@ const resetFieldUser = () => {
         axios.delete(url)
     .then(res => {
         getUser();});
-    }
+    };
 
 
             // NEED TO ADD PREVENT DEFAULT TO THESE ROUTES WITHOUT AFFECTING PARAMETERS
@@ -259,7 +259,7 @@ const resetFieldUser = () => {
                 <button onClick={() => DeleteUser(user.id) }>REMOVE</button> <br />
 
                 <label>User Name</label>
-                <input type="text" name="changeUser" value={user.username} onChange={ e => setUsername(e.target.value)}></input> <br></br>
+                <input type="text" name="changeUser"  onChange={ e => setUsername(e.target.value)}></input> <br></br>
                 <label>Change Password</label> 
                 <input type="text" name="changePassword" onChange={ e => setPassword(e.target.value)}></input> <br></br>
                 <button onClick={() => EditUser(user.id)}>Edit User</button>
