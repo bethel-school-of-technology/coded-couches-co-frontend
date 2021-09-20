@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-import Store from '../../../Store';
 const Product = (props) => {
     const { product } = props;
 
