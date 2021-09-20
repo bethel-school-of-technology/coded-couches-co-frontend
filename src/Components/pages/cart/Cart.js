@@ -1,11 +1,18 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 
 const Cart = (props) => {
+    console.log(props);
+  let history = useHistory();
   const { cartItems, onAdd, onRemove } = props;
-  const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
-  const taxPrice = itemPrice * 0.056;
-  const shippingPrice = itemPrice > 2000 ? 0 : 50;
-  const orderTotal = itemPrice + taxPrice + shippingPrice;
+console.log(cartItems);
+//   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+//   const orderTotal = itemPrice;
+
+  const onCheckout = () => {
+        
+    history.push("/profile");
+  }
     
     return (
         <div>
@@ -31,28 +38,8 @@ const Cart = (props) => {
                     <div>
                         <hr></hr>
                         <div>
-                            <div>Item Price</div>
-                            <div>${itemPrice.toFixed(2)}</div>
-                        </div>
-                        <div>
-                            <div>Tax Price</div>
-                            <div>${taxPrice.toFixed(2)}</div>
-                        </div>
-                        <div>
-                            <div>Shipping</div>
-                            <div>${shippingPrice.toFixed(2)}</div>
-                        </div>
-                        <div>
                             <div>
-                                <strong>Order Total</strong>
-                            </div>
-                            <div>
-                                <strong>${orderTotal.toFixed(2)}</strong>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <button>Checkout</button>
+                                <button onClick={onCheckout}>Checkout</button>
                             </div>    
                         </div>     
                     </div>
@@ -64,3 +51,16 @@ const Cart = (props) => {
 
 export default Cart;
 
+// <div>
+//                             <div>Item Price</div>
+//                             <div>${itemPrice.toFixed(2)}</div>
+//                         </div>
+//                         <div>
+//                             <div>
+//                                 <strong>Order Total</strong>
+//                             </div>
+//                             <div>
+//                                 <strong>${orderTotal.toFixed(2)}</strong>
+//                             </div>
+//                         </div>
+                        

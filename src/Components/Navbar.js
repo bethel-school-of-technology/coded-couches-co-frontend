@@ -41,3 +41,4 @@ const Navbar = (props) => {
 };
 export default Navbar;
 
+// countCartItems={cartItems.length}

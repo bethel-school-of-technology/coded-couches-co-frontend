@@ -17,10 +17,10 @@ const Admin = () => {
     // const [id, setId] = useState("");
 
 
-const resetFieldUser = () => {
-    setUsername("");
-    setPassword("");
-}
+// const resetFieldUser = () => {
+//     setUsername("");
+//     setPassword("");
+// }
 
     //function for updating state of inventories
     const getInv = () => {
