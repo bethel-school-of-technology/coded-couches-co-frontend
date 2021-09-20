@@ -1,12 +1,12 @@
-//import axios from "axios";
-import React from "react"; 
+import axios from "axios";
+import React, { useEffect, useState } from "react"; 
 import { withRouter } from "react-router-dom";
 import { Link } from 'react-router-dom';
 // tabel thtat lists all items
 
 const Inventories = () => {
 
-
+    
 
 
 

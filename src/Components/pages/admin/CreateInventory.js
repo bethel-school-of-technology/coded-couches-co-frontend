@@ -1,13 +1,47 @@
-//import axios from "axios";
+import axios from "axios";
 import React from "react"; 
 import { withRouter } from "react-router-dom";
 import { Link } from 'react-router-dom';
-// you have a table that lists all users 
+import { useState } from "react"; 
+
 
 
 const CreateInventory = () => {
 
-    
+    const [name, setName] = useState("");
+    const [description, setDescription] = useState("");
+    const [price, setPrice] = useState("");
+    const [quantity, setQuantity] = useState("");
+
+    // create inventory
+    const createInv = (e) => {
+        e.preventDefault()
+        if (name !== "" && description !== "") {
+            const req = {
+                name: name,
+                description: description,
+                price: price,
+                quantity: quantity
+            };
+            // const token = localStorage.getItem("myJWT");
+            // if(!token) {
+            //     history.push("/login")
+            // }
+            // const options = {
+            //     headers: {
+            //         "Authorization": `Bearer ${token}`
+            //     }
+            // }
+            // add ",options" after req when ready for jwt
+            axios.post("http://localhost:3000/inventories", req).then(result => {
+                console.log(result.data);
+                document.getElementById("createInv").reset();
+                //need to set state of input values to empty
+                // setName("");
+                // setDescription("");
+            });
+        }
+    };
 
 
 
@@ -23,7 +57,18 @@ const CreateInventory = () => {
                 </li>
             </ul>
         </nav>
-        
+        <form onSubmit={ createInv } id="createInv">
+            <h1>Add Inventory</h1>
+            <label>Item Name</label>
+            <input type="text" name="name" onChange={ e => setName(e.target.value)}></input> <br></br>
+            <label>Description</label> 
+            <input type="text" name="description" onChange={ e => setDescription(e.target.value)}></input> <br></br>
+            <label>Price</label> 
+            <input type="text" name="price" onChange={ e => setPrice(e.target.value)}></input> <br></br>
+            <label>Quantity</label> 
+            <input type="text" name="quantity" onChange={ e => setQuantity(e.target.value)}></input> <br></br>
+            <button>Add Item</button>
+        </form>
     </div>
     );
 };
