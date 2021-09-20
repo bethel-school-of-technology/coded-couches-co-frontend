@@ -10,6 +10,7 @@ const CreateInventory = (props) => {
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const [quantity, setQuantity] = useState("");
+    const [image, setImage] = useState("");
 
     // create inventory
     const createInv = (e) => {
@@ -19,7 +20,8 @@ const CreateInventory = (props) => {
                 name: name,
                 description: description,
                 price: price,
-                quantity: quantity
+                quantity: quantity,
+                image: image
             };
             // const token = localStorage.getItem("myJWT");
             // if(!token) {
@@ -66,6 +68,8 @@ const CreateInventory = (props) => {
             <input type="text" name="price" onChange={ e => setPrice(e.target.value)}></input> <br></br>
             <label>Quantity</label> 
             <input type="text" name="quantity" onChange={ e => setQuantity(e.target.value)}></input> <br></br>
+            <label>Image</label> 
+            <input type="text" name="image" onChange={ e => setImage(e.target.value)}></input> <br></br>
             <button>Add Item</button>
         </form>
     </div>

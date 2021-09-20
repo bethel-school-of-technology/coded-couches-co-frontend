@@ -62,7 +62,7 @@ const Inventories = (props) => {
     { inventories.map(inventory => 
             <li key={inventory.id}>
                 INVENTORY ID:{inventory.id} <br /> NAME: {inventory.name} <br /> DESCRIPTION: {inventory.description} <br />
-                PRICE: {inventory.price} <br /> QUANTITY: {inventory.quantity} <br />
+                PRICE: {inventory.price} <br /> QUANTITY: {inventory.quantity} <br /> IMAGE: {inventory.image} <br />
                 <button onClick={() => DeleteInv(inventory.id) }>REMOVE</button>
                 {/* <button onClick={() => EditInv(inventory)}>EDIT INV</button> */}
             </li>
