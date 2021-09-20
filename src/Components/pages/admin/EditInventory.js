@@ -1,8 +1,7 @@
-//import axios from "axios";
+import axios from "axios";
 import React from "react"; 
-import { withRouter } from "react-router-dom";
-import { Link } from 'react-router-dom';
-// you have a table that lists all users 
+import { withRouter, Link } from "react-router-dom";
+
 
 
 const EditInventory = () => {

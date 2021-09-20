@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react"; 
-import { withRouter } from "react-router-dom";
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from "react-router-dom";
 
 
 const Users = (props) => {
