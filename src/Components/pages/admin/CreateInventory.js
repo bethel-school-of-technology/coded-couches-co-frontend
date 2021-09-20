@@ -1,12 +1,10 @@
 import axios from "axios";
 import React from "react"; 
-import { withRouter } from "react-router-dom";
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from "react-router-dom";
 import { useState } from "react"; 
 
 
-
-const CreateInventory = () => {
+const CreateInventory = (props) => {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
@@ -36,6 +34,7 @@ const CreateInventory = () => {
             axios.post("http://localhost:3000/inventories", req).then(result => {
                 console.log(result.data);
                 document.getElementById("createInv").reset();
+                props.history.push("/inv");
                 //need to set state of input values to empty
                 // setName("");
                 // setDescription("");
@@ -53,7 +52,7 @@ const CreateInventory = () => {
                 <Link to="/dash">Dashboard</Link>
                 </li>
                 <li>
-                <Link to="/editinv">Edit Inventory</Link>
+                <Link to="/inv">Inventory</Link>
                 </li>
             </ul>
         </nav>
