@@ -29,18 +29,18 @@ const Inventories = (props) => {
     
     };
 
-    // const EditInv = (inventory) => {
-    //     const url = ("http://localhost:3000/inventories/" + inventory.id);
-    //     axios.get(url)
-    // .then(res => {
-    //     if(inventory) {
-    //     props.history.push({
-    //         pathname: "/editinv",
-    //         search: '?query=abc',
-    //         state: { detail: {inventory} }
-    //     });};
-    // });
-    // };
+    const EditInv = (inventory) => {
+        const url = ("http://localhost:3000/inventories/" + inventory.id);
+        axios.get(url)
+    .then(res => {
+        if(inventory) {
+        props.history.push({
+            pathname: "/editinv",
+            search: '?query=abc',
+            state: { detail: {inventory} }
+        });};
+    });
+    };
 
 
 
@@ -64,7 +64,7 @@ const Inventories = (props) => {
                 INVENTORY ID:{inventory.id} <br /> NAME: {inventory.name} <br /> DESCRIPTION: {inventory.description} <br />
                 PRICE: {inventory.price} <br /> QUANTITY: {inventory.quantity} <br /> IMAGE: {inventory.image} <br />
                 <button onClick={() => DeleteInv(inventory.id) }>REMOVE</button>
-                {/* <button onClick={() => EditInv(inventory)}>EDIT INV</button> */}
+                <button onClick={() => EditInv(inventory)}>EDIT INV</button>
             </li>
             ) }
     </div>
