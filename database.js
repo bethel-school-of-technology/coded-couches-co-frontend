@@ -39,3 +39,18 @@ async function listDatabases(client) {
     console.log(`- ${db.name}`);
   });
 }
+
+async function findOneUserByName(client, nameofUser) {
+  const result = await client
+    .db("codedCouchesCompany")
+    .collection("users")
+    .findOne({ name: nameofUser });
+
+  if (result) {
+    console.log(
+      `Found a name in the collection with the name of '${nameofUser}'`
+    );
+  } else {
+    console.log(`No names found with the name of '${nameOfUser}'`);
+  }
+}

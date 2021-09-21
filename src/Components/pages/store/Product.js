@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 import React from 'react';
 import { useState } from 'react';
+=======
+import React from "react";
+import { useState } from "react";
+import Store from "../../../Store";
+>>>>>>> 13d94bbf0f3ef252d645f86bf6ba5cdfbb9781eb
 const Product = (props) => {
-    const { product } = props;
+  const { product } = props;
 
+<<<<<<< HEAD
     
     //console.log(product);
     const [cartItems, setCartItems] = useState([]);
@@ -38,6 +45,35 @@ const Product = (props) => {
         </div>
     );
 }
+=======
+  console.log(product);
+  const [cartItems, setCartItems] = useState([]);
+  console.log(cartItems);
+  const onAdd = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id);
+    if (exist) {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, qty: 1 }]);
+    }
+  };
+>>>>>>> 13d94bbf0f3ef252d645f86bf6ba5cdfbb9781eb
+
+  return (
+    <div>
+      <img className="small" src={product.image} alt={product.name}></img>
+      <h3>{product.name}</h3>
+      <div>{product.description}</div>
+      <div>${product.price}</div>
+      <div>
+        <button onClick={() => onAdd(cartItems)}>Add to Cart</button>
+      </div>
+    </div>
+  );
+};
 
 export default Product;
-
