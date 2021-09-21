@@ -81,8 +81,9 @@ const EditInventory = (props) => {
             PRICE: {location.state.detail.inventory.price} <br />
             QUANTITY: {location.state.detail.inventory.quantity} <br /> 
             IMAGE: {location.state.detail.inventory.image} <br />  */}
+            </table>
             
-                {/* <label>Set Inventory Name</label>
+                <label>Set Inventory Name</label>
                 <input type="text" name="changeInv"  onChange={ e => setName(e.target.value)}></input> <br></br>
                 <label>Set Description</label> 
                 <input type="text" name="changeDescr"  onChange={ e => setDescription(e.target.value)}></input> <br></br>
@@ -91,10 +92,10 @@ const EditInventory = (props) => {
                 <label>Set Quantity</label> 
                 <input type="text" name="changeQuan"  onChange={ e => setQuantity(e.target.value)}></input> <br></br>
                 <label>Set Image</label>
-                <input type="text" name="changeImage"  onChange={ e => setImage(e.target.value)}></input> <br></br> */}
+                <input type="text" name="changeImage"  onChange={ e => setImage(e.target.value)}></input> <br></br>
                 
                 <button onClick={() => EditInv(location.state.detail.inventory)}>SAVE</button>
-            </table>
+            
             </div>
     </ul> 
     </div>
