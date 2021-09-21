@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import Shop from './Components/pages/store/Shop';
 import Cart from './Components/pages/cart/Cart';
-//import data from './data';
 
-function Store (props) {
+function Functions (props) {
 
     const { products } = props;
     console.log(products);
     const [cartItems, setCartItems] = useState([]);
+    
   
     const onAdd = (product) => {
         const exist = cartItems.find((x) => x.id === product.id);
@@ -20,6 +20,8 @@ function Store (props) {
         } else {
         setCartItems([...cartItems, { ...product, qty: 1 }]);
         }
+
+        console.log(cartItems);
     };
     const onRemove = (product) => {
         const exist = cartItems.find((x) => x.id === product.id);
@@ -50,4 +52,4 @@ function Store (props) {
     );
 }
 
-export default Store;
+export default Functions;

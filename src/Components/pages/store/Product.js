@@ -4,21 +4,27 @@ const Product = (props) => {
     const { product } = props;
 
     
-    console.log(product);
+    //console.log(product);
     const [cartItems, setCartItems] = useState([]);
-  console.log(cartItems);
+    //console.log(cartItems);
     const onAdd = (product) => {
+        
         const exist = cartItems.find((x) => x.id === product.id);
+        
         if (exist) {
         setCartItems(
             cartItems.map((x) =>
             x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
             )
-        );
+            
+        ); 
         } else {
         setCartItems([...cartItems, { ...product, qty: 1 }]);
+        
+        
+        console.log(product);
         }
-    };
+    };console.log(cartItems);localStorage.setItem("cartItems", JSON.stringify(cartItems));
     
     return (
         <div>
@@ -27,7 +33,7 @@ const Product = (props) => {
             <div>{product.description}</div>
             <div>${product.price}</div>
             <div>
-                <button onClick={() => onAdd(cartItems)}>Add to Cart</button>
+                <button onClick={() => onAdd(product)}>Add to Cart</button>
             </div>
         </div>
     );
