@@ -7,7 +7,7 @@ import Shop from './Components/pages/store/Shop';
 import Login from './Components/pages/user/Login';
 import Cart from './Components/pages/cart/Cart';
 import Admin from './Components/pages/admin/Admin';
-// import Profile from "./Components/pages/user/Profile";
+import Profile from "./Components/pages/user/Profile";
 import Dashboard from "./Components/pages/admin/Dashboard";
 import Inventories from "./Components/pages/admin/Inventories";
 import Users from "./Components/pages/admin/Users";
@@ -58,11 +58,10 @@ function App() {
             <Users />
           </Route>
           <Route path="/cart" component={Cart}/>
-          
+          <Route path="/profile" component={Profile} />
         </Switch>
       </Router>
     </div>
   );
 }
 export default App;
-// <Route path="/profile" component={Profile} />

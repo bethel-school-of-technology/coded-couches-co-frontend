@@ -3,9 +3,9 @@ import { useHistory } from 'react-router';
 
 const Cart = () => {
     let history = useHistory();
-    //const { product } = props;
+
     const [cartItems, setCartItems] = useState([]);
-    
+    const [updatedItems, setUpdatedItems] = useState([]);  
   
     const onAdd = (product) => {
         const exist = cartItems.find((x) => x.id === product.id);
@@ -17,9 +17,7 @@ const Cart = () => {
         );
         } else {
         setCartItems([...cartItems, { ...product, qty: 1 }]);
-        }
-
-        console.log(cartItems);
+        }        
     };
     const onRemove = (product) => {
         const exist = cartItems.find((x) => x.id === product.id);
@@ -33,41 +31,40 @@ const Cart = () => {
         );
         }
     };
-    //   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
-    //   const orderTotal = itemPrice;
-
-    const onCheckout = () => {
         
-    history.push("/profile");
-    }
-
-
-    const [updatedItems, setUpdatedItems] = useState([]);
-    console.log(updatedItems);
+    
     useEffect(() => {
         const cartItemsLocal = JSON.parse(localStorage.getItem(["cartItems"])) || [];
         setUpdatedItems(cartItemsLocal);
-        console.log(cartItemsLocal);
+        
     }, [])
+    //console.log(updatedItems);
+
+    const onCheckout = () => {
+
+        localStorage.setItem("Order", JSON.stringify(updatedItems));
+        
+        history.push("/profile");
+        }
 
     return (
         <div>
             <h2>Cart Items</h2>
-            <div>{console.log(updatedItems)}</div>
             <div>
                 {updatedItems.length === 0 && <div>Cart Is Empty</div>}
-                {updatedItems.map((product) => (                    
-                    <div key={product.id}>                    
-                        <div>{product.name}</div>
-                        <img className="small" src="https://m.media-amazon.com/images/I/A1Ev61anEuL._AC_UL320_.jpg" alt={product.name}></img>
+                {updatedItems.map((updatedItems) => (                    
+                    <div key={updatedItems.id}>                    
+                        <div>{updatedItems.name}</div>
+                        <img className="small" src="https://m.media-amazon.com/images/I/A1Ev61anEuL._AC_UL320_.jpg" alt={updatedItems.name}></img>
                         <div className="button">
-                            <button onClick={() => onRemove(product)} className="remove"> - </button>
+                            <button onClick={() => onRemove(updatedItems)} className="remove"> - </button>
                         </div>
                         <div className="button">
-                            <button onClick={() => onAdd(product)} className="add"> + </button>
+                            <button onClick={() => onAdd(updatedItems)} className="add"> + </button>
                         </div>
                         <div>
-                            {product.qty} x ${product.price}
+                            {updatedItems.quantity} x ${updatedItems.price} <br></br>
+                            Order Total: ${(updatedItems.quantity)*(updatedItems.price)}
                         </div>                                  
                     </div>                    
                 ))}
@@ -100,4 +97,7 @@ export default Cart;
 //                                 <strong>${orderTotal.toFixed(2)}</strong>
 //                             </div>
 //                         </div>
+
+//   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+    //   const orderTotal = itemPrice;
                         

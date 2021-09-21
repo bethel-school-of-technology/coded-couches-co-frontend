@@ -1,17 +1,8 @@
-<<<<<<< HEAD
-//import axios from "axios";
-import axios from "axios";
-import React, { useEffect, useState } from "react"; 
-import { withRouter } from "react-router-dom";
-import { Link } from 'react-router-dom';
-import { useLocation } from "react-router-dom";
-=======
 import axios from "axios";
 import React, { useEffect, useState } from "react"; 
 import { withRouter, useLocation, Link } from "react-router-dom";
 
 
->>>>>>> 13d94bbf0f3ef252d645f86bf6ba5cdfbb9781eb
 
 
 const Editusers = (props) => {
