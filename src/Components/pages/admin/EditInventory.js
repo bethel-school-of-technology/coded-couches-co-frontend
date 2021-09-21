@@ -55,18 +55,34 @@ const EditInventory = (props) => {
                 </li>
             </ul>
         </nav>
-        <h1>Edit User</h1>
+        <h1>Edit Inventory</h1>
     <ul>
         <div >
-            <div> 
-            USER ID: {location.state.detail.inventory.id} <br /> 
+            <table border="1"> 
+                <tr>
+                    <th>ID: </th>
+                    <th>NAME: </th>
+                    <th>DESCRIPTION: </th>
+                    <th>PRICE: </th>
+                    <th>QUANTITY: </th>
+                    <th>IMAGE: </th>
+                </tr>
+                <tr>
+                    <td>{location.state.detail.inventory.id}</td>
+                    <td>{location.state.detail.inventory.name}</td>
+                    <td>{location.state.detail.inventory.description}</td>
+                    <td>${location.state.detail.inventory.price}</td>
+                    <td>{location.state.detail.inventory.quantity}</td>
+                    <td>{location.state.detail.inventory.image}</td>
+                </tr>
+            {/* USER ID: {location.state.detail.inventory.id} <br /> 
             NAME: {location.state.detail.inventory.name} <br /> 
             DESCRIPTION: {location.state.detail.inventory.description} <br /> 
             PRICE: {location.state.detail.inventory.price} <br />
             QUANTITY: {location.state.detail.inventory.quantity} <br /> 
-            IMAGE: {location.state.detail.inventory.image} <br /> 
+            IMAGE: {location.state.detail.inventory.image} <br />  */}
             
-                <label>Set Inventory Name</label>
+                {/* <label>Set Inventory Name</label>
                 <input type="text" name="changeInv"  onChange={ e => setName(e.target.value)}></input> <br></br>
                 <label>Set Description</label> 
                 <input type="text" name="changeDescr"  onChange={ e => setDescription(e.target.value)}></input> <br></br>
@@ -75,10 +91,10 @@ const EditInventory = (props) => {
                 <label>Set Quantity</label> 
                 <input type="text" name="changeQuan"  onChange={ e => setQuantity(e.target.value)}></input> <br></br>
                 <label>Set Image</label>
-                <input type="text" name="changeImage"  onChange={ e => setImage(e.target.value)}></input> <br></br>
+                <input type="text" name="changeImage"  onChange={ e => setImage(e.target.value)}></input> <br></br> */}
                 
                 <button onClick={() => EditInv(location.state.detail.inventory)}>SAVE</button>
-            </div>
+            </table>
             </div>
     </ul> 
     </div>

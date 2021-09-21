@@ -58,16 +58,32 @@ const Inventories = (props) => {
         </nav>
         <h1>All the Inventory</h1>
     <ul>
-    <div id="allInv">
+    <table id="allInv" border="1">
     { inventories.map(inventory => 
             <li key={inventory.id}>
-                INVENTORY ID:{inventory.id} <br /> NAME: {inventory.name} <br /> DESCRIPTION: {inventory.description} <br />
-                PRICE: {inventory.price} <br /> QUANTITY: {inventory.quantity} <br /> IMAGE: {inventory.image} <br />
+                <tr>
+                    <th>INVENTORY ID:</th>
+                    <th>NAME:</th>
+                    <th>DESCRIPTION:</th>
+                    <th>PRICE:</th>
+                    <th>QUANTITY:</th>
+                    <th>IMAGE:</th>
+                </tr>
+                <tr>
+                    <td>{inventory.id}</td>
+                    <td>{inventory.name}</td>
+                    <td>{inventory.description}</td>
+                    <td>${inventory.price}</td>
+                    <td>{inventory.quantity}</td>
+                    <td>{inventory.image}</td>
+                </tr>
+                {/* INVENTORY ID: {inventory.id} <br /> NAME: {inventory.name} <br /> DESCRIPTION: {inventory.description} <br />
+                PRICE: {inventory.price} <br /> QUANTITY: {inventory.quantity} <br /> IMAGE: {inventory.image} <br /> */}
                 <button onClick={() => DeleteInv(inventory.id) }>REMOVE</button>
                 <button onClick={() => EditInv(inventory)}>EDIT INV</button>
             </li>
             ) }
-    </div>
+    </table>
     </ul> 
     </div>
     );
