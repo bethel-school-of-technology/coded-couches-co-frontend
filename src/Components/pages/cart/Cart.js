@@ -1,40 +1,74 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 
-const Cart = (props) => {
-    console.log(props);
-  let history = useHistory();
-  const { cartItems, onAdd, onRemove } = props;
-console.log(cartItems);
-//   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
-//   const orderTotal = itemPrice;
+const Cart = () => {
+    let history = useHistory();
 
-  const onCheckout = () => {
+    const [cartItems, setCartItems] = useState([]);
+    const [updatedItems, setUpdatedItems] = useState([]);  
+  
+    const onAdd = (product) => {
+        const exist = cartItems.find((x) => x.id === product.id);
+        if (exist) {
+        setCartItems(
+            cartItems.map((x) =>
+            x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+            )
+        );
+        } else {
+        setCartItems([...cartItems, { ...product, qty: 1 }]);
+        }        
+    };
+    const onRemove = (product) => {
+        const exist = cartItems.find((x) => x.id === product.id);
+        if (exist.qty === 1) {
+        setCartItems(cartItems.filter((x) => x.id !== product.id));
+        } else {
+        setCartItems(
+            cartItems.map((x) =>
+            x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+            )
+        );
+        }
+    };
         
-    history.push("/profile");
-  }
     
+    useEffect(() => {
+        const cartItemsLocal = JSON.parse(localStorage.getItem(["cartItems"])) || [];
+        setUpdatedItems(cartItemsLocal);
+        
+    }, [])
+    //console.log(updatedItems);
+
+    const onCheckout = () => {
+
+        localStorage.setItem("Order", JSON.stringify(updatedItems));
+        
+        history.push("/profile");
+        }
+
     return (
         <div>
             <h2>Cart Items</h2>
             <div>
-                {cartItems.length === 0 && <div>Cart Is Empty</div>}
-                {cartItems.map((item) => (
-                    <div key={item.id}>
-                        <div>{item.name}</div>
-                        <img className="small" src={item.image} alt={item.name}></img>
+                {updatedItems.length === 0 && <div>Cart Is Empty</div>}
+                {updatedItems.map((updatedItems) => (                    
+                    <div key={updatedItems.id}>                    
+                        <div>{updatedItems.name}</div>
+                        <img className="small" src="https://m.media-amazon.com/images/I/A1Ev61anEuL._AC_UL320_.jpg" alt={updatedItems.name}></img>
                         <div className="button">
-                            <button onClick={() => onRemove(item)} className="remove"> - </button>
+                            <button onClick={() => onRemove(updatedItems)} className="remove"> - </button>
                         </div>
                         <div className="button">
-                            <button onClick={() => onAdd(item)} className="add"> + </button>
+                            <button onClick={() => onAdd(updatedItems)} className="add"> + </button>
                         </div>
                         <div>
-                            {item.qty} x ${item.price.toFixed(2)}
+                            {updatedItems.quantity} x ${updatedItems.price} <br></br>
+                            Order Total: ${(updatedItems.quantity)*(updatedItems.price)}
                         </div>                                  
                     </div>                    
                 ))}
-                {cartItems.length !== 0 && (
+                {updatedItems.length !== 0 && (
                     <div>
                         <hr></hr>
                         <div>
@@ -63,4 +97,7 @@ export default Cart;
 //                                 <strong>${orderTotal.toFixed(2)}</strong>
 //                             </div>
 //                         </div>
+
+//   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+    //   const orderTotal = itemPrice;
                         
