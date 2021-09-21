@@ -45,7 +45,7 @@ const Inventories = (props) => {
 
 
     return (
-        <div>Hello Inventory
+        <div>
         <nav>
             <ul>
                 <li>
@@ -62,7 +62,7 @@ const Inventories = (props) => {
     { inventories.map(inventory => 
             <li key={inventory.id}>
                 <tr>
-                    <th>INVENTORY ID:</th>
+                    <th>ID:</th>
                     <th>NAME:</th>
                     <th>DESCRIPTION:</th>
                     <th>PRICE:</th>
