@@ -54,15 +54,31 @@ const Users = (props) => {
         </nav>
         <h1>Users Management</h1>
         <ul>
-        <table>
+            <div>
+        <table border="1">
     { users.map(user => 
             <li key={user.id}>
-                USER ID:{user.id} <br /> NAME: {user.username} <br /> Admin: {(user.admin === true)? 'is admin': 'is not admin'} <br /> CREATED: {user.createdAt} <br />
+                <tr>
+                    <th>USER ID:</th>
+                    <th>NAME:</th>
+                    <th>Admin:</th>
+                    <th>CREATED:</th>
+                </tr>
+                <tr>
+                    <td>{user.id}</td>
+                    <td>{user.username}</td>
+                    <td>{(user.admin === true)? 'is admin': 'is not admin'}</td>
+                    <td>{user.createdAt}</td>
+                </tr>
+                {/* USER ID:{user.id} <br /> NAME: {user.username} <br /> Admin: {(user.admin === true)? 'is admin': 'is not admin'} <br /> 
+                CREATED: {user.createdAt} <br /> */}
                 <button onClick={() => DeleteUser(user.id) }>REMOVE</button>
                 <button onClick={() => EditUser(user)}>EDIT USER</button>
             </li>
             ) }
             </table>
+            
+            </div>
     </ul>
     </div>
     );
