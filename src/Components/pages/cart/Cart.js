@@ -33,8 +33,8 @@ const Cart = (props) => {
     const onCheckout = () => {
         localStorage.setItem("Order", JSON.stringify(updatedItems));
         history.push("/profile");
+        localStorage.removeItem("cartItems");
     }
-
     return (
         <div>
             <h2>Cart Items</h2>
@@ -43,7 +43,7 @@ const Cart = (props) => {
                 {updatedItems.map((updatedItems) => (                    
                     <div key={updatedItems.id}>                    
                         <div>{updatedItems.name}</div>
-                        <img className="small" src="https://m.media-amazon.com/images/I/A1Ev61anEuL._AC_UL320_.jpg" alt={updatedItems.name}></img>
+                        <img className="small" src={updatedItems.image} alt={updatedItems.name}></img>
                         <div className="button">
                             <button className="remove"> - </button>
                         </div>
@@ -53,7 +53,8 @@ const Cart = (props) => {
                         <div>
                             {updatedItems.quantity} x ${updatedItems.price} <br></br>
                             Order Total: ${(updatedItems.quantity)*(updatedItems.price)}
-                        </div>                                  
+                        </div>              
+                                            
                     </div>                    
                 ))}
                 {updatedItems.length !== 0 && (
@@ -71,7 +72,11 @@ const Cart = (props) => {
     );
 };
 
+
 export default Cart;
+
+// <div>{console.log(updatedItems)}</div>
+
 
 // <div>
 //                             <div>Item Price</div>

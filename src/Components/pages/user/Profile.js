@@ -11,7 +11,7 @@ const Profile = () => {
     useEffect(() => {
         axios.get(`${URL}/users`).then((result) => {
           setLoggedUser(result.data);
-        });console.log(setLoggedUser);
+        });
     }, []);
 
     //Displays "Order" of cart items stored in localStorage
@@ -19,6 +19,7 @@ const Profile = () => {
         const orderHistory = JSON.parse(localStorage.getItem(["Order"])) || [];
         setOrder(orderHistory);
     }, [])
+    localStorage.removeItem("cartItems");
     
     return(
         <div>
@@ -40,7 +41,7 @@ const Profile = () => {
                     {order.map((order) =>(
                         <div key={order.id}>
                             <div>{order.name}</div>
-                            <img className="small" src="https://m.media-amazon.com/images/I/A1Ev61anEuL._AC_UL320_.jpg" alt={order.name}></img>
+                            <img className="small" src={order.image} alt={order.name}></img>
                             <div>{order.description}</div>
                             <div>
                             {order.quantity} x ${order.price} <br></br>
