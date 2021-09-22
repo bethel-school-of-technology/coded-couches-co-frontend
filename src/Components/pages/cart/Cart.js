@@ -3,70 +3,45 @@ import { useHistory } from 'react-router';
 
 const Cart = () => {
     let history = useHistory();
-
-    const [cartItems, setCartItems] = useState([]);
-    const [updatedItems, setUpdatedItems] = useState([]);  
-  
-    const onAdd = (product) => {
-        const exist = cartItems.find((x) => x.id === product.id);
-        if (exist) {
-        setCartItems(
-            cartItems.map((x) =>
-            x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
-            )
-        );
-        } else {
-        setCartItems([...cartItems, { ...product, qty: 1 }]);
-        }        
-    };
-    const onRemove = (product) => {
-        const exist = cartItems.find((x) => x.id === product.id);
-        if (exist.qty === 1) {
-        setCartItems(cartItems.filter((x) => x.id !== product.id));
-        } else {
-        setCartItems(
-            cartItems.map((x) =>
-            x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
-            )
-        );
-        }
-    };
-        
     
+    const [updatedItems, setUpdatedItems] = useState([]);  
+   
+    //Displays item that's stored in localStorage
     useEffect(() => {
         const cartItemsLocal = JSON.parse(localStorage.getItem(["cartItems"])) || [];
         setUpdatedItems(cartItemsLocal);
         
     }, [])
-    //console.log(updatedItems);
 
+    //Stores the "cartItems" in new array "Order" in localStorage
     const onCheckout = () => {
-
         localStorage.setItem("Order", JSON.stringify(updatedItems));
-        
         history.push("/profile");
-        }
-
+        localStorage.removeItem("cartItems");
+    }
     return (
         <div>
             <h2>Cart Items</h2>
             <div>
                 {updatedItems.length === 0 && <div>Cart Is Empty</div>}
-                {updatedItems.map((updatedItems) => (                    
-                    <div key={updatedItems.id}>                    
-                        <div>{updatedItems.name}</div>
-                        <img className="small" src="https://m.media-amazon.com/images/I/A1Ev61anEuL._AC_UL320_.jpg" alt={updatedItems.name}></img>
+                {updatedItems.map((updatedItem) => (                    
+                   <ul>
+                    <li key={updatedItem.id}>                    
+                        <div>{updatedItem.name}</div>
+                        <img className="small" src={updatedItem.image} alt={updatedItem.name}></img>
                         <div className="button">
-                            <button onClick={() => onRemove(updatedItems)} className="remove"> - </button>
+                            <button className="remove"> - </button>
                         </div>
                         <div className="button">
-                            <button onClick={() => onAdd(updatedItems)} className="add"> + </button>
+                            <button className="add"> + </button>
                         </div>
                         <div>
-                            {updatedItems.quantity} x ${updatedItems.price} <br></br>
-                            Order Total: ${(updatedItems.quantity)*(updatedItems.price)}
-                        </div>                                  
-                    </div>                    
+                            {updatedItem.quantity} x ${updatedItem.price} <br></br>
+                            Order Total: ${(updatedItem.quantity)*(updatedItem.price)}
+                        </div>              
+                                       <div>{console.log(updatedItem)}</div>     
+                    </li>  
+                    </ul>                  
                 ))}
                 {updatedItems.length !== 0 && (
                     <div>
@@ -83,7 +58,11 @@ const Cart = () => {
     );
 };
 
+
 export default Cart;
+
+// <div>{console.log(updatedItems)}</div>
+
 
 // <div>
 //                             <div>Item Price</div>
@@ -100,4 +79,18 @@ export default Cart;
 
 //   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
     //   const orderTotal = itemPrice;
+
+
+// const onAdd = (cartItems) => {
+    //     const exist = updatedItems.find((x) => x.id === cartItems.id);
+    //     if (exist) {
+    //     setCartItems(
+    //         updatedItems.map((x) =>
+    //         x.id === cartItems.id ? { ...exist, quantity: exist.quantity + 1 } : x
+    //         )
+    //     );console.log(cartItems);
+    //     } else {
+    //     setCartItems([...updatedItems, { ...cartItems, quantity: 1 }]);
+    //     }        
+    // };
                         
