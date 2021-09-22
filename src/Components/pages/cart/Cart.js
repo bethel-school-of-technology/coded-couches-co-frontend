@@ -1,51 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 
-const Cart = () => {
+const Cart = (props) => {
     let history = useHistory();
 
-    const [cartItems, setCartItems] = useState([]);
+    const {onAdd} = props;
     const [updatedItems, setUpdatedItems] = useState([]);  
-  
-    const onAdd = (product) => {
-        const exist = cartItems.find((x) => x.id === product.id);
-        if (exist) {
-        setCartItems(
-            cartItems.map((x) =>
-            x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
-            )
-        );
-        } else {
-        setCartItems([...cartItems, { ...product, qty: 1 }]);
-        }        
-    };
-    const onRemove = (product) => {
-        const exist = cartItems.find((x) => x.id === product.id);
-        if (exist.qty === 1) {
-        setCartItems(cartItems.filter((x) => x.id !== product.id));
-        } else {
-        setCartItems(
-            cartItems.map((x) =>
-            x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
-            )
-        );
-        }
-    };
-        
     
+    
+    // const onAdd = (cartItems) => {
+    //     const exist = updatedItems.find((x) => x.id === cartItems.id);
+    //     if (exist) {
+    //     setCartItems(
+    //         updatedItems.map((x) =>
+    //         x.id === cartItems.id ? { ...exist, quantity: exist.quantity + 1 } : x
+    //         )
+    //     );console.log(cartItems);
+    //     } else {
+    //     setCartItems([...updatedItems, { ...cartItems, quantity: 1 }]);
+    //     }        
+    // };
+    
+        
+    //Displays item that's stored in localStorage
     useEffect(() => {
         const cartItemsLocal = JSON.parse(localStorage.getItem(["cartItems"])) || [];
         setUpdatedItems(cartItemsLocal);
         
     }, [])
-    //console.log(updatedItems);
 
+    //Stores the "cartItems" in new array "Order" in localStorage
     const onCheckout = () => {
-
         localStorage.setItem("Order", JSON.stringify(updatedItems));
-        
         history.push("/profile");
-        }
+    }
 
     return (
         <div>
@@ -57,7 +45,7 @@ const Cart = () => {
                         <div>{updatedItems.name}</div>
                         <img className="small" src="https://m.media-amazon.com/images/I/A1Ev61anEuL._AC_UL320_.jpg" alt={updatedItems.name}></img>
                         <div className="button">
-                            <button onClick={() => onRemove(updatedItems)} className="remove"> - </button>
+                            <button className="remove"> - </button>
                         </div>
                         <div className="button">
                             <button onClick={() => onAdd(updatedItems)} className="add"> + </button>

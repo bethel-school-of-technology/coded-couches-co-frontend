@@ -4,17 +4,17 @@ import React, { useEffect, useState } from 'react';
 const URL = process.env.API_URL;
 
 const Profile = () => {
-    //const { user } = users;
-    const [user, setUser] = useState([]);
+    const [loggedUser, setLoggedUser] = useState([]);
     const [order, setOrder] = useState([]);
 
-    useEffect((id) => {
-        axios.get(`${URL}/users/profile` + id).then(result => {
-            setUser(result.data);
-            console.log(result.data);
-        })
+    //GET request to display User information
+    useEffect(() => {
+        axios.get(`${URL}/users`).then((result) => {
+          setLoggedUser(result.data);
+        });console.log(setLoggedUser);
     }, []);
 
+    //Displays "Order" of cart items stored in localStorage
     useEffect(() => {
         const orderHistory = JSON.parse(localStorage.getItem(["Order"])) || [];
         setOrder(orderHistory);
@@ -22,8 +22,17 @@ const Profile = () => {
     
     return(
         <div>
-            <h3>Welcome, {user.username}!</h3>
-            <div>{console.log(user)}</div>
+            <div>
+                {loggedUser.map((user) =>(
+                    <div key={user.id}>
+                    <h3>Welcome, {user.username}!</h3>
+                    <div>{console.log(user)}</div>
+                    </div>
+                    
+                ))}
+            </div>
+            
+            
             <hr></hr>
             <h3>Order History</h3>
                 <div>

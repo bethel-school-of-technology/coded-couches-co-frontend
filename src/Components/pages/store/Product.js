@@ -1,9 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
+
+const updatedArray = [];
+
 const Product = (props) => {
     const { product } = props;
     const [cartItems, setCartItems] = useState([]);
-
+    console.log(product);
     const onAdd = (product) => {
         const exist = cartItems.find((x) => x.id === product.id);
         
