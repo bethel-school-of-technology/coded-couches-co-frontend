@@ -6,10 +6,9 @@ const updatedArray = [];
 const Product = (props) => {
     const { product } = props;
     const [cartItems, setCartItems] = useState([]);
+    const exist = cartItems.find((x) => x.id === product.id);
     
-    const onAdd = (product) => {
-        const exist = cartItems.find((x) => x.id === product.id);
-        
+    const onAdd = (product) => {    
         if (exist) {            
             setCartItems(
                 cartItems.map((x) =>
@@ -17,12 +16,12 @@ const Product = (props) => {
                 )  
             ); 
             updatedArray.push(cartItems);
-            console.log(cartItems);
         }else {
             setCartItems([...cartItems, { ...product, quantity: 1 }]);       
         }
         localStorage.setItem("cartItems", JSON.stringify(updatedArray));
     };
+    
     
     
     

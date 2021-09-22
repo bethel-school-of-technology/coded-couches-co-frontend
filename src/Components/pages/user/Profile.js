@@ -19,7 +19,6 @@ const Profile = () => {
         const orderHistory = JSON.parse(localStorage.getItem(["Order"])) || [];
         setOrder(orderHistory);
     }, [])
-    localStorage.removeItem("cartItems");
     
     return(
         <div>

@@ -1,27 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 
-const Cart = (props) => {
+const Cart = () => {
     let history = useHistory();
-
-    const {onAdd} = props;
+    
     const [updatedItems, setUpdatedItems] = useState([]);  
-    
-    
-    // const onAdd = (cartItems) => {
-    //     const exist = updatedItems.find((x) => x.id === cartItems.id);
-    //     if (exist) {
-    //     setCartItems(
-    //         updatedItems.map((x) =>
-    //         x.id === cartItems.id ? { ...exist, quantity: exist.quantity + 1 } : x
-    //         )
-    //     );console.log(cartItems);
-    //     } else {
-    //     setCartItems([...updatedItems, { ...cartItems, quantity: 1 }]);
-    //     }        
-    // };
-    
-        
+   
     //Displays item that's stored in localStorage
     useEffect(() => {
         const cartItemsLocal = JSON.parse(localStorage.getItem(["cartItems"])) || [];
@@ -40,22 +24,24 @@ const Cart = (props) => {
             <h2>Cart Items</h2>
             <div>
                 {updatedItems.length === 0 && <div>Cart Is Empty</div>}
-                {updatedItems.map((updatedItems) => (                    
-                    <div key={updatedItems.id}>                    
-                        <div>{updatedItems.name}</div>
-                        <img className="small" src={updatedItems.image} alt={updatedItems.name}></img>
+                {updatedItems.map((updatedItem) => (                    
+                   <ul>
+                    <li key={updatedItem.id}>                    
+                        <div>{updatedItem.name}</div>
+                        <img className="small" src={updatedItem.image} alt={updatedItem.name}></img>
                         <div className="button">
                             <button className="remove"> - </button>
                         </div>
                         <div className="button">
-                            <button onClick={() => onAdd(updatedItems)} className="add"> + </button>
+                            <button className="add"> + </button>
                         </div>
                         <div>
-                            {updatedItems.quantity} x ${updatedItems.price} <br></br>
-                            Order Total: ${(updatedItems.quantity)*(updatedItems.price)}
+                            {updatedItem.quantity} x ${updatedItem.price} <br></br>
+                            Order Total: ${(updatedItem.quantity)*(updatedItem.price)}
                         </div>              
-                                            
-                    </div>                    
+                                       <div>{console.log(updatedItem)}</div>     
+                    </li>  
+                    </ul>                  
                 ))}
                 {updatedItems.length !== 0 && (
                     <div>
@@ -93,4 +79,18 @@ export default Cart;
 
 //   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
     //   const orderTotal = itemPrice;
+
+
+// const onAdd = (cartItems) => {
+    //     const exist = updatedItems.find((x) => x.id === cartItems.id);
+    //     if (exist) {
+    //     setCartItems(
+    //         updatedItems.map((x) =>
+    //         x.id === cartItems.id ? { ...exist, quantity: exist.quantity + 1 } : x
+    //         )
+    //     );console.log(cartItems);
+    //     } else {
+    //     setCartItems([...updatedItems, { ...cartItems, quantity: 1 }]);
+    //     }        
+    // };
                         
