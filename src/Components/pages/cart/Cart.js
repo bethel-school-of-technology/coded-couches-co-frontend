@@ -1,10 +1,14 @@
+//import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
+
+//const URL = process.env.API_URL;
 
 const Cart = () => {
     let history = useHistory();
     
-    const [updatedItems, setUpdatedItems] = useState([]);  
+    const [updatedItems, setUpdatedItems] = useState([]);
+    //const [quantity, setQuantity] = useState([]);  
    
     //Displays item that's stored in localStorage
     useEffect(() => {
@@ -14,10 +18,21 @@ const Cart = () => {
     }, [])
 
     //Stores the "cartItems" in new array "Order" in localStorage
-    const onCheckout = () => {
-        localStorage.setItem("Order", JSON.stringify(updatedItems));
+    const onCheckout = async() => {
+        // console.log(updatedItems);
+        // if(quantity !== "") {
+        //     const req = {
+        //     quantity: quantity,
+        //     };
+        //     await axios.put(`${URL}/inventories/` + updatedItems.id, req).then((result) => {
+                
+        //         console.log(updatedItems.quantity);
+        //     }).catch(e => console.error(e));
+        // }
+        localStorage.setItem("Order", JSON.stringify(updatedItems));       
         history.push("/profile");
         localStorage.removeItem("cartItems");
+
     }
     return (
         <div>

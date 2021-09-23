@@ -10,9 +10,11 @@ const Profile = () => {
     //GET request to display User information
     useEffect(() => {
         axios.get(`${URL}/users`).then((result) => {
-          setLoggedUser(result.data);
+            setLoggedUser(result.data);
         });
-    }, []);
+      }, []);
+    
+    
 
     //Displays "Order" of cart items stored in localStorage
     useEffect(() => {

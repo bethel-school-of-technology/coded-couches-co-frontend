@@ -22,10 +22,6 @@ const Product = (props) => {
         localStorage.setItem("cartItems", JSON.stringify(updatedArray));
     };
     
-    
-    
-    
-    
     return (
         <div>
             <img className="small" src={product.image} alt={product.name}></img>
