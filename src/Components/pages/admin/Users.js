@@ -29,7 +29,7 @@ const Users = (props) => {
     .then(res => {
         getUser();});
     };
-    
+
     // edit user function, send to new page with users info
     const EditUser = (user) => {
         const url = ("http://localhost:3000/users/" + user.id);
@@ -56,7 +56,7 @@ const Users = (props) => {
                 <Link to="/createUser">Create User</Link>
                 </li>
                 <li>
-                <Link to="/inv">Userss</Link>
+                <Link to="/inv">Inventory</Link>
                 </li>
             </ul>
         </nav>

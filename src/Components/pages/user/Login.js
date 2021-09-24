@@ -60,7 +60,9 @@ const Login = (props) => {
                     };
                 }
             })
-        }
+        } else {
+            return alert("Username needs to be at least 3 characters, and Password at least 6 characters")
+        };
     };
     return (<div>
         <form onSubmit={ signIn }>

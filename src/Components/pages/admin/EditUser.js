@@ -19,7 +19,7 @@ const Editusers = (props) => {
     // edit current user information
     const EditUser = (user) => {
         const url = ("http://localhost:3000/users/" + user.id);
-        if (username !== "" && password !== "") {
+        if (username.length >= 3 && password.length >= 6) {
             const req = {
                 username: username,
                 password: password,
@@ -30,9 +30,10 @@ const Editusers = (props) => {
                 setPassword("");
                 props.history.push("/users");
             });
-        } 
+        } else {
+            return alert("Username needs to be at least 3 characters, and Password at least 6 characters")
+        };
     };
-
 
 
     return (

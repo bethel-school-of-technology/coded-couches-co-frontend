@@ -14,7 +14,7 @@ const Createusers = (props) => {
      // create a user
     const createUser = (e) => {
         e.preventDefault()
-        if (username !== "" && password !== "") {
+        if (username.length >= 3 && password.length >= 6) {
             const req = {
                 username: username,
                 password: password,
@@ -37,7 +37,9 @@ const Createusers = (props) => {
                 document.getElementById("createUser").reset();
                 props.history.push("/users");
             });
-        }
+        } else {
+            return alert("Username needs to be at least 3 characters, and Password at least 6 characters")
+        };
     };
 
 
