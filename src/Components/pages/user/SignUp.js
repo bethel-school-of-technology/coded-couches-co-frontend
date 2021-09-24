@@ -5,11 +5,13 @@ import { withRouter } from "react-router-dom";
 
 
 const SignUp = (props) => {
+
+    // set initial state
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     
+    // sing up new user function with character parameters requirements
     const signIn = (username, password) => {
-        
         if (username.length >= 3 && password.length >= 6) {
             const req = {
                 username: username,

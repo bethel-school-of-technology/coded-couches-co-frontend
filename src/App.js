@@ -15,6 +15,7 @@ import CreateUser from "./Components/pages/admin/CreateUser";
 import EditUser from "./Components/pages/admin/EditUser";
 import CreateInventory from "./Components/pages/admin/CreateInventory";
 import EditInventory from "./Components/pages/admin/EditInventory";
+// import Experiment from "./Components/pages/admin/Experiment";
 
 
 function App() {
@@ -57,6 +58,9 @@ function App() {
           <Route path="/users">
             <Users />
           </Route>
+          {/* <Route path="/exp">
+            <Experiment />
+          </Route> */}
           <Route path="/cart" component={Cart}/>
           <Route path="/profile" component={Profile} />
         </Switch>

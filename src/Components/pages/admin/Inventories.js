@@ -45,7 +45,6 @@ const Inventories = (props) => {
     };
 
 
-
     return (
         <div>
         <nav>
