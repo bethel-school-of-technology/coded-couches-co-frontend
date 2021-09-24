@@ -1,58 +1,43 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react"; 
+import React, { useState } from "react"; 
 import { withRouter } from "react-router";
 
 
 const Login = (props) => {
+
+    // set initial state to empty
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [users, setUsers] = useState([]);
 
-    useEffect(() => {
-        axios.get("http://localhost:3000/users").then(result => {
-            setUsers(result.data);
-        })
-    }, []);
-
-    //function for updating state of users
-    const getUser = () => {
-        axios.get("http://localhost:3000/users").then(result => {
-                    setUsers(result.data);
-                    // console.log(result.data);
-                    })
-    };
-    
-
-    //user id 16 = admins admins has admin true
+    // sing in user function with character parameters requirements, and admin check, with routing based on admin
     const signIn = (e) => {
         e.preventDefault();
-        
-        
         if (username.length >= 3 && password.length >= 6) {
             const req = {
                 username: username,
                 password: password
             };
-                //add "post user url" in place or url
             axios.post("http://localhost:3000/users/login", req).then(result => {
-                getUser();
-                //when jwt is working and ready uncomment below code min 52 video
-                console.log(result.data)
                 const token = result.data.jwt;
                 localStorage.setItem("myJWT", token);
-                //need to find where admin in teh json will be stored to verify if true or not...
-                const admin = result.data;
+                const admin = result.data.user.admin;
                 if (token) {
-                    // this isnt working correctly yet need to set it too if(admin), when there is an admin table created
                     if (admin) {
-                        props.history.push("/admin");
-                    } else {
+                        props.history.push({
+                            pathname: "/dash",
+                            search: '?query=abc',
+                            state: { detail: {admin} }
+                        });} else {
                         props.history.push("/shop");
                     };
                 }
             })
-        }
+        } else {
+            return alert("Username needs to be at least 3 characters, and Password at least 6 characters")
+        };
     };
+
+
     return (<div>
         <form onSubmit={ signIn }>
             <h1>Login!</h1>

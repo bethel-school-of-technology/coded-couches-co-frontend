@@ -1,8 +1,22 @@
-import React from "react"; 
-import { Link } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Link, withRouter, useLocation } from 'react-router-dom';
 
-const Dashboard = () => {
 
+const Dashboard = (props) => {
+
+    // const [admin, setAdmin] = useState("");
+    
+    // using previous pages information
+    const location = useLocation();
+
+    // setting previous pages information on to current page
+    // useEffect(() => {
+    //     console.log(location.state.detail)
+    // }, [location]);
+
+    // if (!location.state.detail) {
+    //     props.history.push("/shop")
+    // } 
 
 return (
     <div>
@@ -30,4 +44,4 @@ return (
 
 
 
-export default Dashboard;
+export default withRouter(Dashboard);
