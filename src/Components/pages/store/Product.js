@@ -1,30 +1,27 @@
 import React from 'react';
-import { useState } from 'react';
-
-const updatedArray = [];
 
 const Product = (props) => {
     const { product } = props;
-    const [cartItems, setCartItems] = useState([]);
-    const exist = cartItems.find((x) => x.id === product.id);
     
-    const onAdd = (product) => {    
-        if (exist) {            
-            setCartItems(
-                cartItems.map((x) =>
-                x.id === product.id ? { ...exist, quantity: exist.quantity + 1 } : x
-                )  
-            ); 
-            updatedArray.push(cartItems);
-        }else {
-            setCartItems([...cartItems, { ...product, quantity: 1 }]);       
+    const onAdd = (product) => {
+
+        const cartItemsLocal = JSON.parse(localStorage.getItem("cartItems")) || [];
+        const exist = cartItemsLocal.find((x) => x.id === product.id);
+
+        if (exist) {
+            cartItemsLocal.map((x) => {
+                    if (x.id === product.id) {
+                        x.quantity += 1;
+                    }
+                    return x;
+                }
+            )
+        } else {
+            cartItemsLocal.push({...product, quantity: 1});
         }
-        localStorage.setItem("cartItems", JSON.stringify(updatedArray));
+
+        localStorage.setItem("cartItems", JSON.stringify(cartItemsLocal));
     };
-    
-    
-    
-    
     
     return (
         <div>
