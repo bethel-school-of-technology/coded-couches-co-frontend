@@ -21,6 +21,14 @@ const Login = (props) => {
                     // console.log(result.data);
                     })
     };
+
+    const getUserData = () => {
+        return axios.get("http://localhost:3000/users").then(result => {
+                    console.log(result.data);
+                    return result.data;
+                    
+                    })
+    };
     
 
     //user id 16 = admins admins has admin true
@@ -36,8 +44,9 @@ const Login = (props) => {
                 //add "post user url" in place or url
             axios.post("http://localhost:3000/users/login", req).then(result => {
                 getUser();
+                getUserData();
                 //when jwt is working and ready uncomment below code min 52 video
-                console.log(result.data)
+                console.log(getUserData);
                 const token = result.data.jwt;
                 localStorage.setItem("myJWT", token);
                 //need to find where admin in teh json will be stored to verify if true or not...

@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import { withRouter, useLocation, Link } from "react-router-dom";
 
 
-
-
 const Editusers = (props) => {
 
     const [username, setUsername] = useState("");

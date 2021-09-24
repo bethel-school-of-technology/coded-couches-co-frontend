@@ -5,27 +5,28 @@ import { withRouter, Link } from "react-router-dom";
 
 const Users = (props) => {
 
+    // set initial state
     const [users, setUsers] = useState([]);
-
+    // set empty state with initial data
     useEffect(() => {
         axios.get("http://localhost:3000/users").then(result => {
             setUsers(result.data);
         })
     }, []);
-
+    // re-render user function
     const getUser = () => {
         axios.get("http://localhost:3000/users").then(result => {
                     setUsers(result.data);
                     })
     };
-
+    // delete user function
     const DeleteUser = (id) => {
         const url = ("http://localhost:3000/users/" + id);
         axios.delete(url)
     .then(res => {
         getUser();});
     };
-
+    // edit user function, send to new page with users info
     const EditUser = (user) => {
         const url = ("http://localhost:3000/users/" + user.id);
         axios.get(url)
@@ -53,33 +54,32 @@ const Users = (props) => {
             </ul>
         </nav>
         <h1>Users Management</h1>
-        <ul>
-            <div>
-        <table border="1">
+            
     { users.map(user => 
-            <li key={user.id}>
+                <table border="1" key={user.id}>
+                    <thead>
                 <tr>
                     <th>USER ID:</th>
                     <th>NAME:</th>
                     <th>Admin:</th>
                     <th>CREATED:</th>
                 </tr>
+                </thead>
+                <tbody>
                 <tr>
                     <td>{user.id}</td>
                     <td>{user.username}</td>
                     <td>{(user.admin === true)? 'is admin': 'is not admin'}</td>
                     <td>{user.createdAt}</td>
                 </tr>
-                {/* USER ID:{user.id} <br /> NAME: {user.username} <br /> Admin: {(user.admin === true)? 'is admin': 'is not admin'} <br /> 
-                CREATED: {user.createdAt} <br /> */}
-                <button onClick={() => DeleteUser(user.id) }>REMOVE</button>
-                <button onClick={() => EditUser(user)}>EDIT USER</button>
-            </li>
-            ) }
-            </table>
+                <tr>
+                <td><button onClick={() => DeleteUser(user.id) }>REMOVE</button></td>
+                <td><button onClick={() => EditUser(user)}>EDIT USER</button></td>
+                </tr>
+                </tbody>
+                </table>
+            ) };
             
-            </div>
-    </ul>
     </div>
     );
 };
