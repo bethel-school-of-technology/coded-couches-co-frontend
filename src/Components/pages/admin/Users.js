@@ -51,6 +51,9 @@ const Users = (props) => {
                 <li>
                 <Link to="/createUser">Create User</Link>
                 </li>
+                <li>
+                <Link to="/inv">Inventory</Link>
+                </li>
             </ul>
         </nav>
         <h1>Users Management</h1>

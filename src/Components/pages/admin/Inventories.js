@@ -54,21 +54,25 @@ const Inventories = (props) => {
                 <li>
                 <Link to="/createinv">Create Inventory</Link>
                 </li>
+                <li>
+                <Link to="/users">Users</Link>
+                </li>
             </ul>
         </nav>
         <h1>All the Inventory</h1>
-    <ul>
-    <table id="allInv" border="1">
     { inventories.map(inventory => 
-            <li key={inventory.id}>
+        <table id="allInv" border="1" key={inventory.id}>
+                <thead>
                 <tr>
                     <th>ID:</th>
                     <th>NAME:</th>
                     <th>DESCRIPTION:</th>
                     <th>PRICE:</th>
-                    <th>QUANTITY:</th>
+                    <th>QTY:</th>
                     <th>IMAGE:</th>
                 </tr>
+                </thead>
+                <tbody>
                 <tr>
                     <td>{inventory.id}</td>
                     <td>{inventory.name}</td>
@@ -77,14 +81,16 @@ const Inventories = (props) => {
                     <td>{inventory.quantity}</td>
                     <td>{inventory.image}</td>
                 </tr>
+                
                 {/* INVENTORY ID: {inventory.id} <br /> NAME: {inventory.name} <br /> DESCRIPTION: {inventory.description} <br />
                 PRICE: {inventory.price} <br /> QUANTITY: {inventory.quantity} <br /> IMAGE: {inventory.image} <br /> */}
-                <button onClick={() => DeleteInv(inventory.id) }>REMOVE</button>
-                <button onClick={() => EditInv(inventory)}>EDIT INV</button>
-            </li>
+                <tr>
+                    <td><button onClick={() => DeleteInv(inventory.id) }>REMOVE</button></td>
+                    <td><button onClick={() => EditInv(inventory)}>EDIT INV</button></td>
+                </tr>
+                </tbody>
+                </table>
             ) }
-    </table>
-    </ul> 
     </div>
     );
 };
