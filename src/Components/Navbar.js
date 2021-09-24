@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import logo from '../Images/logo.jpg';
+import CCCimage from '../Images/CCCimage.png'
 
 const Navbar = (props) => {
     const {countCartItems} =props
@@ -8,7 +9,7 @@ const Navbar = (props) => {
         <header>
             <div class="navbar">
             
-            <img class="logo" src={logo} alt="logo" />
+            <img class="logo" src={CCCimage} alt="logo" />
 
                 <nav>
                     <ul>

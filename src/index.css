@@ -40,7 +40,7 @@ img.small{
 body {
   margin: 0;
   font-family: sans-serif;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .navbar {
@@ -59,12 +59,55 @@ header::after {
 
 .logo {
   float: left;
-  max-height: 11rem;
+  max-height: 9rem;
+  width: auto;
 }
 
 nav {
   float: right;
 }
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 57px;
+
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: #444;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  width: 0%;
+  background-color: #444;
+
+  position:absolute;
+  top: 0;
+
+  transition: all ease-in-out 200ms;
+
+}
+nav a:hover::before {
+  width: 100%;
+}
+
+
+
 
 
 
