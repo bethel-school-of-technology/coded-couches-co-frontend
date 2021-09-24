@@ -54,7 +54,7 @@ const Login = (props) => {
                 if (token) {
                     // this isnt working correctly yet need to set it too if(admin), when there is an admin table created
                     if (admin) {
-                        props.history.push("/admin");
+                        props.history.push("/dash");
                     } else {
                         props.history.push("/shop");
                     };

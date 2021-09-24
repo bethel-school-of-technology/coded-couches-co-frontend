@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const Createusers = (props) => {
 
+    // set initial state
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -59,9 +60,6 @@ const Createusers = (props) => {
             <input type="text" name="username" minLength="3" onChange={ e => setUsername(e.target.value)} ></input> <br></br>
             <label>Password</label> 
             <input type="text" name="password" minLength="6" onChange={ e => setPassword(e.target.value)} ></input> <br></br>
-            {/* <label>If Admin Check</label> 
-            <input type="checkbox" name="admin" onChange={ e => setAdmin(e.target.type === "checkbox" ? e.target.checked : e.target.value)} >
-                </input> <br></br> */}
             <button>Create</button>
         </form>
     </div>
