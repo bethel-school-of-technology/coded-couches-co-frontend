@@ -10,13 +10,13 @@ const Dashboard = (props) => {
     const location = useLocation();
 
     // setting previous pages information on to current page
-    useEffect(() => {
-        console.log(location.state.detail)
-    }, [location]);
+    // useEffect(() => {
+    //     console.log(location.state.detail)
+    // }, [location]);
 
-    if (!location.state.detail) {
-        props.history.push("/shop")
-    } 
+    // if (!location.state.detail) {
+    //     props.history.push("/shop")
+    // } 
 
 return (
     <div>
