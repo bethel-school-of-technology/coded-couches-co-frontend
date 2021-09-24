@@ -5,38 +5,29 @@ import logo from '../Images/logo.jpg';
 const Navbar = (props) => {
     const {countCartItems} =props
     return(
-        <div className="navbar">
-            <nav>
-        
-            <img className="logo" src={logo} alt="logo" />
-        
-                <ul>
-                    <li>
-                    <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                    <Link to="/about">About</Link>
-                    </li>
-                    <li>
-                    <Link to="/shop">Shop</Link>
-                    </li>
-                    <li>
-                    <Link to="/login">Login</Link>
-                    </li>
-                    <li>
-                    <Link to="/signup">SignUp</Link>
-                    </li>
-                    <li>
-                    <Link to="/cart">
-                        Cart{' '}
-                        {countCartItems ? (
-                        <button className="badge">{countCartItems}</button>
-                        ) : (' ')}
-                    </Link>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+        <header>
+            <div class="navbar">
+            
+            <img class="logo" src={logo} alt="logo" />
+
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/shop">Shop</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/signup">SignUp</a></li>
+                        <li><a href="/cart">
+                            Cart{' '}
+                            {countCartItems ? (
+                            <button class="badge">{countCartItems}</button>
+                            ) : (' ')}
+                        </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
     );
 };
 export default Navbar;

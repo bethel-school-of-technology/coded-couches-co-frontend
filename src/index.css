@@ -1,4 +1,4 @@
-.navbar{
+/* .navbar{
   display: flex;
   justify-content: flex-start;
   background-color: #e0e0e0;
@@ -20,6 +20,7 @@ ul {
 li{
   list-style-type: none;
   padding: 0.5rem;
+  justify-content:flex-end;
   text-decoration: none;
 }
 img.small{
@@ -33,7 +34,40 @@ img.small{
 }
 .image{
   padding: 1rem;
+} */
+
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  font-weight: 300;
 }
+
+.navbar {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  background: #ecddad;
+}
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.logo {
+  float: left;
+  max-height: 11rem;
+}
+
+nav {
+  float: right;
+}
+
+
+
 button{
   font-size: 0.8rem;
   padding: 0.2rem;
@@ -44,4 +78,3 @@ button{
   width: 6rem;
   cursor: pointer;
 }
-
