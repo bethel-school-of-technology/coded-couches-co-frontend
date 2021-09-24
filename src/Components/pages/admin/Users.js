@@ -40,7 +40,7 @@ const Users = (props) => {
     });
     };
 
-    
+
     return (
         <div>
         <nav>
@@ -57,13 +57,15 @@ const Users = (props) => {
             
     { users.map(user => 
                 <table border="1" key={user.id}>
-                    <tbody >
+                    <thead>
                 <tr>
                     <th>USER ID:</th>
                     <th>NAME:</th>
                     <th>Admin:</th>
                     <th>CREATED:</th>
                 </tr>
+                </thead>
+                <tbody>
                 <tr>
                     <td>{user.id}</td>
                     <td>{user.username}</td>
