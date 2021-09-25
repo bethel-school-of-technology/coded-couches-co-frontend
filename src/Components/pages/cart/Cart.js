@@ -8,7 +8,7 @@ const Cart = () => {
    
     //Displays item that's stored in localStorage
     useEffect(() => {
-        const cartItemsLocal = JSON.parse(localStorage.getItem(["cartItems"])) || [];
+        const cartItemsLocal = JSON.parse(localStorage.getItem("cartItems")) || [];
         setUpdatedItems(cartItemsLocal);
         
     }, [])
@@ -19,6 +19,7 @@ const Cart = () => {
         history.push("/profile");
         localStorage.removeItem("cartItems");
     }
+    console.log(updatedItems);
     return (
         <div>
             <h2>Cart Items</h2>
