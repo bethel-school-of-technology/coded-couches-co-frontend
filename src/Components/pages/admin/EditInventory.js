@@ -6,6 +6,17 @@ import { withRouter, useLocation, Link } from "react-router-dom";
 
 const EditInventory = (props) => {
 
+    //checking if there is a user, and if so is he an admin, if not re-route
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if(!user) {
+        props.history.push("/login");
+        alert("you do not have admin priveleges");
+        } else if(!user.admin) {
+            props.history.push("/login");
+        alert("you do not have admin priveleges");
+        };
+
     // set initial state
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
@@ -16,6 +27,7 @@ const EditInventory = (props) => {
     // using previous pages information
     const location = useLocation();
     
+    
     // setting previous pages information on to current page
     useEffect(() => {
     }, [location]);
@@ -23,7 +35,7 @@ const EditInventory = (props) => {
     // edit current inventory information
     const EditInv = (inventory) => {
         const url = "http://localhost:3000/inventories/" + inventory.id;
-        if (name !== "" && description !== "") {
+        if (name !== "" && description !== "" && price !== "" && quantity !== "" && image !== "") {
             const req = {
             name: name,
             description: description,
@@ -35,7 +47,9 @@ const EditInventory = (props) => {
             props.history.push("/inv");
             console.log(inventory.image);
             });
-        }
+        } else if(name === "" || description === "" || price === "" || quantity === "" || image === "") {
+            alert("All fields are required")
+        };
         };
 
 
@@ -80,9 +94,9 @@ const EditInventory = (props) => {
             <label>Set Description</label> 
             <input type="text" name="changeDescr"  onChange={ e => setDescription(e.target.value)}></input> <br></br>
             <label>Set Price</label>
-            <input type="text" name="changePrice"  onChange={ e => setPrice(e.target.value)}></input> <br></br>
+            <input type="number" name="changePrice"  onChange={ e => setPrice(e.target.value)}></input> <br></br>
             <label>Set Quantity</label> 
-            <input type="text" name="changeQuan"  onChange={ e => setQuantity(e.target.value)}></input> <br></br>
+            <input type="number" name="changeQuan"  onChange={ e => setQuantity(e.target.value)}></input> <br></br>
             <label>Set Image</label>
             <input type="text" name="changeImage"  onChange={ e => setImage(e.target.value)}></input> <br></br>
             <button onClick={() => EditInv(location.state.detail.inventory)}>SAVE</button>

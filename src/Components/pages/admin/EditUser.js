@@ -5,6 +5,17 @@ import { withRouter, useLocation, Link } from "react-router-dom";
 
 const Editusers = (props) => {
 
+    //checking if there is a user, and if so is he an admin, if not re-route
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if(!user) {
+        props.history.push("/login");
+        alert("you do not have admin priveleges");
+        } else if(!user.admin) {
+            props.history.push("/login");
+        alert("you do not have admin priveleges");
+        };
+
     // set initial state
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -26,8 +37,6 @@ const Editusers = (props) => {
                 // admin: admin
             };
             axios.put(url, req).then(result => {
-                setUsername("");
-                setPassword("");
                 props.history.push("/users");
             });
         } else {

@@ -6,11 +6,28 @@
   margin: 0.5rem;
   border-radius: 0.5rem;
 }
+td{
+  min-width: 8rem;
+  max-width: 8rem;
+  height: 2rem;
+  overflow: auto;
+  white-space: nowrap;  
+}
+label{
+  float: left;
+  clear: left;
+  width: 150px;
+  text-align: right;
+}
+input {
+float: left;
+}
 button.badge{
   max-width: 1.5rem;
 }
 .logo{
-  max-height: 15rem;
+  max-height: 5rem;
+  float: left;  
 }
 ul {
   display: flex;
