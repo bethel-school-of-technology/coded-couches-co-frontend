@@ -6,13 +6,14 @@ const URL = process.env.API_URL;
 const Profile = () => {
     const [loggedUser, setLoggedUser] = useState([]);
     const [order, setOrder] = useState([]);
+    let userData =  JSON.parse(localStorage.getItem("user"))
 
-    //GET request to display User information
+    
+    // GET request to display User information
     // useEffect(() => {
-    //     axios.get(`${URL}/profiles/:id`).then((result) => {
+    //     axios.get(`${URL}/users/:id`).then((result) => {
     //         const token = result.data.jwt;
     //         const user = result.data.user.id;
-
     //         if(token) {
     //             if(user) {
     //                 setLoggedUser(result.data);
@@ -26,7 +27,17 @@ const Profile = () => {
     useEffect(() => {
         const orderHistory = JSON.parse(localStorage.getItem(["Order"])) || [];
         setOrder(orderHistory);
+        getUserData();
     }, [])
+    // Verifies user is logged in using user information in the localstorage from the Login
+    const getUserData = () => {
+        let userData =  JSON.parse(localStorage.getItem("user"))
+          console.log(userData);
+          if (!userData) {
+              console.log("this worked")
+              window.location.replace("http://localhost:3001/login")
+          } 
+      }
     
     return(
         <div>
