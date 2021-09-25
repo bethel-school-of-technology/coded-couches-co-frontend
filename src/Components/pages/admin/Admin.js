@@ -235,7 +235,7 @@ const Admin = () => {
               <br /> DESCRIPTION: {inventories.description} <br />
               PRICE: {inventories.price} <br /> QUANTITY: {inventories.quantity}{" "}
               <br /> IMAGE: {inventories.image} <br />
-              <button onClick={() => DeleteInv(inventories.id)}>
+              <button className = "removeButton" onClick={() => DeleteInv(inventories.id)}>
                 REMOVE
               </button>{" "}
               <br />
@@ -317,7 +317,7 @@ const Admin = () => {
               USER ID:{user.id} <br /> NAME: {user.username} <br /> Admin:{" "}
               {user.admin === true ? "is admin" : "is not admin"} <br />{" "}
               CREATED: {user.createdAt} <br />
-              <button onClick={() => DeleteUser(user.id)}>REMOVE</button> <br />
+              <button className = "removeButton" onClick={() => DeleteUser(user.id)}>REMOVE</button> <br />
               <label>User Name</label>
               <input
                 type="text"
