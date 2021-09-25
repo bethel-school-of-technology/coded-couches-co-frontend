@@ -1,22 +1,20 @@
-import React, { useEffect } from "react";
-import { Link, withRouter, useLocation } from 'react-router-dom';
+import React from "react";
+import { Link, withRouter } from 'react-router-dom';
 
 
 const Dashboard = (props) => {
+    //checking if there is a user, and if so is he an admin, if not re-route
+    const user = JSON.parse(localStorage.getItem('user'));
 
-    // const [admin, setAdmin] = useState("");
+    if(!user) {
+        props.history.push("/login");
+        alert("you do not have admin priveleges");
+        } else if(!user.admin) {
+            props.history.push("/login");
+        alert("you do not have admin priveleges");
+        };
     
-    // using previous pages information
-    const location = useLocation();
 
-    // setting previous pages information on to current page
-    // useEffect(() => {
-    //     console.log(location.state.detail)
-    // }, [location]);
-
-    // if (!location.state.detail) {
-    //     props.history.push("/shop")
-    // } 
 
 return (
     <div>
