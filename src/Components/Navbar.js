@@ -1,15 +1,16 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import logo from '../Images/logo.jpg';
-import CCCimage from '../Images/CCCimage.png'
+import CCCimage from '../Images/CCCimage.png';
+// import { Link } from 'react-router-dom';
+// import logo from '../Images/logo.jpg';
+
 
 const Navbar = (props) => {
     const {countCartItems} =props
     return(
         <header>
-            <div class="navbar">
+            <div className="navbar">
             
-            <img class="logo" src={CCCimage} alt="logo" />
+            <img className="logo" src={CCCimage} alt="logo" />
 
                 <nav>
                     <ul>
