@@ -20,16 +20,17 @@ const Login = (props) => {
             axios.post("http://localhost:3000/users/login", req).then(result => {
                 const token = result.data.jwt;
                 localStorage.setItem("myJWT", token);
-                const admin = result.data.user.admin;
+                // const admin = result.data.user.admin;
                 if (token) {
-                    if (admin) {
-                        props.history.push({
-                            pathname: "/dash",
-                            search: '?query=abc',
-                            state: { detail: {admin} }
-                        });} else {
+                    // if (admin) {
+                    //     props.history.push({
+                    //         pathname: "/dash",
+                    //         search: '?query=abc',
+                    //         state: { detail: {admin} }
+                    //     });
+                    // } else {
                         props.history.push("/shop");
-                    };
+                    // };
                 }
             })
         } else {

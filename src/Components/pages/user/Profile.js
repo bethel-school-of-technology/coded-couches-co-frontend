@@ -8,11 +8,19 @@ const Profile = () => {
     const [order, setOrder] = useState([]);
 
     //GET request to display User information
-    useEffect(() => {
-        axios.get(`${URL}/users`).then((result) => {
-          setLoggedUser(result.data);
-        });
-    }, []);
+    // useEffect(() => {
+    //     axios.get(`${URL}/profiles/:id`).then((result) => {
+    //         const token = result.data.jwt;
+    //         const user = result.data.user.id;
+
+    //         if(token) {
+    //             if(user) {
+    //                 setLoggedUser(result.data);
+    //             }
+    //         }
+            
+    //     });
+    // }, []);
 
     //Displays "Order" of cart items stored in localStorage
     useEffect(() => {
