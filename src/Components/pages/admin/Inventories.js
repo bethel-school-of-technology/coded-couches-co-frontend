@@ -4,6 +4,17 @@ import { withRouter, Link } from "react-router-dom";
 
 const Inventories = (props) => {
 
+    //checking if there is a user, and if so is he an admin, if not re-route
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if(!user) {
+        props.history.push("/login");
+        alert("you do not have admin priveleges");
+        } else if(!user.admin) {
+            props.history.push("/login");
+        alert("you do not have admin priveleges");
+        };
+
     // set initial state
     const [inventories, setInv] = useState([]);
 
@@ -38,7 +49,6 @@ const Inventories = (props) => {
         if(inventory) {
         props.history.push({
             pathname: "/editinv",
-            search: '?query=abc',
             state: { detail: {inventory} }
         });};
     });
@@ -77,7 +87,7 @@ const Inventories = (props) => {
                 <tr>
                     <td>{inventory.id}</td>
                     <td>{inventory.name}</td>
-                    <td>{inventory.description}</td>
+                    <td maxLength="10">{inventory.description}</td>
                     <td>${inventory.price}</td>
                     <td>{inventory.quantity}</td>
                     <td>{inventory.image}</td>

@@ -6,6 +6,17 @@ import { useState } from "react";
 
 const CreateInventory = (props) => {
 
+    //checking if there is a user, and if so is he an admin, if not re-route
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if(!user) {
+        props.history.push("/login");
+        alert("you do not have admin priveleges");
+        } else if(!user.admin) {
+            props.history.push("/login");
+        alert("you do not have admin priveleges");
+        };
+
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
@@ -15,7 +26,7 @@ const CreateInventory = (props) => {
     // create inventory
     const createInv = (e) => {
         e.preventDefault()
-        if (name !== "" && description !== "") {
+        if (name !== "" && description !== "" && price !== "" && quantity !== "" && image !== "") {
             const req = {
                 name: name,
                 description: description,
@@ -37,17 +48,17 @@ const CreateInventory = (props) => {
                 console.log(result.data);
                 document.getElementById("createInv").reset();
                 props.history.push("/inv");
-                //need to set state of input values to empty
-                // setName("");
-                // setDescription("");
+
             });
-        }
+        } else if(name === "" || description === "" || price === "" || quantity === "" || image === "") {
+            alert("All fields are required")
+        };
     };
 
 
 
     return (
-        <div>Hello Create Inventory
+        <div>Create Inventory
             <nav>
             <ul>
                 <li>
@@ -65,9 +76,9 @@ const CreateInventory = (props) => {
             <label>Description</label> 
             <input type="text" name="description" onChange={ e => setDescription(e.target.value)}></input> <br></br>
             <label>Price</label> 
-            <input type="text" name="price" onChange={ e => setPrice(e.target.value)}></input> <br></br>
+            <input type="number" name="price" onChange={ e => setPrice(e.target.value)}></input> <br></br>
             <label>Quantity</label> 
-            <input type="text" name="quantity" onChange={ e => setQuantity(e.target.value)}></input> <br></br>
+            <input type="number" name="quantity" onChange={ e => setQuantity(e.target.value)}></input> <br></br>
             <label>Image</label> 
             <input type="text" name="image" onChange={ e => setImage(e.target.value)}></input> <br></br>
             <button>Add Item</button>

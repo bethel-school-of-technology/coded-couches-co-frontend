@@ -3,7 +3,15 @@ import { Link } from 'react-router-dom';
 import logo from '../Images/logo.jpg';
 
 const Navbar = (props) => {
-    const {countCartItems} =props
+    const {countCartItems} =props;
+
+    const Logout = () => {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("user");
+        window.location.href = "/login";
+    };
+
+    
     return(
         <div className="navbar">
             <nav>
@@ -34,7 +42,11 @@ const Navbar = (props) => {
                         ) : (' ')}
                     </Link>
                     </li>
+                    <li>
+                        <Link onClick={Logout} to="/login">Logout</Link>
+                    </li>
                 </ul>
+                
             </nav>
         </div>
     );
