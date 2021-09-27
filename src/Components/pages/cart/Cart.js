@@ -5,6 +5,8 @@ const Cart = () => {
     let history = useHistory();
     
     const [updatedItems, setUpdatedItems] = useState([]);  
+    const orderTotal = updatedItems.reduce((a, c) => a + c.price * c.quantity, 0);
+
    
     //Displays item that's stored in localStorage
     useEffect(() => {
@@ -13,13 +15,20 @@ const Cart = () => {
         
     }, [])
 
-    //Stores the "cartItems" in new array "Order" in localStorage
+    //If no user data, user will be redirected to login page
+    //If user data, checkout stores the "cartItems" in new array "Order" in localStorage
     const onCheckout = () => {
-        localStorage.setItem("Order", JSON.stringify(updatedItems));
-        history.push("/profile");
-        localStorage.removeItem("cartItems");
+        let userData = JSON.parse(localStorage.getItem("user"));
+        if (!userData){
+            window.location.replace("http://localhost:3001/login")
+        }else{
+            localStorage.setItem("Order", JSON.stringify(updatedItems));
+            history.push("/profile");
+            localStorage.removeItem("cartItems");
+        }        
     }
-    console.log(updatedItems);
+    
+    
     return (
         <div>
             <h2>Cart Items</h2>
@@ -28,19 +37,14 @@ const Cart = () => {
                 {updatedItems.map((updatedItem) => (                    
                    <ul>
                     <li key={updatedItem.id}>                    
-                        <div>{updatedItem.name}</div>
+                        <strong>{updatedItem.name}</strong> 
                         <img className="small" src={updatedItem.image} alt={updatedItem.name}></img>
-                        <div className="button">
-                            <button className="remove"> - </button>
-                        </div>
-                        <div className="button">
-                            <button className="add"> + </button>
-                        </div>
+                        <div>{updatedItem.description}</div>
                         <div>
-                            {updatedItem.quantity} x ${updatedItem.price} <br></br>
-                            Order Total: ${(updatedItem.quantity)*(updatedItem.price)}
-                        </div>              
-                                       <div>{console.log(updatedItem)}</div>     
+                            <strong>${updatedItem.quantity * updatedItem.price}</strong>
+                            <div>Item Price: ${updatedItem.price}</div>
+                            <div>Qty: {updatedItem.quantity}</div>
+                        </div>                   
                     </li>  
                     </ul>                  
                 ))}
@@ -48,6 +52,12 @@ const Cart = () => {
                     <div>
                         <hr></hr>
                         <div>
+                            <div>
+                                <strong>Order Total</strong>
+                            </div>
+                            <div>
+                                <strong>${orderTotal}</strong>
+                            </div>
                             <div>
                                 <button onClick={onCheckout}>Checkout</button>
                             </div>    
