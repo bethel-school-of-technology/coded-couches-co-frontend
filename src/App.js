@@ -6,7 +6,6 @@ import Home from './Components/pages/Home';
 import Shop from './Components/pages/store/Shop';
 import Login from './Components/pages/user/Login';
 import Cart from './Components/pages/cart/Cart';
-import Admin from './Components/pages/admin/Admin';
 import Profile from "./Components/pages/user/Profile";
 import Dashboard from "./Components/pages/admin/Dashboard";
 import Inventories from "./Components/pages/admin/Inventories";
@@ -29,9 +28,6 @@ function App() {
           <Route path="/shop" component={Shop}/>
           <Route path="/login">
             <Login />
-          </Route>
-          <Route path="/admin">
-            <Admin />
           </Route>
           <Route path="/signup">
             <SignUp />

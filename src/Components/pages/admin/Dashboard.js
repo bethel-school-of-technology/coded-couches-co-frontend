@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 
 const Dashboard = (props) => {
-    //checking if there is a user, and if so is he an admin, if not re-route
+    //checking if there is a user, and if so, is he/she an admin, if not re-route
     const user = JSON.parse(localStorage.getItem('user'));
 
     if(!user) {
@@ -35,7 +35,7 @@ return (
                 </li>
             </ul>
         </div>
-        <h1>Welcome to Admin Dashboard</h1>
+        <h1 className="Dash">Welcome to Admin Dashboard</h1>
     </div>
     );
 };

@@ -24,16 +24,16 @@ const Login = (props) => {
                 console.log(user)
                 localStorage.setItem("myJWT", token);
                 localStorage.setItem("user", JSON.stringify(user));
-                // const admin = result.data.user.admin;
+                const admin = result.data.user.admin;
                 if (token) {
-                    // if (admin) {
-                        // props.history.push({
-                        //     pathname: "/dash",
-                        // });
-                    // } else {
+                    if (admin) {
+                        props.history.push({
+                            pathname: "/dash",
+                        });
+                    } else {
                         props.history.push("/shop");
                     };
-                // }
+                }
             })
         } else {
             return alert("Username needs to be at least 3 characters, and Password at least 6 characters")

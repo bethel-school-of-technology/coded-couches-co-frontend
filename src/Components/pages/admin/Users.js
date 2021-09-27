@@ -33,8 +33,8 @@ const Users = (props) => {
     };
 
     // delete user function
-    const DeleteUser = (id) => {
-        const url = ("http://localhost:3000/users/" + id);
+    const DeleteUser = (user) => {
+        const url = ("http://localhost:3000/users/" + user.id);
         axios.delete(url)
     .then(res => {
         getUser();});
@@ -53,7 +53,6 @@ const Users = (props) => {
     });
     };
 
-
     return (
         <div>
         <nav>
@@ -70,7 +69,6 @@ const Users = (props) => {
             </ul>
         </nav>
         <h1>Users Management</h1>
-            
     { users.map(user => 
             <table border="1" key={user.id}>
                 <thead>
@@ -89,7 +87,7 @@ const Users = (props) => {
                         <td>{user.createdAt}</td>
                     </tr>
                     <tr>
-                        <td><button onClick={() => DeleteUser(user.id) }>REMOVE</button></td>
+                        <td><button onClick={() => {if (window.confirm("Are you sure?")) DeleteUser(user)}}>REMOVE</button></td>
                         <td><button onClick={() => EditUser(user)}>EDIT USER</button></td>
                     </tr>
                 </tbody>
@@ -99,7 +97,5 @@ const Users = (props) => {
     </div>
     );
 };
-
-
 
 export default withRouter(Users);

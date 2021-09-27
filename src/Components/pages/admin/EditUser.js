@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react"; 
 import { withRouter, useLocation, Link } from "react-router-dom";
 
-
 const Editusers = (props) => {
 
     //checking if there is a user, and if so is he an admin, if not re-route
@@ -43,7 +42,6 @@ const Editusers = (props) => {
             return alert("Username needs to be at least 3 characters, and Password at least 6 characters")
         };
     };
-
 
     return (
         <div>
