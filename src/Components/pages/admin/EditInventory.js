@@ -94,7 +94,7 @@ const EditInventory = (props) => {
             <label>Set Description</label> 
             <input type="text" name="changeDescr"  onChange={ e => setDescription(e.target.value)}></input> <br></br>
             <label>Set Price</label>
-            <input type="number" name="changePrice"  onChange={ e => setPrice(e.target.value)}></input> <br></br>
+            <input type="number" step=".01" name="changePrice"  onChange={ e => setPrice(e.target.value)}></input> <br></br>
             <label>Set Quantity</label> 
             <input type="number" name="changeQuan"  onChange={ e => setQuantity(e.target.value)}></input> <br></br>
             <label>Set Image</label>

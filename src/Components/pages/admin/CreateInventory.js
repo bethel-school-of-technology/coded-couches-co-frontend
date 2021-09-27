@@ -76,7 +76,7 @@ const CreateInventory = (props) => {
             <label>Description</label> 
             <input type="text" name="description" onChange={ e => setDescription(e.target.value)}></input> <br></br>
             <label>Price</label> 
-            <input type="number" name="price" onChange={ e => setPrice(e.target.value)}></input> <br></br>
+            <input type="number" step=".01" name="price" onChange={ e => setPrice(e.target.value)}></input> <br></br>
             <label>Quantity</label> 
             <input type="number" name="quantity" onChange={ e => setQuantity(e.target.value)}></input> <br></br>
             <label>Image</label> 

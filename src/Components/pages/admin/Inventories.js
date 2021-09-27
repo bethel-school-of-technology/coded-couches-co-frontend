@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react"; 
 import { withRouter, Link } from "react-router-dom";
+import NumberFormat from 'react-number-format';
 
 const Inventories = (props) => {
 
@@ -88,7 +89,13 @@ const Inventories = (props) => {
                     <td>{inventory.id}</td>
                     <td>{inventory.name}</td>
                     <td maxLength="10">{inventory.description}</td>
-                    <td>${inventory.price}</td>
+                    <td><NumberFormat 
+                            style={{border: "0px solid transparent"}}
+                            thousandSeparator={true} 
+                            prefix={'$'} 
+                            value={inventory.price}
+                            />
+                    </td>
                     <td>{inventory.quantity}</td>
                     <td>{inventory.image}</td>
                 </tr>
