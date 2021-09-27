@@ -54,7 +54,7 @@ const EditInventory = (props) => {
 
 
     return (
-        <div>Hello Edit Inventory
+        <div>
             <nav>
             <ul>
                 <li>

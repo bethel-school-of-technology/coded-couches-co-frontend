@@ -93,7 +93,7 @@ const Inventories = (props) => {
                     <td>{inventory.image}</td>
                 </tr>
                 <tr>
-                    <td><button onClick={() => DeleteInv(inventory.id) }>REMOVE</button></td>
+                    <td><button onClick={() => {if (window.confirm("Are you sure?")) DeleteInv(inventory.id)}}>REMOVE</button></td>
                     <td><button onClick={() => EditInv(inventory)}>EDIT INV</button></td>
                 </tr>
             </tbody>

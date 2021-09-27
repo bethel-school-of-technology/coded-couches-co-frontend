@@ -35,7 +35,7 @@ return (
                 </li>
             </ul>
         </div>
-        <h1>Welcome to Admin Dashboard</h1>
+        <h1 className="Dash">Welcome to Admin Dashboard</h1>
     </div>
     );
 };

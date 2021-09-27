@@ -89,7 +89,7 @@ const Users = (props) => {
                         <td>{user.createdAt}</td>
                     </tr>
                     <tr>
-                        <td><button onClick={() => DeleteUser(user.id) }>REMOVE</button></td>
+                        <td><button onClick={() => {if (window.confirm("Are you sure?")) DeleteUser(user.id)}}>REMOVE</button></td>
                         <td><button onClick={() => EditUser(user)}>EDIT USER</button></td>
                     </tr>
                 </tbody>

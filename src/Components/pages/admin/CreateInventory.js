@@ -58,7 +58,7 @@ const CreateInventory = (props) => {
 
 
     return (
-        <div>Create Inventory
+        <div>
             <nav>
             <ul>
                 <li>

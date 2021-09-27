@@ -34,6 +34,10 @@ ul {
   flex-direction: row;
   justify-content: space-between;
 }
+.Dash{
+  width: 100%;
+  text-align: center;
+}
 li{
   list-style-type: none;
   padding: 0.5rem;

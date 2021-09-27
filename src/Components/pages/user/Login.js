@@ -19,7 +19,7 @@ const Login = (props) => {
             };
             axios.post("http://localhost:3000/users/login", req).then(result => {
                 const token = result.data.jwt;
-                const user = result.data.user
+                const user = result.data.user;
                 localStorage.setItem("myJWT", token);
                 localStorage.setItem("user", JSON.stringify(user));
                 const admin = result.data.user.admin;
