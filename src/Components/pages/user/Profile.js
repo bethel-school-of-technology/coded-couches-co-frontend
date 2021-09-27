@@ -6,7 +6,7 @@ const URL = process.env.API_URL;
 const Profile = () => {
     const [loggedUser, setLoggedUser] = useState([]);
     const [order, setOrder] = useState([]);
-    let userData =  JSON.parse(localStorage.getItem("user"))
+    let userData =  JSON.parse(localStorage.getItem("user"));
 
     
     // GET request to display User information

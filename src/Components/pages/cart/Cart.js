@@ -5,6 +5,7 @@ const Cart = () => {
     let history = useHistory();
     
     const [updatedItems, setUpdatedItems] = useState([]);  
+
    
     //Displays item that's stored in localStorage
     useEffect(() => {
@@ -13,11 +14,17 @@ const Cart = () => {
         
     }, [])
 
-    //Stores the "cartItems" in new array "Order" in localStorage
+    //If no user data, user will be redirected to login page
+    //If user data, checkout stores the "cartItems" in new array "Order" in localStorage
     const onCheckout = () => {
-        localStorage.setItem("Order", JSON.stringify(updatedItems));
-        history.push("/profile");
-        localStorage.removeItem("cartItems");
+        let userData = JSON.parse(localStorage.getItem("user"));
+        if (!userData){
+            window.location.replace("http://localhost:3001/login")
+        }else{
+            localStorage.setItem("Order", JSON.stringify(updatedItems));
+            history.push("/profile");
+            localStorage.removeItem("cartItems");
+        }        
     }
     console.log(updatedItems);
     return (
