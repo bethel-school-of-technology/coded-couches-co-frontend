@@ -21,30 +21,16 @@ const Createusers = (props) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-
      // create a user
     const createUser = (e) => {
         e.preventDefault()
         if (username.length >= 3 && password.length >= 6) {
             const req = {
                 username: username,
-                password: password,
-                // admin: admin
+                password: password
             };
-            // const token = localStorage.getItem("myJWT");
-            // if(!token) {
-            //     history.push("/login")
-            // }
-            // const options = {
-            //     headers: {
-            //         "Authorization": `Bearer ${token}`
-            //     }
-            // }
-            // add ",options" after req when ready for jwt
             axios.post("http://localhost:3000/users", req).then(result => {
                 console.log(result.data);
-                // setUsername("");
-                // setPassword("");
                 document.getElementById("createUser").reset();
                 props.history.push("/users");
             });
