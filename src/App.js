@@ -15,6 +15,7 @@ import CreateUser from "./Components/pages/admin/CreateUser";
 import EditUser from "./Components/pages/admin/EditUser";
 import CreateInventory from "./Components/pages/admin/CreateInventory";
 import EditInventory from "./Components/pages/admin/EditInventory";
+import Footer from "./Components/Footer";
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
           <Route path="/cart" component={Cart}/>
           <Route path="/profile" component={Profile} />
         </Switch>
+        <Footer/>
       </Router>
     </div>
   );

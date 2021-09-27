@@ -1,7 +1,4 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-
-const URL = process.env.API_URL;
 
 const Profile = () => {
     const [loggedUser, setLoggedUser] = useState([]);
@@ -71,12 +68,3 @@ const Profile = () => {
 }
 
 export default Profile;
-
-// {user.map((user) =>(
-//     <div key={user.id}>
-//         <div>
-//         {user.firstName}{' '}{user.lastName}{<br></br>}
-//         {user.email}
-//         </div>
-//     </div>
-// ))}
