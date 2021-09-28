@@ -183,3 +183,19 @@ button{
   cursor: pointer;
 }
 
+td{
+  min-width: 8rem;
+  max-width: 8rem;
+  height: 2rem;
+  overflow: auto;
+  white-space: nowrap;  
+}
+label{
+  float: left;
+  clear: left;
+  width: 150px;
+  text-align: right;
+}
+input {
+float: left;
+}

@@ -34,6 +34,7 @@ const Navbar = (props) => {
                             ) : (' ')}
                         </a>
                         </li>
+                        <li><a onClick={(href) => Logout(href="/login")}>Logout</a></li>
                     </ul>
                 </nav>
             </div>
