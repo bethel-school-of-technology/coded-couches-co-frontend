@@ -27,15 +27,17 @@ const SignUp = (props) => {
     };
 
 
-    return (<div>
-        <div  id="signUp">
-            <h1>Sign Up!</h1>
-            <label>Username</label>
-            <input type="text" name="username" value={username} minLength="3" onChange={ e => setUsername(e.target.value)} ></input> <br></br>
-            <label>Password</label> 
-            <input type="text" name="password" value={password}  minLength="6" onChange={ e => setPassword(e.target.value)} ></input> <br></br>
-            <button onClick={() => signIn(username, password)}>Sign Up</button>
-        </div>
+    return (<div className="login-page">
+            <div className="login-page">
+                <div className="form">
+                    <div className="login-form">
+                        <input type="text" placeholder="Username"  minLength="3" onChange={ e => setUsername(e.target.value)} />
+                        <input type="password" placeholder="Password" minLength="6"  onChange={ e => setPassword(e.target.value)}/>
+                        <button onClick={() => signIn(username, password)}>SignUp</button>
+
+                    </div>
+                </div>
+            </div>
     </div>);
 
 }
