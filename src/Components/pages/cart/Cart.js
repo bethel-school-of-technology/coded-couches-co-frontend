@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 
+const URL = process.env.REACT_APP_API_URLFRONT
+
 const Cart = () => {
     let history = useHistory();
     
@@ -20,7 +22,7 @@ const Cart = () => {
     const onCheckout = () => {
         let userData = JSON.parse(localStorage.getItem("user"));
         if (!userData){
-            window.location.replace("http://localhost:3001/login")
+            window.location.replace(`${URL}/login`)
         }else{
             localStorage.setItem("Order", JSON.stringify(updatedItems));
             history.push("/profile");

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react"; 
 import { withRouter, useLocation, Link } from "react-router-dom";
 
-
+const URL = process.env.REACT_APP_API_URL
 
 const EditInventory = (props) => {
 
@@ -34,7 +34,7 @@ const EditInventory = (props) => {
 
     // edit current inventory information
     const EditInv = (inventory) => {
-        const url = "http://localhost:3000/inventories/" + inventory.id;
+        const url = `${URL}/inventories/` + inventory.id;
         if (name !== "" && description !== "" && price !== "" && quantity !== "" && image !== "") {
             const req = {
             name: name,

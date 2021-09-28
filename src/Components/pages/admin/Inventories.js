@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { withRouter, Link } from "react-router-dom";
 import NumberFormat from 'react-number-format';
 
+const URL = process.env.REACT_APP_API_URL
+
 const Inventories = (props) => {
 
     //checking if there is a user, and if so is he an admin, if not re-route
@@ -21,21 +23,21 @@ const Inventories = (props) => {
 
     // set empty state with initial data 
     useEffect(() => {   
-        axios.get("http://localhost:3000/inventories").then(result => {
+        axios.get(`${URL}/inventories`).then(result => {
         setInv(result.data);
         })
     }, []);
 
     // re-render inventory function
     const getInv = () => {
-        axios.get("http://localhost:3000/inventories").then(result => {
+        axios.get(`${URL}/inventories`).then(result => {
                     setInv(result.data);
                     })
     };
 
     // delete inventory function
     const DeleteInv = (id) => {
-        const url = ("http://localhost:3000/inventories/" + id);
+        const url = (`${URL}/inventories/` + id);
         axios.delete(url)
     .then(res => {
         getInv();
@@ -44,7 +46,7 @@ const Inventories = (props) => {
 
     // edit inventory function, send to new page with inventory info
     const EditInv = (inventory) => {
-        const url = ("http://localhost:3000/inventories/" + inventory.id);
+        const url = (`${URL}/inventories/` + inventory.id);
         axios.get(url)
     .then(res => {
         if(inventory) {

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react"; 
 import { withRouter } from "react-router-dom";
 
-
+const URL = process.env.REACT_APP_API_URL
 
 const SignUp = (props) => {
 
@@ -17,7 +17,7 @@ const SignUp = (props) => {
                 username: username,
                 password: password
             };
-            axios.post("http://localhost:3000/users/", req).then(result => {
+            axios.post(`${URL}/users/`, req).then(result => {
                 props.history.push("/login");
                 console.log(result.data);
             })
