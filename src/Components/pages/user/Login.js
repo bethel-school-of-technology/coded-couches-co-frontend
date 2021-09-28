@@ -47,7 +47,7 @@ const Login = (props) => {
             <label>Username</label>
             <input type="text" name="username" minLength="3" onChange={ e => setUsername(e.target.value)}></input> <br></br>
             <label>Password</label> 
-            <input type="text" name="password" minLength="6" onChange={ e => setPassword(e.target.value)}></input> <br></br>
+            <input type="password" name="password" minLength="6" onChange={ e => setPassword(e.target.value)}></input> <br></br>
             <button >Login</button>
         </form>
     </div>);
