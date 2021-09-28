@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import logo from '../Images/logo.jpg';
+import CCCimage from '../Images/CCCimage.png';
+// import { Link } from 'react-router-dom';
+// import logo from '../Images/logo.jpg';
 
-const Navbar = () => {
+const Navbar = (props) => {
+    const {countCartItems} =props;
 
     const Logout = () => {
         localStorage.removeItem("accessToken");
@@ -12,40 +14,30 @@ const Navbar = () => {
 
     
     return(
-        <div className="navbar">
-            <nav>
-        
-            <img className="logo" src={logo} alt="logo" />
-        
-                <ul>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/about">About</Link>
-                    </li>
-                    <li>
-                        <Link to="/shop">Shop</Link>
-                    </li>
-                    <li>
-                        <Link to="/profile">Profile</Link>
-                    </li>
-                    <li>
-                        <Link to="/cart">Cart</Link>
-                    </li>
-                    <li>
-                        <Link to="/login">Login</Link>
-                    </li>
-                    <li>
-                        <Link to="/signup">SignUp</Link>
-                    </li>
-                    <li>
-                        <Link onClick={Logout} to="/login">Logout</Link>
-                    </li>
-                </ul>
-                
-            </nav>
-        </div>
+        <header>
+            <div className="navbar">
+                <a href="/" >
+                    <img  className="logo" src={CCCimage} alt="logo" />
+                </a>
+
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/shop">Shop</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/signup">SignUp</a></li>
+                        <li><a href="/cart">
+                            Cart{' '}
+                            {countCartItems ? (
+                            <button class="badge">{countCartItems}</button>
+                            ) : (' ')}
+                        </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
     );
 };
 export default Navbar;
