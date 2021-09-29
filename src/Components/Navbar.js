@@ -2,11 +2,7 @@ import React from "react";
 import { Link, withRouter } from 'react-router-dom';
 import CCCimage from '../Images/CCCimage.png';
 
-// import logo from '../Images/logo.jpg';
-
-const Navbar = (props) => {
-    const {countCartItems} =props;
-
+const Navbar = () => {
     const Logout = () => {
         localStorage.removeItem("accessToken");
         localStorage.removeItem("user");
@@ -28,12 +24,7 @@ const Navbar = (props) => {
                         <li><Link to="/shop">Shop</Link></li>
                         <li><Link to="/login">Login</Link></li>
                         <li><Link to="/signup">SignUp</Link></li>
-                        <li><Link to="/cart">
-                            Cart{' '}
-                            {countCartItems ? (
-                            <button class="badge">{countCartItems}</button>
-                            ) : (' ')}
-                        </Link>
+                        <li><Link to="/cart">Cart</Link>
                         </li>
                         <li><Link onClick={Logout} to="/login">Logout</Link></li>
                     </ul>
@@ -43,5 +34,3 @@ const Navbar = (props) => {
     );
 };
 export default withRouter(Navbar);
-
-// countCartItems={cartItems.length}

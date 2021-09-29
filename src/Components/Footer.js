@@ -9,14 +9,14 @@ const Footer = () => {
     return(
         <footer className="social-footer">
             <div className="social-footer-left">
-                <a href="/"><img className="logo" src={CCCicon}/></a>
+                <a href="/"><img className="logo" src={CCCicon} alt=""></img></a>
             </div>
             <div className="social-footer-icons">
                 <ul className="menuSimple">
-                    <li className="icons"><a href="https://www.facebook.com/"><img className="icons" src={facebook}></img></a></li>
-                    <li className="icons"><a href="https://www.instagram.com/?hl=en"><img className="icons" src={instagram} ></img></a></li>
-                    <li className="icons"><a href="https://twitter.com/?lang=en"><img className="icons" src={twitter} ></img></a></li>
-                    <li className="icons"><a href="https://www.pinterest.com/"><img className="icons" src={pinterest} ></img></a></li>
+                    <li className="icons"><a href="https://www.facebook.com/"><img className="icons" src={facebook} alt=""></img></a></li>
+                    <li className="icons"><a href="https://www.instagram.com/?hl=en"><img className="icons" src={instagram} alt=""></img></a></li>
+                    <li className="icons"><a href="https://twitter.com/?lang=en"><img className="icons" src={twitter} alt=""></img></a></li>
+                    <li className="icons"><a href="https://www.pinterest.com/"><img className="icons" src={pinterest} alt=""></img></a></li>
                 </ul>
             </div>
         </footer>

@@ -3,7 +3,7 @@ import React from "react";
 import { withRouter, Link } from "react-router-dom";
 import { useState } from "react"; 
 
-
+const URL = process.env.REACT_APP_API_URL
 const Createusers = (props) => {
 
     //checking if there is a user, and if so is he an admin, if not re-route
@@ -29,7 +29,7 @@ const Createusers = (props) => {
                 username: username,
                 password: password
             };
-            axios.post("http://localhost:3000/users", req).then(result => {
+            axios.post(`${URL}/users`, req).then(result => {
                 console.log(result.data);
                 document.getElementById("createUser").reset();
                 props.history.push("/users");

@@ -3,6 +3,7 @@ import React from "react";
 import { withRouter, Link } from "react-router-dom";
 import { useState } from "react"; 
 
+const URL = process.env.REACT_APP_API_URL
 
 const CreateInventory = (props) => {
 
@@ -44,7 +45,7 @@ const CreateInventory = (props) => {
             //     }
             // }
             // add ",options" after req when ready for jwt
-            axios.post("http://localhost:3000/inventories", req).then(result => {
+            axios.post(`${URL}/inventories`, req).then(result => {
                 console.log(result.data);
                 document.getElementById("createInv").reset();
                 props.history.push("/inv");

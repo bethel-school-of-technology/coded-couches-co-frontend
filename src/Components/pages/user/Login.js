@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react"; 
 import { withRouter } from "react-router";
 
+const URL = process.env.REACT_APP_API_URL
 
 const Login = (props) => {
 
@@ -17,7 +18,7 @@ const Login = (props) => {
                 username: username,
                 password: password
             };
-            axios.post("http://localhost:3000/users/login", req).then(result => {
+            axios.post(`${URL}/users/login`, req).then(result => {
                 const token = result.data.jwt;
                 const user = result.data.user;
                 

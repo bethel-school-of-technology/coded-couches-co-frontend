@@ -2,10 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react"; 
 import { withRouter, Link } from "react-router-dom";
 
-// import Table from "./Table";
-// import { useTable } from 'react-table';
-
-
+const URL = process.env.REACT_APP_API_URL
 
 const Users = (props) => {
     //checking if there is a user, and if so is he an admin, if not re-route
@@ -80,21 +77,21 @@ const Users = (props) => {
 
     // set empty state with initial data
     useEffect(() => {
-        axios.get("http://localhost:3000/users").then(result => {
+        axios.get(`${URL}/users`).then(result => {
             setUsers(result.data);
         })
     }, []);
 
     // re-render user function
     const getUser = () => {
-        axios.get("http://localhost:3000/users").then(result => {
+        axios.get(`${URL}/users`).then(result => {
                     setUsers(result.data);
                     })
     };
 
     // delete user function
     const DeleteUser = (user) => {
-        const url = ("http://localhost:3000/users/" + user.id);
+        const url = (`${URL}/users/` + user.id);
         axios.delete(url)
     .then(res => {
         getUser();});
@@ -102,7 +99,7 @@ const Users = (props) => {
 
     // edit user function, send to new page with users info
     const EditUser = (user) => {
-        const url = ("http://localhost:3000/users/" + user.id);
+        const url = (`${URL}/users/` + user.id);
         axios.get(url)
     .then(res => {
         if(user) {
