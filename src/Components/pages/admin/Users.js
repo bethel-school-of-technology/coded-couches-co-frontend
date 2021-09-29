@@ -19,6 +19,62 @@ const Users = (props) => {
     // set initial state
     const [users, setUsers] = useState([]);
 
+
+    // EXPERIMENTAL REACT TABLE, NOT WORKING YET
+    // const [data, setData] = useState([]);
+
+    // const columns = useMemo(
+    //     () => [
+    //       {
+    //         // first group - TV Show
+    //         Header: "TV Show",
+    //         // First group columns
+    //         columns: [
+    //           {
+    //             Header: "Name",
+    //             accessor: "show.name"
+    //           },
+    //           {
+    //             Header: "Type",
+    //             accessor: "show.type"
+    //           }
+    //         ]
+    //       },
+    //       {
+    //         // Second group - Details
+    //         Header: "Details",
+    //         // Second group columns
+    //         columns: [
+    //           {
+    //             Header: "Language",
+    //             accessor: "show.language"
+    //           },
+    //           {
+    //             Header: "Genre(s)",
+    //             accessor: "show.genres"
+    //           },
+    //           {
+    //             Header: "Runtime",
+    //             accessor: "show.runtime"
+    //           },
+    //           {
+    //             Header: "Status",
+    //             accessor: "show.status"
+    //           }
+    //         ]
+    //       }
+    //     ],
+    //     []
+    //   );
+    
+
+    // useEffect(() => {
+    //     (async () => {
+    //     const result = await axios("https://api.tvmaze.com/search/shows?q=snow");
+    //     setData(result.data);
+    //     })();
+    // }, []);
+
     // set empty state with initial data
     useEffect(() => {
         axios.get(`${URL}/users`).then(result => {
@@ -55,7 +111,8 @@ const Users = (props) => {
     };
 
     return (
-        <div>
+        <div style={{display: "flex",flexDirection: "column",alignItems: "flex-start"}}>
+
         <nav>
             <ul>
                 <li>
@@ -88,13 +145,13 @@ const Users = (props) => {
                         <td>{user.createdAt}</td>
                     </tr>
                     <tr>
-                        <td><button onClick={() => {if (window.confirm("Are you sure?")) DeleteUser(user)}}>REMOVE</button></td>
+                        <td><button className="removeButton" onClick={() => {if (window.confirm("Are you sure?")) DeleteUser(user)}}>REMOVE</button></td>
                         <td><button onClick={() => EditUser(user)}>EDIT USER</button></td>
                     </tr>
                 </tbody>
             </table>
-            ) }
-            
+            ) };
+            {/* <Table columns={columns} data={data} /> */}
     </div>
     );
 };

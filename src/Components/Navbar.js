@@ -1,35 +1,36 @@
 import React from "react";
+import { Link, withRouter } from 'react-router-dom';
 import CCCimage from '../Images/CCCimage.png';
 
 const Navbar = () => {
     const Logout = () => {
         localStorage.removeItem("accessToken");
         localStorage.removeItem("user");
-        window.location.href = "/login";
+        // history.push("/login");
     };
 
     
     return(
         <header>
             <div className="navbar">
-                <a href="/" >
+                <Link to="/" >
                     <img  className="logo" src={CCCimage} alt="logo" />
-                </a>
+                </Link>
 
                 <nav>
                     <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about">About</a></li> 
-                        <li><a href="/shop">Shop</a></li>                        
-                        <li><a href="/profile">Profile</a></li>                           
-                        <li><a href="/cart">Cart</a></li>
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/signup">SignUp</a></li>
-                        <li><a href="/login" onClick={Logout}>Logout</a></li>                       
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/about">About</Link></li>
+                        <li><Link to="/shop">Shop</Link></li>
+                        <li><Link to="/login">Login</Link></li>
+                        <li><Link to="/signup">SignUp</Link></li>
+                        <li><Link to="/cart">Cart</Link>
+                        </li>
+                        <li><Link onClick={Logout} to="/login">Logout</Link></li>
                     </ul>
                 </nav>
             </div>
         </header>
     );
 };
-export default Navbar;
+export default withRouter(Navbar);

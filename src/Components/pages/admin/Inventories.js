@@ -59,8 +59,8 @@ const Inventories = (props) => {
 
 
     return (
-        <div>
-        <nav>
+        <div style={{display: "flex",flexDirection: "column",alignItems: "flex-start"}}>
+        <nav style={{marginBottom: "10px"}}>
             <ul>
                 <li>
                 <Link to="/dash">Dashboard</Link>
@@ -73,9 +73,9 @@ const Inventories = (props) => {
                 </li>
             </ul>
         </nav>
+        
         <h1>All the Inventory</h1>
-    { inventories.map(inventory => 
-        <table id="allInv" border="1" key={inventory.id}>
+        <table id="allInv" border="1">
             <thead>
                 <tr>
                     <th>ID:</th>
@@ -84,30 +84,41 @@ const Inventories = (props) => {
                     <th>PRICE:</th>
                     <th>QTY:</th>
                     <th>IMAGE:</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+            { inventories.map(inventory =>
+                <tr  key={inventory.id}>
                     <td>{inventory.id}</td>
                     <td>{inventory.name}</td>
-                    <td maxLength="10">{inventory.description}</td>
+                    <td>{inventory.description}</td>
                     <td><NumberFormat 
                             style={{border: "0px solid transparent"}}
                             thousandSeparator={true} 
                             prefix={'$'} 
                             value={inventory.price}
+                            displayType="text"
                             />
                     </td>
                     <td>{inventory.quantity}</td>
-                    <td>{inventory.image}</td>
+                    <td><img src={inventory.image} alt="" width="100px" /></td>
+                    <td>
+                    <button className="custom-btn" onClick={() => {if (window.confirm("Are you sure?")) DeleteInv(inventory.id)}}>
+                    <svg xmlns="http://www.w3.org/2000/svg" style={{width: "25px", height:"25px"}} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                    </button>
+                    <button className="custom-btn" onClick={() => EditInv(inventory)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" style={{width: "25px", height:"25px"}} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                    </button>
+                    </td>
                 </tr>
-                <tr>
-                    <td><button onClick={() => {if (window.confirm("Are you sure?")) DeleteInv(inventory.id)}}>REMOVE</button></td>
-                    <td><button onClick={() => EditInv(inventory)}>EDIT INV</button></td>
-                </tr>
+            ) }
             </tbody>
         </table>
-            ) }
     </div>
     );
 };
