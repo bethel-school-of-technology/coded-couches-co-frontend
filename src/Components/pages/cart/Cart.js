@@ -32,7 +32,7 @@ const Cart = () => {
     
     
     return (
-        <div>
+        <div className="cart">
             <h2>Cart Items</h2>
             <div>
                 {updatedItems.length === 0 && <div>Cart Is Empty</div>}

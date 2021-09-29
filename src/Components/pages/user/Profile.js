@@ -31,7 +31,7 @@ const Profile = () => {
     
     
     return(
-        <div>
+        <div className="profile">
             <strong>
                 Welcome {loggedUser.username}!
             </strong>
@@ -53,7 +53,8 @@ const Profile = () => {
                         </div>          
                         </div>
                     ))}
-                    <div>
+                    {order.length !== 0 && (
+                        <div>
                         <hr></hr>
                         <div>
                             <div>
@@ -64,6 +65,7 @@ const Profile = () => {
                             </div>  
                         </div>     
                     </div>
+                    )}
                 </div>
         </div>
     );

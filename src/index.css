@@ -235,3 +235,17 @@ button{
   display: inline-block;
   margin: .4rem;
 }
+
+
+/*Added to be able to see the 
+checkout button and order total in cart 
+and profile pages because of footer*/
+.cart{
+  margin: 10rem;
+}
+.profile{
+  margin: 10rem;
+}
+ul{
+  list-style: none;
+}
