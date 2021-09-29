@@ -31,7 +31,7 @@ const Login = (props) => {
                             pathname: "/dash",
                         });
                     } else {
-                        props.history.push("/shop");
+                        props.history.push("/");
                     };
                 }
             })
@@ -43,12 +43,25 @@ const Login = (props) => {
 
     return (<div>
         <form onSubmit={ signIn }>
-            <h1>Login!</h1>
+            {/* <h1>Login!</h1>
             <label>Username</label>
             <input type="text" name="username" minLength="3" onChange={ e => setUsername(e.target.value)}></input> <br></br>
             <label>Password</label> 
             <input type="text" name="password" minLength="6" onChange={ e => setPassword(e.target.value)}></input> <br></br>
-            <button >Login</button>
+            <button >Login</button> */}
+            <div className="login-page">
+                <div className="loginText">
+                    <p>Login</p>
+                </div>
+                <div className="form">
+                    <div class="login-form">
+                        <input type="text" placeholder="Username"  minLength="3" onChange={ e => setUsername(e.target.value)} />
+                        <input type="password" placeholder="Password"   onChange={ e => setPassword(e.target.value)}/>
+                        <button>login</button>
+                        <p className="message">Not registered? <a href="/signup">Create an account</a></p>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>);
 
