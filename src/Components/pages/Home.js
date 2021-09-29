@@ -1,7 +1,7 @@
 import React from 'react';
-import CCC1 from '../../Images/CCC1.png';
-import CCC2 from '../../Images/CCC2.png';
-import CCC3 from '../../Images/CCC3.png';
+import CCC1 from '../../Images/CCC1(2).png';
+import CCC2 from '../../Images/CCC2(2).png';
+import CCC3 from '../../Images/CCC3(2).png';
 import CCC4 from '../../Images/CCC4.png';
 import { useEffect } from 'react';
 
