@@ -17,7 +17,8 @@ const Dashboard = (props) => {
 
 
 return (
-    <div>
+    <div style={{display: "flex",flexDirection: "column",alignItems: "flex-start"}}>
+
         
         <nav id="adminNav">
             <ul>

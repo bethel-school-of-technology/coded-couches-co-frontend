@@ -44,7 +44,8 @@ const Editusers = (props) => {
     };
 
     return (
-        <div>
+        <div style={{display: "flex",flexDirection: "column",alignItems: "flex-start"}}>
+
             <nav>
             <ul>
                 <li>
