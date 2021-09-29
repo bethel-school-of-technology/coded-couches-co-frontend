@@ -29,6 +29,9 @@ const SignUp = (props) => {
 
     return (<div className="login-page">
             <div className="login-page">
+            <div className="loginText">
+                    <p>Sign Up</p>
+                </div>
                 <div className="form">
                     <div className="login-form">
                         <input type="text" placeholder="Username"  minLength="3" onChange={ e => setUsername(e.target.value)} />

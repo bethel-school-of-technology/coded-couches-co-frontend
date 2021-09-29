@@ -1,61 +1,5 @@
-/* .navbar{
-  display: flex;
-  justify-content: flex-end;
-  background-color: #e0e0e0;
-  padding: 1rem;
-  margin: 0.5rem;
-  border-radius: 0.5rem;
-}
-td{
-  min-width: 8rem;
-  max-width: 8rem;
-  height: 2rem;
-  overflow: auto;
-  white-space: nowrap;  
-}
-label{
-  float: left;
-  clear: left;
-  width: 150px;
-  text-align: right;
-}
-input {
-float: left;
-}
-button.badge{
-  max-width: 1.5rem;
-}
-.logo{
-  max-height: 5rem;
-  float: left;  
-}
-ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.Dash{
-  width: 100%;
-  text-align: center;
-}
-li{
-  list-style-type: none;
-  padding: 0.5rem;
-  text-decoration: none;
-}
-img.small{
-  max-height: 17rem;
-}
-.shop{
-  background-color: #e0e0e0;
-  padding: 1rem;
-  margin: 0.5rem;
-  border-radius: 0.5rem;
-}
-.image{
-  padding: 1rem;
-} */
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico');
 
 * {
   margin: 0;
@@ -69,13 +13,11 @@ body {
   font-family:  sans-serif;
   font-weight: 400;
   background: rgb(191, 219, 241);
-  
-
 }
 
 /* Slideshow Images */
 .intro {
-  height: 100vh;
+  height: 85vh;
   position: relative;
 }
 
@@ -262,12 +204,25 @@ button{
   color: #EF3B3A;
 }
 
+.loginText {
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  color: #444444;
+  
+}
 
 /* Footer  */
 
 .social-footer {
+  position: fixed; 
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
   padding: 1rem;
-  background: #8a8a8a;
+  background: #afaba2;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -277,4 +232,6 @@ button{
 .icons {
   max-height: 3rem;
   list-style-type: none;
+  display: inline-block;
+  margin: .4rem;
 }
