@@ -17,9 +17,10 @@ const Dashboard = (props) => {
 
 
 return (
-    <div>
+    <div style={{display: "flex",flexDirection: "column",alignItems: "flex-start"}}>
+
         
-        <div id="adminNav">
+        <nav id="adminNav">
             <ul>
                 <li>
                 <Link to="/inv">Inventory</Link>
@@ -34,7 +35,7 @@ return (
                 <Link to="/createuser">Create User</Link>
                 </li>
             </ul>
-        </div>
+        </nav>
         <h1 className="Dash">Welcome to Admin Dashboard</h1>
     </div>
     );
