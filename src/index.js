@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import AdminRouter from './Components/pages/admin/AdminRouter';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <AdminRouter />
   </React.StrictMode>,
   document.getElementById('root')
 );

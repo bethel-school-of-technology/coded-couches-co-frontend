@@ -60,7 +60,7 @@ const CreateInventory = (props) => {
 
 
     return (
-        <div style={{display: "flex",flexDirection: "column",alignItems: "flex-start"}}>
+        <div  className="adminLayout">
 
         <Layout>
         </Layout>
@@ -76,7 +76,11 @@ const CreateInventory = (props) => {
             <input type="number" name="quantity" onChange={ e => setQuantity(e.target.value)}></input> <br></br>
             <label>Image</label> 
             <input type="text" name="image" onChange={ e => setImage(e.target.value)}></input> <br></br>
-            <button>Add Item</button>
+            <button className="btn-add">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+</svg>
+            </button>
         </form>
     </div>
     );

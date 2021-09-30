@@ -45,7 +45,7 @@ const EditInventory = (props) => {
             image: image
             };
             axios.put(url, req).then((result) => {
-            props.history.push("/inv");
+            props.history.push("/admin/inventory");
             console.log(inventory.image);
             });
         } else if(name === "" || description === "" || price === "" || quantity === "" || image === "") {
@@ -55,7 +55,7 @@ const EditInventory = (props) => {
 
 
     return (
-        <div style={{display: "flex",flexDirection: "column",alignItems: "flex-start"}}>
+        <div  className="adminLayout">
             <Layout>
             </Layout>
         <h1>Edit Inventory</h1>
@@ -78,7 +78,7 @@ const EditInventory = (props) => {
                         <td>{location.state.detail.inventory.description}</td>
                         <td>${location.state.detail.inventory.price}</td>
                         <td>{location.state.detail.inventory.quantity}</td>
-                        <td>{location.state.detail.inventory.image}</td>
+                        <td><img src={location.state.detail.inventory.image} alt="" width="100px" /></td>
                     </tr>
                 </tbody>
             </table>
@@ -92,7 +92,13 @@ const EditInventory = (props) => {
             <input type="number" name="changeQuan"  onChange={ e => setQuantity(e.target.value)}></input> <br></br>
             <label>Set Image</label>
             <input type="text" name="changeImage"  onChange={ e => setImage(e.target.value)}></input> <br></br>
-            <button onClick={() => EditInv(location.state.detail.inventory)}>SAVE</button>
+            <button className="btn-add" onClick={() => EditInv(location.state.detail.inventory)}>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+</svg>
+            </button>
+            <div>empty info until footer is move below visible area</div><br></br>
+            <div>empty info until footer is move below visible area</div><br></br>
         </div>
     </div>
     );
