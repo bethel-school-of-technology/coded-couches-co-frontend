@@ -1,7 +1,8 @@
 import axios from "axios";
 import React from "react"; 
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { useState } from "react"; 
+import Layout from "./Layout";
 
 const URL = process.env.REACT_APP_API_URL
 
@@ -61,16 +62,8 @@ const CreateInventory = (props) => {
     return (
         <div style={{display: "flex",flexDirection: "column",alignItems: "flex-start"}}>
 
-            <nav>
-            <ul>
-                <li>
-                <Link to="/dash">Dashboard</Link>
-                </li>
-                <li>
-                <Link to="/inv">Inventory</Link>
-                </li>
-            </ul>
-        </nav>
+        <Layout>
+        </Layout>
         <form onSubmit={ createInv } id="createInv">
             <h1>Add Inventory</h1>
             <label>Item Name</label>

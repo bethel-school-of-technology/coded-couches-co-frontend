@@ -1,10 +1,19 @@
 import axios from "axios";
 import React from "react"; 
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { useState } from "react"; 
+import Layout from "./Layout";
 
 const URL = process.env.REACT_APP_API_URL
 const Createusers = (props) => {
+
+    // console.log(Layout);
+    // console.log(Layout);
+    const arr1 = [];
+    
+        arr1.push(Layout);
+        
+    console.log(arr1);
 
     //checking if there is a user, and if so is he an admin, if not re-route
     const user = JSON.parse(localStorage.getItem('user'));
@@ -20,6 +29,13 @@ const Createusers = (props) => {
     // set initial state
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    // const [child, setChild] = useState([]);
+
+    // useEffect(() => {
+    //    Layout().then(result => {
+    //         setChild(result.data);
+    //     })
+    // }, []);
 
      // create a user
     const createUser = (e) => {
@@ -43,17 +59,8 @@ const Createusers = (props) => {
 
     return (
         <div style={{display: "flex",flexDirection: "column",alignItems: "flex-start"}}>
-
-        <nav>
-            <ul>
-                <li>
-                <Link to="/dash">Dashboard</Link>
-                </li>
-                <li>
-                <Link to="/users">Users</Link>
-                </li>
-            </ul>
-        </nav>
+        <Layout>
+        </Layout>
         <h1>Create a User</h1>
         <form onSubmit={ createUser } id="createUser">
             <label>Username</label>

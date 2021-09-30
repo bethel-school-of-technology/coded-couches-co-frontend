@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react"; 
-import { withRouter, useLocation, Link } from "react-router-dom";
+import { withRouter, useLocation } from "react-router-dom";
+import Layout from "./Layout";
 
 const URL = process.env.REACT_APP_API_URL
 
@@ -48,19 +49,8 @@ const Editusers = (props) => {
     return (
         <div style={{display: "flex",flexDirection: "column",alignItems: "flex-start"}}>
 
-            <nav>
-            <ul>
-                <li>
-                <Link to="/dash">Dashboard</Link>
-                </li>
-                <li>
-                <Link to="/users">Users</Link>
-                </li>
-                <li>
-                <Link to="/createUser">Create User</Link>
-                </li>
-            </ul>
-        </nav>
+        <Layout>
+        </Layout>
         <h1>Edit User</h1>
         <div>
             <table border="1">

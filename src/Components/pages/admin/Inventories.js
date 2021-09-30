@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react"; 
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import NumberFormat from 'react-number-format';
+import Layout from "./Layout";
 
 const URL = process.env.REACT_APP_API_URL
 
@@ -60,19 +61,8 @@ const Inventories = (props) => {
 
     return (
         <div style={{display: "flex",flexDirection: "column",alignItems: "flex-start"}}>
-        <nav style={{marginBottom: "10px"}}>
-            <ul>
-                <li>
-                <Link to="/dash">Dashboard</Link>
-                </li>
-                <li>
-                <Link to="/createinv">Create Inventory</Link>
-                </li>
-                <li>
-                <Link to="/users">Users</Link>
-                </li>
-            </ul>
-        </nav>
+        <Layout>
+        </Layout>
         
         <h1>All the Inventory</h1>
         <table id="allInv" border="1">

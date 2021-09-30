@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import Layout from "./Layout";
 
 
 const Dashboard = (props) => {
@@ -18,25 +19,11 @@ const Dashboard = (props) => {
 
 return (
     <div style={{display: "flex",flexDirection: "column",alignItems: "flex-start"}}>
-
-        
-        <nav id="adminNav">
-            <ul>
-                <li>
-                <Link to="/inv">Inventory</Link>
-                </li>
-                <li>
-                <Link to="/createinv">Create Inventory</Link>
-                </li>
-                <li>
-                <Link to="/users">Users</Link>
-                </li>
-                <li>
-                <Link to="/createuser">Create User</Link>
-                </li>
-            </ul>
-        </nav>
-        <h1 className="Dash">Welcome to Admin Dashboard</h1>
+        <Layout>
+        </Layout>
+        <h1 className="Dash">
+            Welcome to Admin Dashboard
+            </h1>
     </div>
     );
 };
