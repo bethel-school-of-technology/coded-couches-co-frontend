@@ -33,7 +33,7 @@ function App() {
           <Route path="/signup">
             <SignUp />
           </Route>
-          <Route path="/dash">
+          <Route path="/admin/dashboard">
             <Dashboard />
           </Route>
           <Route path="/inv">

@@ -18,7 +18,7 @@ const Dashboard = (props) => {
 
 
 return (
-    <div style={{display: "flex",flexDirection: "column",alignItems: "flex-start"}}>
+    <div  className="adminLayout">
         <Layout>
         </Layout>
         <h1 className="Dash">

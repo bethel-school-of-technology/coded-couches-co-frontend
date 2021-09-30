@@ -55,7 +55,7 @@ const EditInventory = (props) => {
 
 
     return (
-        <div style={{display: "flex",flexDirection: "column",alignItems: "flex-start"}}>
+        <div  className="adminLayout">
             <Layout>
             </Layout>
         <h1>Edit Inventory</h1>

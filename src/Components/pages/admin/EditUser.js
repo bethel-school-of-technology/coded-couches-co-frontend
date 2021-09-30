@@ -47,7 +47,7 @@ const Editusers = (props) => {
     };
 
     return (
-        <div style={{display: "flex",flexDirection: "column",alignItems: "flex-start"}}>
+        <div  className="adminLayout">
 
         <Layout>
         </Layout>

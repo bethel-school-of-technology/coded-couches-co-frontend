@@ -29,7 +29,7 @@ const Login = (props) => {
                 if (token) {
                     if (admin) {
                         props.history.push({
-                            pathname: "/dash",
+                            pathname: "/admin/dashboard",
                         });
                     } else {
                         props.history.push("/");
