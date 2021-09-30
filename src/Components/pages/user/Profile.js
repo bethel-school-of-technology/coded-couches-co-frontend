@@ -28,6 +28,13 @@ const Profile = () => {
         getUserData();
     }, []);
 
+    // Logs user out and redirects to login page
+    const Logout = () => {
+        localStorage.removeItem("myJWT");
+        localStorage.removeItem("Order");
+        localStorage.removeItem("user");
+        window.location.replace(`${URL}/login`)
+    };
     
     
     return(
@@ -67,6 +74,9 @@ const Profile = () => {
                     </div>
                     )}
                 </div>
+                <div className="logout-button">
+                    <button onClick={Logout}>Logout</button>
+                </div>               
         </div>
     );
 }
