@@ -38,7 +38,7 @@ const Cart = () => {
                 {updatedItems.length === 0 && <div>Cart Is Empty</div>}
                 {updatedItems.map((updatedItem) => (                    
                    <ul>
-                    <li key={updatedItem.id}>                    
+                    <li key={updatedItem.id}>                   
                         <strong>{updatedItem.name}</strong> 
                         <img className="small" src={updatedItem.image} alt={updatedItem.name}></img>
                         <div>{updatedItem.description}</div>
@@ -73,37 +73,3 @@ const Cart = () => {
 
 
 export default Cart;
-
-// <div>{console.log(updatedItems)}</div>
-
-
-// <div>
-//                             <div>Item Price</div>
-//                             <div>${itemPrice.toFixed(2)}</div>
-//                         </div>
-//                         <div>
-//                             <div>
-//                                 <strong>Order Total</strong>
-//                             </div>
-//                             <div>
-//                                 <strong>${orderTotal.toFixed(2)}</strong>
-//                             </div>
-//                         </div>
-
-//   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
-    //   const orderTotal = itemPrice;
-
-
-// const onAdd = (cartItems) => {
-    //     const exist = updatedItems.find((x) => x.id === cartItems.id);
-    //     if (exist) {
-    //     setCartItems(
-    //         updatedItems.map((x) =>
-    //         x.id === cartItems.id ? { ...exist, quantity: exist.quantity + 1 } : x
-    //         )
-    //     );console.log(cartItems);
-    //     } else {
-    //     setCartItems([...updatedItems, { ...cartItems, quantity: 1 }]);
-    //     }        
-    // };
-                        
