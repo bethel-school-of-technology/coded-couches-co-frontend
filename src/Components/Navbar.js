@@ -10,7 +10,6 @@ const Navbar = (props) => {
     const Logout = () => {
         localStorage.removeItem("accessToken");
         localStorage.removeItem("user");
-        // history.push("/login");
     };
 
     

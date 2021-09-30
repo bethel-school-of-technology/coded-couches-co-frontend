@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react"; 
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import Layout from "./Layout";
 
 // import Table from "./Table";
 // import { useTable } from 'react-table';
@@ -21,62 +22,6 @@ const Users = (props) => {
 
     // set initial state
     const [users, setUsers] = useState([]);
-
-
-    // EXPERIMENTAL REACT TABLE, NOT WORKING YET
-    // const [data, setData] = useState([]);
-
-    // const columns = useMemo(
-    //     () => [
-    //       {
-    //         // first group - TV Show
-    //         Header: "TV Show",
-    //         // First group columns
-    //         columns: [
-    //           {
-    //             Header: "Name",
-    //             accessor: "show.name"
-    //           },
-    //           {
-    //             Header: "Type",
-    //             accessor: "show.type"
-    //           }
-    //         ]
-    //       },
-    //       {
-    //         // Second group - Details
-    //         Header: "Details",
-    //         // Second group columns
-    //         columns: [
-    //           {
-    //             Header: "Language",
-    //             accessor: "show.language"
-    //           },
-    //           {
-    //             Header: "Genre(s)",
-    //             accessor: "show.genres"
-    //           },
-    //           {
-    //             Header: "Runtime",
-    //             accessor: "show.runtime"
-    //           },
-    //           {
-    //             Header: "Status",
-    //             accessor: "show.status"
-    //           }
-    //         ]
-    //       }
-    //     ],
-    //     []
-    //   );
-    
-
-    // useEffect(() => {
-    //     (async () => {
-    //     const result = await axios("https://api.tvmaze.com/search/shows?q=snow");
-    //     setData(result.data);
-    //     })();
-    // }, []);
 
     // set empty state with initial data
     useEffect(() => {
@@ -116,19 +61,8 @@ const Users = (props) => {
     return (
         <div style={{display: "flex",flexDirection: "column",alignItems: "flex-start"}}>
 
-        <nav>
-            <ul>
-                <li>
-                <Link to="/dash">Dashboard</Link>
-                </li>
-                <li>
-                <Link to="/createUser">Create User</Link>
-                </li>
-                <li>
-                <Link to="/inv">Inventory</Link>
-                </li>
-            </ul>
-        </nav>
+        <Layout>
+        </Layout>
         <h1>Users Management</h1>
     { users.map(user => 
             <table border="1" key={user.id}>
