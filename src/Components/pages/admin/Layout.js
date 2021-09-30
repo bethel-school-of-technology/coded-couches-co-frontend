@@ -7,19 +7,19 @@ const Layout = ({ children }) => {
     <nav style={{marginBottom: "10px"}}>
         <ul>
             <li>
-                <Link to="/dash">Dashboard</Link>
+                <Link to="/admin/dashboard">Dashboard</Link>
             </li>
             <li>
-                <Link to="/inv">Inventory</Link>
+                <Link to="/admin/inventory">Inventory</Link>
             </li>
             <li>
-                <Link to="/createinv">Create Inventory</Link>
+                <Link to="/admin/inventory/create">Create Inventory</Link>
             </li>
             <li>
-                <Link to="/users">Users</Link>
+                <Link to="/admin/users">Users</Link>
             </li>
             <li>
-                <Link to="/createuser">Create User</Link>
+                <Link to="/admin/users/create">Create User</Link>
             </li>
         </ul>
     </nav>

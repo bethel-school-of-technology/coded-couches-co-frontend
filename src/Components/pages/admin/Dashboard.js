@@ -21,7 +21,7 @@ return (
     <div  className="adminLayout">
         <Layout>
         </Layout>
-        <h1 className="Dash">
+        <h1>
             Welcome to Admin Dashboard
             </h1>
     </div>

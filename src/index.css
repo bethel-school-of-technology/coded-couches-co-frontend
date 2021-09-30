@@ -129,7 +129,7 @@ nav a:hover::before {
   background-color: transparent;
   width: 35px;
   height:35px;
-  color: green;
+  color: darkblue;
 }
 
 .adminLayout{

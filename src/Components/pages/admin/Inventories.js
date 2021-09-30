@@ -52,7 +52,7 @@ const Inventories = (props) => {
     .then(res => {
         if(inventory) {
         props.history.push({
-            pathname: "/editinv",
+            pathname: "/admin/inventory/edit",
             state: { detail: {inventory} }
         });};
     });
@@ -61,11 +61,12 @@ const Inventories = (props) => {
 
     return (
         <div className="adminLayout">
+
         <Layout>
         </Layout>
-        
         <h1>All the Inventory</h1>
-        <table id="allInv" border="1">
+        
+        <table border="1">
             <thead>
                 <tr>
                     <th>ID:</th>

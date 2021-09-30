@@ -36,22 +36,22 @@ function App() {
           <Route path="/admin/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/inv">
-            <Inventories />
-          </Route>
-          <Route path="/createuser">
-            <CreateUser />
-          </Route>
-          <Route path="/edituser">
-            <EditUser />
-          </Route>
-          <Route path="/createinv">
+          <Route path="/admin/inventory/create">
             <CreateInventory />
           </Route>
-          <Route path="/editinv">
+          <Route path="/admin/inventory/edit">
             <EditInventory />
           </Route>
-          <Route path="/users">
+          <Route path="/admin/inventory">
+            <Inventories />
+          </Route>
+          <Route path="/admin/users/create">
+            <CreateUser />
+          </Route>
+          <Route path="/admin/user/edit">
+            <EditUser />
+          </Route>
+          <Route path="/admin/users">
             <Users />
           </Route>
           <Route path="/cart" component={Cart}/>

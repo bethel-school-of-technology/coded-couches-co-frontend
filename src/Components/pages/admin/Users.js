@@ -49,7 +49,7 @@ const Users = (props) => {
     .then(res => {
         if(user) {
         props.history.push({
-            pathname: "/edituser",
+            pathname: "/admin/user/edit",
             state: { detail: {user} }
         });};
     });
