@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { withRouter, useLocation } from "react-router-dom";
 import Layout from "./Layout";
 
+const URL = process.env.REACT_APP_API_URL
+
 const Editusers = (props) => {
 
     //checking if there is a user, and if so is he an admin, if not re-route
@@ -29,7 +31,7 @@ const Editusers = (props) => {
 
     // edit current user information
     const EditUser = (user) => {
-        const url = ("http://localhost:3000/users/" + user.id);
+        const url = (`${URL}/users/` + user.id);
         if (username.length >= 3 && password.length >= 6) {
             const req = {
                 username: username,

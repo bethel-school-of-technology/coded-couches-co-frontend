@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+const URL = process.env.REACT_APP_API_URLFRONT
+
 const Profile = () => {
     const [loggedUser, setLoggedUser] = useState([]);
     const [order, setOrder] = useState([]);
@@ -9,7 +11,7 @@ const Profile = () => {
     const getUserData = () => {
         let userData =  JSON.parse(localStorage.getItem("user"))
         if (!userData) {
-            window.location.replace("http://localhost:3001/login")
+            window.location.replace(`${URL}/login`)
         } 
     }
     
@@ -29,7 +31,7 @@ const Profile = () => {
     
     
     return(
-        <div>
+        <div className="profile">
             <strong>
                 Welcome {loggedUser.username}!
             </strong>
@@ -51,7 +53,8 @@ const Profile = () => {
                         </div>          
                         </div>
                     ))}
-                    <div>
+                    {order.length !== 0 && (
+                        <div>
                         <hr></hr>
                         <div>
                             <div>
@@ -62,6 +65,7 @@ const Profile = () => {
                             </div>  
                         </div>     
                     </div>
+                    )}
                 </div>
         </div>
     );

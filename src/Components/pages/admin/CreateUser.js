@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import { useState } from "react"; 
 import Layout from "./Layout";
 
-
+const URL = process.env.REACT_APP_API_URL
 const Createusers = (props) => {
 
     // console.log(Layout);
@@ -45,7 +45,7 @@ const Createusers = (props) => {
                 username: username,
                 password: password
             };
-            axios.post("http://localhost:3000/users", req).then(result => {
+            axios.post(`${URL}/users`, req).then(result => {
                 console.log(result.data);
                 document.getElementById("createUser").reset();
                 props.history.push("/users");

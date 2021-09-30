@@ -4,6 +4,8 @@ import { withRouter } from "react-router-dom";
 import NumberFormat from 'react-number-format';
 import Layout from "./Layout";
 
+const URL = process.env.REACT_APP_API_URL
+
 const Inventories = (props) => {
 
     //checking if there is a user, and if so is he an admin, if not re-route
@@ -22,21 +24,21 @@ const Inventories = (props) => {
 
     // set empty state with initial data 
     useEffect(() => {   
-        axios.get("http://localhost:3000/inventories").then(result => {
+        axios.get(`${URL}/inventories`).then(result => {
         setInv(result.data);
         })
     }, []);
 
     // re-render inventory function
     const getInv = () => {
-        axios.get("http://localhost:3000/inventories").then(result => {
+        axios.get(`${URL}/inventories`).then(result => {
                     setInv(result.data);
                     })
     };
 
     // delete inventory function
     const DeleteInv = (id) => {
-        const url = ("http://localhost:3000/inventories/" + id);
+        const url = (`${URL}/inventories/` + id);
         axios.delete(url)
     .then(res => {
         getInv();
@@ -45,7 +47,7 @@ const Inventories = (props) => {
 
     // edit inventory function, send to new page with inventory info
     const EditInv = (inventory) => {
-        const url = ("http://localhost:3000/inventories/" + inventory.id);
+        const url = (`${URL}/inventories/` + inventory.id);
         axios.get(url)
     .then(res => {
         if(inventory) {
@@ -90,7 +92,7 @@ const Inventories = (props) => {
                             />
                     </td>
                     <td>{inventory.quantity}</td>
-                    <td><img src={inventory.image} width="100px" /></td>
+                    <td><img src={inventory.image} alt="" width="100px" /></td>
                     <td>
                     <button className="custom-btn" onClick={() => {if (window.confirm("Are you sure?")) DeleteInv(inventory.id)}}>
                     <svg xmlns="http://www.w3.org/2000/svg" style={{width: "25px", height:"25px"}} fill="none" viewBox="0 0 24 24" stroke="currentColor">
