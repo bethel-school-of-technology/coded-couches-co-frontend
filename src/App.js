@@ -7,13 +7,13 @@ import Shop from './Components/pages/store/Shop';
 import Login from './Components/pages/user/Login';
 import Cart from './Components/pages/cart/Cart';
 import Profile from "./Components/pages/user/Profile";
-import Dashboard from "./Components/pages/admin/Dashboard";
-import Inventories from "./Components/pages/admin/Inventories";
-import Users from "./Components/pages/admin/Users";
-import CreateUser from "./Components/pages/admin/CreateUser";
-import EditUser from "./Components/pages/admin/EditUser";
-import CreateInventory from "./Components/pages/admin/CreateInventory";
-import EditInventory from "./Components/pages/admin/EditInventory";
+// import Dashboard from "./Components/pages/admin/Dashboard";
+// import Inventories from "./Components/pages/admin/Inventories";
+// import Users from "./Components/pages/admin/Users";
+// import CreateUser from "./Components/pages/admin/CreateUser";
+// import EditUser from "./Components/pages/admin/EditUser";
+// import CreateInventory from "./Components/pages/admin/CreateInventory";
+// import EditInventory from "./Components/pages/admin/EditInventory";
 import Footer from "./Components/Footer";
 
 
@@ -33,7 +33,7 @@ function App() {
           <Route path="/signup">
             <SignUp />
           </Route>
-          <Route path="/admin/dashboard">
+          {/* <Route path="/admin/dashboard">
             <Dashboard />
           </Route>
           <Route path="/admin/inventory/create">
@@ -53,7 +53,7 @@ function App() {
           </Route>
           <Route path="/admin/users">
             <Users />
-          </Route>
+          </Route> */}
           <Route path="/cart" component={Cart}/>
           <Route path="/profile" component={Profile} />
         </Switch>
