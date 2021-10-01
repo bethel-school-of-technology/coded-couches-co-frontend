@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const URL = process.env.REACT_APP_API_URLFRONT
 
 const Profile = () => {
-    const [loggedUser, setLoggedUser] = useState([]);
+
     const [order, setOrder] = useState([]);
     const orderTotal = order.reduce((a, c) => a + c.price * c.quantity, 0);
     
@@ -14,12 +14,6 @@ const Profile = () => {
             window.location.replace(`${URL}/login`)
         } 
     };
-    
-    // Displays user information from local storage
-    useEffect(() => {
-            const userData =  JSON.parse(localStorage.getItem("user"));
-            setLoggedUser(userData);            
-    }, []);
 
     //Displays cart items stored in localStorage "Order"
     useEffect(() => {
@@ -30,11 +24,10 @@ const Profile = () => {
     
     return(
         <div className="profile">
-            <h1>Profile</h1>
-            <strong>
-                Welcome {loggedUser.username}!
-            </strong>
-            
+
+            <div className="profile-h1">
+                <h1>Profile</h1> 
+            </div>
             
             <hr></hr>
             <h3>Order History</h3>

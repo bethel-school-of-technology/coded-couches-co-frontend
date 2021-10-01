@@ -290,6 +290,14 @@ and profile pages because of footer*/
 .profile{
   margin: 10rem;
 }
+.profile-h1{
+  display: flex;
+  justify-content: center;
+}
+.cart-h1{
+  display: flex;
+  justify-content: center;
+}
 ul{
   list-style: none;
 }

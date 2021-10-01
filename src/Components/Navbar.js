@@ -3,10 +3,9 @@ import { Link, withRouter } from 'react-router-dom';
 import CCCimage from '../Images/CCCimage.png';
 
 const Navbar = () => {
-
     const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
     const cartCount = cart.length;
- 
+
     // Logs user out and clears all keys from local storage
     const Logout = () => {
         localStorage.clear();
@@ -20,6 +19,7 @@ const Navbar = () => {
                 <Link to="/" >
                     <img  className="logo" src={CCCimage} alt="logo" />
                 </Link>
+                
                 <nav>
                     <ul>
                         <li><Link to="/">Home</Link></li>
@@ -39,6 +39,9 @@ const Navbar = () => {
                             <>
                                 <li><Link to="/profile">Profile</Link></li>
                                 <li><Link onClick={Logout} to="/login">Logout</Link></li>
+                                <div className="user">
+                                Welcome {userData.username}!
+                                </div>
                             </>
                     }                        
                     </ul>
