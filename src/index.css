@@ -284,6 +284,9 @@ and profile pages because of footer*/
 .cart{
   margin: 10rem;
 }
+.cart-button{
+  max-width: 2rem;
+}
 .profile{
   margin: 10rem;
 }

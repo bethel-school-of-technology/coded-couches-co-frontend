@@ -9,11 +9,11 @@ const Profile = () => {
     
     // Verifies user is logged in using user information in the localstorage from the login
     const getUserData = () => {
-        let userData =  JSON.parse(localStorage.getItem("user"))
+        const userData =  JSON.parse(localStorage.getItem("user"))
         if (!userData) {
             window.location.replace(`${URL}/login`)
         } 
-    }
+    };
     
     // Displays user information from local storage
     useEffect(() => {
@@ -21,24 +21,16 @@ const Profile = () => {
             setLoggedUser(userData);            
     }, []);
 
-    //Displays "Order" of cart items stored in localStorage
+    //Displays cart items stored in localStorage "Order"
     useEffect(() => {
         const orderHistory = JSON.parse(localStorage.getItem(["Order"])) || [];
         setOrder(orderHistory);
         getUserData();
-    }, []);
-
-    // Logs user out and redirects to login page
-    const Logout = () => {
-        localStorage.removeItem("myJWT");
-        localStorage.removeItem("Order");
-        localStorage.removeItem("user");
-        window.location.replace(`${URL}/login`)
-    };
-    
+    }, []);   
     
     return(
         <div className="profile">
+            <h1>Profile</h1>
             <strong>
                 Welcome {loggedUser.username}!
             </strong>
@@ -73,10 +65,7 @@ const Profile = () => {
                         </div>     
                     </div>
                     )}
-                </div>
-                <div className="logout-button">
-                    <button onClick={Logout}>Logout</button>
-                </div>               
+                </div>           
         </div>
     );
 }

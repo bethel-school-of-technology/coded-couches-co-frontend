@@ -22,7 +22,6 @@ const Login = (props) => {
                 const token = result.data.jwt;
                 const user = result.data.user;
                 
-                console.log(user)
                 localStorage.setItem("myJWT", token);
                 localStorage.setItem("user", JSON.stringify(user));
                 const admin = result.data.user.admin;
