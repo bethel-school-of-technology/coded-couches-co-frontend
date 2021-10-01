@@ -13,9 +13,9 @@ const slideshowImages = document.querySelectorAll(".slideshow-img");
 
 const nextImageDelay = 5000;
 let currentImageCounter = 0; // setting a variable to keep track of the current image (slide)
-console.log(slideshowImages);
+
 slideshowImages[currentImageCounter].style.opacity = 1;
-console.log(currentImageCounter)
+
 setInterval(nextImage, nextImageDelay);
 
 function nextImage() {

@@ -300,8 +300,19 @@ and profile pages because of footer*/
 .cart{
   margin: 10rem;
 }
+.cart-button{
+  max-width: 2rem;
+}
 .profile{
   margin: 10rem;
+}
+.profile-h1{
+  display: flex;
+  justify-content: center;
+}
+.cart-h1{
+  display: flex;
+  justify-content: center;
 }
 ul{
   list-style: none;
