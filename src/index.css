@@ -284,15 +284,20 @@ button{
 
 /* Product Store */
 
+h3 {
+  font-size: 2rem;
+}
 .productCard {
   position: relative;
   z-index: 0;
   background: #FFFFFF;
   max-width: 75rem;
+  max-height: 24rem;
   margin: 0 auto 100px;
   padding: 2.5rem;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   font-family: 'Pacifico', cursive;
+  display: flex;
 }
 
 .productImage {
@@ -301,11 +306,29 @@ max-width: auto;
 }
 .productImageBox {
 width: 50%;
-float: left;
+text-align: center;
 }
 .productCardText {
+text-align: center;
 padding: 15px;
 width: 50%;
+display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.productButton button{
+    text-transform: uppercase;
+    outline: 0;
+    background: #ecddad;
+    width: 75%;
+    border: 0;
+    padding: 15px;
+    color: #353535;
+    font-size: 14px;
+    cursor: pointer;
+}
+.productButton button:hover,.productButton button:active,.productButton button:focus {
+  background:  rgb(139, 203, 255);;
 }
 /*Added to be able to see the 
 checkout button and order total in cart 
