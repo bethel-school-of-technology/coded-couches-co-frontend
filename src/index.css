@@ -132,6 +132,22 @@ nav a:hover::before {
   color: darkblue;
 }
 
+.tdLarge{
+  min-width: 8rem;
+  max-width: 8rem;
+  height: 2rem;
+  overflow: wrap;
+  white-space: wrap;  
+}
+
+.tdSmall{
+  min-width: 3rem;
+  max-width: 3rem;
+  height: 2rem;
+  overflow: wrap;
+  white-space: wrap;  
+}
+
 .adminLayout{
   display: flex;
   flex-direction: column;

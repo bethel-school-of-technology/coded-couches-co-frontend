@@ -21,7 +21,11 @@ const Login = (props) => {
             axios.post(`${URL}/users/login`, req).then(result => {
                 const token = result.data.jwt;
                 const user = result.data.user;
+<<<<<<< HEAD
                 
+=======
+                console.log(user)
+>>>>>>> bba49e361a1f240b33bcc3b3233ae4b68de6d0e6
                 localStorage.setItem("myJWT", token);
                 localStorage.setItem("user", JSON.stringify(user));
                 const admin = result.data.user.admin;
@@ -43,12 +47,6 @@ const Login = (props) => {
 
     return (<div>
         <form onSubmit={ signIn }>
-            {/* <h1>Login!</h1>
-            <label>Username</label>
-            <input type="text" name="username" minLength="3" onChange={ e => setUsername(e.target.value)}></input> <br></br>
-            <label>Password</label> 
-            <input type="text" name="password" minLength="6" onChange={ e => setPassword(e.target.value)}></input> <br></br>
-            <button >Login</button> */}
             <div className="login-page">
                 <div className="loginText">
                     <p>Login</p>
