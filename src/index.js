@@ -8,7 +8,7 @@ import AdminRouter from './Components/pages/admin/AdminRouter';
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <AdminRouter />
+    {/* <AdminRouter /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

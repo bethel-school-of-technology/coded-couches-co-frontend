@@ -81,17 +81,17 @@ const Inventories = (props) => {
             <tbody>
             { inventories.map(inventory =>
                 <tr  key={inventory.id}>
-                    <td>{inventory.id}</td>
-                    <td>{inventory.name}</td>
-                    <td>{inventory.description}</td>
-                    <td><NumberFormat 
+                    <td className="tdSmall">{inventory.id}</td>
+                    <td className="tdLarge">{inventory.name}</td>
+                    <td className="tdLarge">{inventory.description}</td>
+                    <td className="tdLarge"><NumberFormat 
                             thousandSeparator={true} 
                             prefix={'$'} 
                             value={inventory.price}
                             displayType="text"
                             />
                     </td>
-                    <td>{inventory.quantity}</td>
+                    <td className="tdSmall">{inventory.quantity}</td>
                     <td><img src={inventory.image} alt="" width="50px" /></td>
                     <td>
                     <button className="btn-delete" onClick={() => {if (window.confirm("Are you sure?")) DeleteInv(inventory.id)}}>
@@ -109,6 +109,8 @@ const Inventories = (props) => {
             ) }
             </tbody>
         </table>
+        <div>empty info until footer is move below visible area</div><br></br>
+            <div>empty info until footer is move below visible area</div><br></br>
     </div>
     );
 };
