@@ -15,6 +15,15 @@ body {
   background: rgb(191, 219, 241);
 }
 
+.heading {
+  font-family: 'Pacifico', cursive;
+  font-weight: 100;
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  color: #444444;
+}
+
 /* Slideshow Images */
 .intro {
   height: 85vh;
@@ -217,11 +226,7 @@ button{
   max-width: 300px;
   margin: 0 auto;
 }
-.container:before, .container:after {
-  content: "";
-  display: block;
-  clear: both;
-}
+
 .container .info {
   margin: 50px auto;
   text-align: center;
@@ -277,7 +282,31 @@ button{
   margin: .4rem;
 }
 
+/* Product Store */
 
+.productCard {
+  position: relative;
+  z-index: 0;
+  background: #FFFFFF;
+  max-width: 75rem;
+  margin: 0 auto 100px;
+  padding: 2.5rem;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  font-family: 'Pacifico', cursive;
+}
+
+.productImage {
+max-height: 18rem;
+max-width: auto;
+}
+.productImageBox {
+width: 50%;
+float: left;
+}
+.productCardText {
+padding: 15px;
+width: 50%;
+}
 /*Added to be able to see the 
 checkout button and order total in cart 
 and profile pages because of footer*/

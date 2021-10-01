@@ -19,8 +19,8 @@ const Shop = (props) => {
     }, []);
    
     return(
-        <div className="shop">
-            <h2>Products</h2>
+        <div className="shop"><br></br>
+            <h2 className= "heading" >Products</h2>
             <div className="block">
                 {inventory.map((inventory) => (
                     

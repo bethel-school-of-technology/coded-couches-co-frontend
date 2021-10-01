@@ -25,14 +25,17 @@ const Product = (props) => {
     
     return (
         <div>
-            <img className="small" src={product.image} alt={product.name}></img>
-            <h3>{product.name}</h3>
-            <div>{product.description}</div>
-            <div>${product.price}</div>
-            <div>
-                <button onClick={() => onAdd(product)}>Add to Cart</button>
+            <div className="productCard">                
+                    <div className= "productCardText">
+                        <h3>{product.name}</h3>
+                        <div>{product.description}</div>
+                        <div>${product.price}</div>
+                        <button onClick={() => onAdd(product)}>Add to Cart</button>
+                    </div>
+                    <div className="productImageBox">
+                        <img className="productImage" src={product.image} alt={product.name}></img>
+                    </div>
             </div>
-            <hr></hr>
         </div>
     );
 };
