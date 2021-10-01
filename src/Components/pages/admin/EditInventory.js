@@ -73,11 +73,11 @@ const EditInventory = (props) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{location.state.detail.inventory.id}</td>
-                        <td>{location.state.detail.inventory.name}</td>
-                        <td>{location.state.detail.inventory.description}</td>
-                        <td>${location.state.detail.inventory.price}</td>
-                        <td>{location.state.detail.inventory.quantity}</td>
+                        <td className="tdSmall">{location.state.detail.inventory.id}</td>
+                        <td className="tdLarge">{location.state.detail.inventory.name}</td>
+                        <td className="tdLarge">{location.state.detail.inventory.description}</td>
+                        <td className="tdLarge">${location.state.detail.inventory.price}</td>
+                        <td className="tdSmall">{location.state.detail.inventory.quantity}</td>
                         <td><img src={location.state.detail.inventory.image} alt="" width="100px" /></td>
                     </tr>
                 </tbody>
@@ -93,9 +93,9 @@ const EditInventory = (props) => {
             <label>Set Image</label>
             <input type="text" name="changeImage"  onChange={ e => setImage(e.target.value)}></input> <br></br>
             <button className="btn-add" onClick={() => EditInv(location.state.detail.inventory)}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
-</svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+                </svg>
             </button>
             <div>empty info until footer is move below visible area</div><br></br>
             <div>empty info until footer is move below visible area</div><br></br>

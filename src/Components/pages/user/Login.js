@@ -55,7 +55,7 @@ const Login = (props) => {
                     <p>Login</p>
                 </div>
                 <div className="form">
-                    <div class="login-form">
+                    <div className="login-form">
                         <input type="text" placeholder="Username"  minLength="3" onChange={ e => setUsername(e.target.value)} />
                         <input type="password" placeholder="Password"   onChange={ e => setPassword(e.target.value)}/>
                         <button>login</button>

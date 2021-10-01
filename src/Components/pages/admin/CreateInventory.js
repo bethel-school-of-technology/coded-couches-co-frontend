@@ -19,6 +19,7 @@ const CreateInventory = (props) => {
         alert("you do not have admin priveleges");
         };
 
+    // set initial state
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
@@ -36,21 +37,10 @@ const CreateInventory = (props) => {
                 quantity: quantity,
                 image: image
             };
-            // const token = localStorage.getItem("myJWT");
-            // if(!token) {
-            //     history.push("/login")
-            // }
-            // const options = {
-            //     headers: {
-            //         "Authorization": `Bearer ${token}`
-            //     }
-            // }
-            // add ",options" after req when ready for jwt
             axios.post(`${URL}/inventories`, req).then(result => {
                 console.log(result.data);
                 document.getElementById("createInv").reset();
-                props.history.push("/inv");
-
+                props.history.push("/admin/inventory");
             });
         } else if(name === "" || description === "" || price === "" || quantity === "" || image === "") {
             alert("All fields are required")
@@ -77,9 +67,9 @@ const CreateInventory = (props) => {
             <label>Image</label> 
             <input type="text" name="image" onChange={ e => setImage(e.target.value)}></input> <br></br>
             <button className="btn-add">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-</svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
             </button>
         </form>
     </div>
