@@ -40,7 +40,7 @@ const Navbar = () => {
                                 <li><Link to="/profile">Profile</Link></li>
                                 <li><Link onClick={Logout} to="/login">Logout</Link></li>
                                 <div className="user">
-                                Welcome {userData.username}!
+                                    Welcome {userData.username}!
                                 </div>
                             </>
                     }                        

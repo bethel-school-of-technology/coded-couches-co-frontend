@@ -21,11 +21,7 @@ const Login = (props) => {
             axios.post(`${URL}/users/login`, req).then(result => {
                 const token = result.data.jwt;
                 const user = result.data.user;
-<<<<<<< HEAD
-                
-=======
                 console.log(user)
->>>>>>> bba49e361a1f240b33bcc3b3233ae4b68de6d0e6
                 localStorage.setItem("myJWT", token);
                 localStorage.setItem("user", JSON.stringify(user));
                 const admin = result.data.user.admin;

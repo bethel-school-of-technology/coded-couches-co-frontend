@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Dashboard from '../admin/Dashboard';
 
 const URL = process.env.REACT_APP_API_URLFRONT
 
@@ -21,15 +22,28 @@ const Profile = () => {
         setOrder(orderHistory);
         getUserData();
     }, []);   
-    
-    return(
-        <div className="profile">
+
+    const ProfileView = () => {
+        const userData = JSON.parse(localStorage.getItem("user"));
+        const admin = userData.admin;
+        
+        if(admin){
+            return(
+                <div>
+                    <Dashboard />
+                </div>
+            )
+        }else{
+            return(
+                <div className="profile">
+        
 
             <div className="profile-h1">
                 <h1>Profile</h1> 
             </div>
             
             <hr></hr>
+
             <h3>Order History</h3>
                 <div>
                     {order.length === 0 && <div> No Order History </div>}
@@ -60,6 +74,51 @@ const Profile = () => {
                     )}
                 </div>           
         </div>
+            )
+        }
+
+    };
+    
+    return(
+        <ProfileView />
+
+        // <div className="profile">
+
+        //     <div className="profile-h1">
+        //         <h1>Profile</h1> 
+        //     </div>
+            
+        //     <hr></hr>
+        //     <h3>Order History</h3>
+        //         <div>
+        //             {order.length === 0 && <div> No Order History </div>}
+        //             {order.map((order) =>(
+        //                 <div key={order.id}>
+        //                     <strong>{order.name}</strong>
+        //                     <img className="small" src={order.image} alt={order.name}></img>
+        //                     <div>{order.description}</div>
+        //                     <div>
+        //                     <strong>${order.quantity * order.price}</strong>
+        //                     <div>Item Price: ${order.price}</div>
+        //                     <div>Qty: {order.quantity}</div>
+        //                 </div>          
+        //                 </div>
+        //             ))}
+        //             {order.length !== 0 && (
+        //                 <div>
+        //                 <hr></hr>
+        //                 <div>
+        //                     <div>
+        //                         <strong>Order Total</strong>
+        //                     </div>
+        //                     <div>
+        //                         <strong>${orderTotal}</strong>
+        //                     </div>  
+        //                 </div>     
+        //             </div>
+        //             )}
+        //         </div>           
+        // </div>
     );
 }
 
