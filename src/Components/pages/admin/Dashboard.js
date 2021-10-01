@@ -4,6 +4,7 @@ import Layout from "./Layout";
 
 
 const Dashboard = (props) => {
+    
     //checking if there is a user, and if so, is he/she an admin, if not re-route
     const user = JSON.parse(localStorage.getItem('user'));
 

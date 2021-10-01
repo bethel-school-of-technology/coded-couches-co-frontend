@@ -33,7 +33,10 @@ const Cart = () => {
     
     return (
         <div className="cart">
-            <h2>Cart Items</h2>
+            <div className="cart-h1">
+                <h1>Cart Items</h1>
+            </div>
+            
             <div>
                 {updatedItems.length === 0 && <div>Cart Is Empty</div>}
                 {updatedItems.map((updatedItem) => (                    

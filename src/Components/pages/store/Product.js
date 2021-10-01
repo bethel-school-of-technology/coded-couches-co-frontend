@@ -2,7 +2,7 @@ import React from 'react';
 
 const Product = (props) => {
     const { product } = props;
-    
+
     const onAdd = (product) => {
         const cartItemsLocal = JSON.parse(localStorage.getItem("cartItems")) || [];
         const exist = cartItemsLocal.find((x) => x.id === product.id);
