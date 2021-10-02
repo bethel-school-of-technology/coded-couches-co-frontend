@@ -35,16 +35,14 @@ const Profile = () => {
             )
         }else{
             return(
-                <div className="profile">
-        
+                <div className="page">
+                    <br></br>
+                    <div className="heading">
+                        <p>Your Profile</p> 
+                    </div>
 
-            <div className="profile-h1">
-                <h2>Profile</h2> 
-            </div>
-            
-            <hr></hr>
 
-            <h2>Most Recent Order</h2>
+            <h4 className="recentOrder">Most Recent Order</h4>
                 <div>
                     {order.length === 0 && <div> No Order History </div>}
                     {order.map((order) =>(

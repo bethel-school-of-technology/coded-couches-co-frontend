@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico');
+@import url('https://fonts.googleapis.com/css2?family=Lato');
 
 * {
   margin: 0;
@@ -8,7 +9,10 @@
 }
 
 .page {
-  height: 65rem;
+  height: auto;
+}
+html {
+  height: 20rem;
 }
 
 body {
@@ -402,5 +406,52 @@ ul{
   color: #353535;
   font-size: 14px;
   cursor: pointer;
+}
+
+/*       ---       About Us       --- */
+
+.aboutUs {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  color:#444444;;
+}
+.imageBoxRedding {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3rem;
+  background: #FFFFFF;
+  width: 75%;
+  height: auto;
+  padding: 2rem;
+  margin: 0 auto 100px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  font-family: 'Pacifico', cursive;
+  display: flex;
+}
+.imageRedding {
+  height: auto;
+  width: 100%;
+}
+
+/*       ---     Dash       --- */
+
+.inventoryInput {
+  display: flex;
+ justify-content: center;
   
+}
+.create {
+  text-align: center;
+}
+input.inventoryInput {
+  width:  13rem;
+  margin: auto;
+  display: block;
+  
+}
+#createInv {
+  width: 50%
+}
+h1 {
+  text-align: center;
 }
