@@ -109,8 +109,7 @@ const Inventories = (props) => {
             ) }
             </tbody>
         </table>
-        <div>empty info until footer is move below visible area</div><br></br>
-            <div>empty info until footer is move below visible area</div><br></br>
+        <div id="footSpace">empty info until footer is move below visible area</div><br></br>
     </div>
     );
 };

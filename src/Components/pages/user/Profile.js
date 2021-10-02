@@ -39,12 +39,12 @@ const Profile = () => {
         
 
             <div className="profile-h1">
-                <h1>Profile</h1> 
+                <h2>Profile</h2> 
             </div>
             
             <hr></hr>
 
-            <h3>Order History</h3>
+            <h2>Most Recent Order</h2>
                 <div>
                     {order.length === 0 && <div> No Order History </div>}
                     {order.map((order) =>(
