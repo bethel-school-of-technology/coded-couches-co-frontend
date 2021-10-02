@@ -33,42 +33,13 @@ const Cart = () => {
     
     
     return (
-<<<<<<< HEAD
-        <div className="cart page">
-            <div>
-                <p className="loginText">Cart Items</p>
-=======
         <div className="cart">
             <div className="cart-h1">
                 <h2>Cart Items</h2>
->>>>>>> ba0945e75b8f0a2a2255b50956921581f6f21e47
             </div>
    
             <div>
                 {updatedItems.length === 0 && <div>Cart Is Empty</div>}
-<<<<<<< HEAD
-        
-                    {updatedItems.map((updatedItem) => (                    
-                    <div >
-                        <div className="productCard"  key={updatedItem.id}> 
-                            <div className="productImageBox">
-                                <img className="productImage" src={updatedItem.image} alt={updatedItem.name}></img>                  
-                            </div>
-                            <div className= "productCardText">
-                                <h3>{updatedItem.name}</h3>  
-                                <div>{updatedItem.description}</div>
-                                <div>
-                                    
-                                    <div>Item Price: ${updatedItem.price}</div>
-                                    <div>Quantity: {updatedItem.quantity}</div>
-                                    <strong>${updatedItem.quantity * updatedItem.price}</strong>
-                                </div>        
-                            </div>           
-                        </div>  
-                    </div>                  
-                    ))}
-                
-=======
                 {updatedItems.map((updatedItem) => (                    
                     <div key={updatedItem.id}>                   
                         <h3>{updatedItem.name}</h3> 
@@ -81,7 +52,6 @@ const Cart = () => {
                         </div>                   
                     </div>                   
                 ))}
->>>>>>> ba0945e75b8f0a2a2255b50956921581f6f21e47
                 {updatedItems.length !== 0 && (
                     <div className="orderTotal"> 
                         <div>
