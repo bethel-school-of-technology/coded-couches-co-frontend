@@ -432,3 +432,26 @@ ul{
   height: auto;
   width: 100%;
 }
+
+/*       ---     Dash       --- */
+
+.inventoryInput {
+  display: flex;
+ justify-content: center;
+  
+}
+.create {
+  text-align: center;
+}
+input.inventoryInput {
+  width:  13rem;
+  margin: auto;
+  display: block;
+  
+}
+#createInv {
+  width: 50%
+}
+h1 {
+  text-align: center;
+}

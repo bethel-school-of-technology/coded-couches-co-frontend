@@ -22,9 +22,11 @@ return (
     <div  className="adminLayout">
         <Layout>
         </Layout>
-        <h1>
-            Welcome to Admin Dashboard
+        <br></br>
+            <h1>
+                Welcome to the Admin Dashboard
             </h1>
+        <br></br>
     </div>
     );
 };

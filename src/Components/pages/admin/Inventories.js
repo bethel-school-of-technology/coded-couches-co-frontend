@@ -64,7 +64,7 @@ const Inventories = (props) => {
 
         <Layout>
         </Layout>
-        <h1>All the Inventory</h1>
+        <br></br><h1>All of the Inventory</h1><br></br>
         
         <table border="1">
             <thead>
