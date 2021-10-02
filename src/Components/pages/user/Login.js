@@ -41,23 +41,23 @@ const Login = (props) => {
     };
 
 
-    return (<div>
-        <form onSubmit={ signIn }>
-            <div className="login-page">
-                <div className="loginText">
-                    <p>Login</p>
-                </div>
-                <div className="form">
-                    <div className="login-form">
-                        <input type="text" placeholder="Username"  minLength="3" onChange={ e => setUsername(e.target.value)} />
-                        <input type="password" placeholder="Password"   onChange={ e => setPassword(e.target.value)}/>
-                        <button>login</button>
-                        <p className="message">Not registered? <a href="/signup">Create an account</a></p>
+    return (<div className= "page">
+                <form onSubmit={ signIn }>
+                    <div className="login-page">
+                        <div className="loginText">
+                            <p>Login</p>
+                        </div>
+                        <div className="form">
+                            <div className="login-form">
+                                <input type="text" placeholder="Username"  minLength="3" onChange={ e => setUsername(e.target.value)} />
+                                <input type="password" placeholder="Password"   onChange={ e => setPassword(e.target.value)}/>
+                                <button>login</button>
+                                <p className="message">Not registered? <a href="/signup">Create an account</a></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </form>
-    </div>);
+                </form>
+            </div>);
 
 }
 

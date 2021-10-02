@@ -7,12 +7,17 @@
   box-sizing: border-box;
 }
 
+.page {
+  height: 65rem;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family:  sans-serif;
   font-weight: 400;
   background: rgb(191, 219, 241);
+  height: 51rem;
 }
 
 .heading {
@@ -24,7 +29,7 @@ body {
   color: #444444;
 }
 
-/* Slideshow Images */
+/*      ---       Slideshow Images         --- */
 .intro {
   height: 85vh;
   position: relative;
@@ -41,7 +46,7 @@ body {
   transition: opacity 1s ease-in-out;
 }
 
-/* Nav Bar */
+/*          ---        Nav Bar      ---          */
 .navbar {
   width: 80%;
   margin: 0 auto;
@@ -178,6 +183,26 @@ nav a:hover::before {
 .btn-danger {} /*red*/
 .btn-info {} /*light blue*/
 
+/*         ---         Footer         ---          */
+
+.social-footer {
+  left: 0;
+  right: 0;
+  bottom:0;
+  padding: 1rem;
+  background: #afaba2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.icons {
+  max-height: 3.5rem;
+  list-style-type: none;
+  display: inline-block;
+  margin: .4rem;
+}
 
 /* Buttons */
 button{
@@ -196,7 +221,7 @@ button{
 }
 
 
-/* Login / Signup Pages */
+/*      ---       Login / Signup Pages      ---       */
 
 .login-page {
   width: 360px;
@@ -286,30 +311,9 @@ button{
   
 }
 
-/* Footer  */
-
-.social-footer {
-  position: fixed; 
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 4rem;
-  padding: 1rem;
-  background: #afaba2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
 
-.icons {
-  max-height: 3rem;
-  list-style-type: none;
-  display: inline-block;
-  margin: .4rem;
-}
-
-/* Product Store */
+/*        ---       Product Store      ---      */
 
 h3 {
   font-size: 2rem;
@@ -357,6 +361,9 @@ display: flex;
 .productButton button:hover,.productButton button:active,.productButton button:focus {
   background:  rgb(139, 203, 255);;
 }
+
+
+/*      ---       Cart       ---       */
 /*Added to be able to see the 
 checkout button and order total in cart 
 and profile pages because of footer*/
@@ -379,4 +386,21 @@ and profile pages because of footer*/
 }
 ul{
   list-style: none;
+}
+.orderTotal{
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.checkoutButton {
+  text-transform: uppercase;
+  outline: 0;
+  background: #ecddad;
+  width: 25%;
+  border: 0;
+  padding: 15px;
+  color: #353535;
+  font-size: 14px;
+  cursor: pointer;
+  
 }
