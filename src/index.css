@@ -163,6 +163,11 @@ nav a:hover::before {
   white-space: wrap;  
 }
 
+#footSpace {
+  margin-bottom: 60px;
+  visibility: hidden;
+}
+
 .adminLayout{
   display: flex;
   flex-direction: column;
