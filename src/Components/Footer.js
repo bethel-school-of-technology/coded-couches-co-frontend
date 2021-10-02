@@ -7,6 +7,7 @@ import twitter from '../Images/twitter.png';
 
 const Footer = () => {
     return(
+        <div className="footer-div">
         <footer className="social-footer">
             <div className="social-footer-left">
                 <a href="/"><img className="logo" src={CCCicon} alt=""></img></a>
@@ -20,7 +21,7 @@ const Footer = () => {
                 </ul>
             </div>
         </footer>
-
+        </div>
     )
 };
 
