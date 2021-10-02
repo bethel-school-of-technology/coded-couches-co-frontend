@@ -2,10 +2,8 @@ import React from 'react';
 
 const AboutMe = () => {
     return (
-        <div>
-            <div>
-             
-            </div>
+        <div className= "page">
+            
             <div><br></br>
             <h1 className= "heading">Welcome to Coded Couches Company!</h1>
                 <h2>We are a small start-up company based out of Redding California. We have been operating since fall of 2021. </h2>
