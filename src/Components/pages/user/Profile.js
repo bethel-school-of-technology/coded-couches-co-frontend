@@ -44,7 +44,7 @@ const Profile = () => {
             
             <hr></hr>
 
-            <h3>Order History</h3>
+            <h2>Most Recent Order</h2>
                 <div>
                     {order.length === 0 && <div> No Order History </div>}
                     {order.map((order) =>(
