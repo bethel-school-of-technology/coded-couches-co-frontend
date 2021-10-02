@@ -34,15 +34,14 @@ const Cart = () => {
     return (
         <div className="cart">
             <div className="cart-h1">
-                <h1>Cart Items</h1>
+                <h2>Cart Items</h2>
             </div>
             
             <div>
                 {updatedItems.length === 0 && <div>Cart Is Empty</div>}
                 {updatedItems.map((updatedItem) => (                    
-                   <ul>
-                    <li key={updatedItem.id}>                   
-                        <strong>{updatedItem.name}</strong> 
+                    <div key={updatedItem.id}>                   
+                        <h3>{updatedItem.name}</h3> 
                         <img className="small" src={updatedItem.image} alt={updatedItem.name}></img>
                         <div>{updatedItem.description}</div>
                         <div>
@@ -50,8 +49,7 @@ const Cart = () => {
                             <div>Item Price: ${updatedItem.price}</div>
                             <div>Qty: {updatedItem.quantity}</div>
                         </div>                   
-                    </li>  
-                    </ul>                  
+                    </div>                   
                 ))}
                 {updatedItems.length !== 0 && (
                     <div>
