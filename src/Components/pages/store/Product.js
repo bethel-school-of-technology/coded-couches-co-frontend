@@ -3,6 +3,11 @@ import React from 'react';
 const Product = (props) => {
     const { product } = props;
 
+    // const timeoutId = setTimeout(
+    //     () => { alert("Item added to cart")
+    // }, 2000);
+    // clearTimeout(timeoutId);
+
     const onAdd = (product) => {
         const cartItemsLocal = JSON.parse(localStorage.getItem("cartItems")) || [];
         const exist = cartItemsLocal.find((x) => x.id === product.id);
@@ -18,7 +23,7 @@ const Product = (props) => {
         } else {
             cartItemsLocal.push({...product, quantity: 1});
         }
-
+        alert("Item was added to the cart");
         localStorage.setItem("cartItems", JSON.stringify(cartItemsLocal));
     };
     
