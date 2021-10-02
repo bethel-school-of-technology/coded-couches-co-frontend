@@ -33,11 +33,18 @@ const Cart = () => {
     
     
     return (
+<<<<<<< HEAD
         <div className="cart page">
             <div>
                 <p className="loginText">Cart Items</p>
             </div>
    
+=======
+        
+        <div className="page">      
+                <br></br>   
+                <p className="heading">Cart Items</p>
+>>>>>>> 98c9e8daf36dabe59ebc9dd843b76a34892b52bb
             <div>
                 {updatedItems.length === 0 && <div>Cart Is Empty</div>}
         

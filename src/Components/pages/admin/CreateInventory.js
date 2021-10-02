@@ -55,22 +55,24 @@ const CreateInventory = (props) => {
         <Layout>
         </Layout>
         <form onSubmit={ createInv } id="createInv">
-            <h1>Add Inventory</h1>
+            <br></br><h1>Add Inventory</h1> <br></br>
+            <div className="create">
             <label>Item Name</label>
-            <input type="text" name="name" onChange={ e => setName(e.target.value)}></input> <br></br>
+            <input type="text" className="inventoryInput" name="name" onChange={ e => setName(e.target.value)}></input> <br></br>
             <label>Description</label> 
-            <input type="text" name="description" onChange={ e => setDescription(e.target.value)}></input> <br></br>
+            <input type="text" className="inventoryInput" name="description" onChange={ e => setDescription(e.target.value)}></input> <br></br>
             <label>Price</label> 
-            <input type="number" step=".01" name="price" onChange={ e => setPrice(e.target.value)}></input> <br></br>
+            <input type="number" className="inventoryInput" step=".01" name="price" onChange={ e => setPrice(e.target.value)}></input> <br></br>
             <label>Quantity</label> 
-            <input type="number" name="quantity" onChange={ e => setQuantity(e.target.value)}></input> <br></br>
-            <label>Image</label> 
-            <input type="text" name="image" onChange={ e => setImage(e.target.value)}></input> <br></br>
+            <input type="number" className="inventoryInput" name="quantity" onChange={ e => setQuantity(e.target.value)}></input> <br></br>
+            <label>Image URL</label> 
+            <input type="text" className="inventoryInput" name="image" onChange={ e => setImage(e.target.value)}></input> <br></br>
             <button className="btn-add">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
             </button>
+            </div>
         </form>
     </div>
     );
