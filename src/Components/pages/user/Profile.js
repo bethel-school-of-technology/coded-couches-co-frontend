@@ -40,38 +40,40 @@ const Profile = () => {
                     <div className="heading">
                         <p>Your Profile</p> 
                     </div>
-            <h4 className="recentOrder">Most Recent Order</h4>
+            <h3 className="headingSmall">Most Recent Order</h3>
                 <div >
                     {order.length === 0 && <div> No Order History </div>}
                     {order.map((order) =>(
                         <div className="productCard" key={order.id}>
-                            <div>
-                                <img className="small" src={order.image} alt={order.name}></img>
+                            <div className="productImageBox">
+                                <img className="productImage" src={order.image} alt={order.name}></img>
                             </div>
-                            
-                            <strong>{order.name}</strong>
-                            <div>{order.description}</div>
-                            <div>
-                            <strong>${order.quantity * order.price}</strong>
-                            <div>Item Price: ${order.price}</div>
-                            <div>Qty: {order.quantity}</div>
-                        </div>          
+                            <div className="productCardText">
+                                <h3>{order.name}</h3>
+                                <div>{order.description}</div>
+                                <div>
+                                    <strong>${order.quantity * order.price}</strong>
+                                    <div>Item Price: ${order.price}</div>
+                                    <div>Qty: {order.quantity}</div>
+                                </div>
+                            </div>          
                         </div>
                     ))}
                     {order.length !== 0 && (
                         <div>
-                        <hr></hr>
-                        <div>
                             <div>
-                                <strong>Order Total</strong>
-                            </div>
-                            <div>
-                                <strong>${orderTotal}</strong>
-                            </div>  
-                        </div>     
+                                <div>
+                                    <h3 className="headingSmall">Order Total</h3>
+                                </div>
+                                <div>
+                                    <h3 className="headingSmall">${orderTotal}</h3>
+                                    
+                                </div>  
+                            </div>     
                     </div>
                     )}
-                </div>           
+                </div>      
+                <div className="space"></div>     
         </div>
             )
         }
