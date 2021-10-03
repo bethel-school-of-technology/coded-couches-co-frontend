@@ -61,7 +61,7 @@ const Users = (props) => {
 
         <Layout>
         </Layout>
-        <h1>Users Management</h1>
+        <br></br><h1>Users Management</h1><br></br>
     
             <table border="1" >
                 <thead>
