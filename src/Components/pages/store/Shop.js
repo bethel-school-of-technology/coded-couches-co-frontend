@@ -12,9 +12,7 @@ const Shop = (props) => {
 
     useEffect (() => {   
         axios.get(`${URL}/inventories`).then(result => {
-            //console.log(result);
         setInventory(result.data);
-        // getUserData();
         })
     }, []);
    

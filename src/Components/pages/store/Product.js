@@ -22,9 +22,7 @@ const Product = (props) => {
         } else {
             cartItemsLocal.push({...product, quantity: 1});
         }alert("Item was added to the cart");
-        }
-    
-        
+        } 
         localStorage.setItem("cartItems", JSON.stringify(cartItemsLocal));
     };
     

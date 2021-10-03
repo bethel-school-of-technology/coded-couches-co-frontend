@@ -6,7 +6,7 @@ const Navbar = () => {
     const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
     const cartCount = cart.length;
 
-    // Logs user out and clears all keys from local storage
+    // Logs user out by clearing all keys from local storage
     const Logout = () => {
         localStorage.clear();
     };
