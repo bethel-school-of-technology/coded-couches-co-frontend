@@ -38,7 +38,7 @@ const Cart = () => {
                 <br></br>   
                 <p className="heading">Cart Items</p>
             <div>
-                {updatedItems.length === 0 && <div>Cart Is Empty</div>}
+                {updatedItems.length === 0 && <div class="headingSmall">Cart Is Empty</div>}
         
                     {updatedItems.map((updatedItem) => (                    
                     <div >
@@ -77,6 +77,7 @@ const Cart = () => {
                     </div>
                 )}
             </div>
+            <div className="space"></div>
         </div>
     );
 };
