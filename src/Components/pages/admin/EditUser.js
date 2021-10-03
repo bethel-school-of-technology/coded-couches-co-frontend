@@ -28,7 +28,6 @@ const Editusers = (props) => {
     // setting previous pages information on to current page
     useEffect(() => {
     }, [location]);
-    console.log(location);
 
     // edit current user information
     const EditUser = (user) => {
