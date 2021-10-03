@@ -39,7 +39,7 @@ const Navbar = () => {
                             <>
                                 <li><Link to="/profile">Profile</Link></li>
                                 <li><Link onClick={Logout} to="/login">Logout</Link></li>
-                                <div className="logged-user">
+                                <div className="headingSuperSmall">
                                     Welcome {userData.username}!
                                 </div>
                             </>

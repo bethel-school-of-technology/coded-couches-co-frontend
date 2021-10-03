@@ -44,6 +44,16 @@ body {
   margin-bottom: 3rem;
   color: #444444;
 }
+.headingSuperSmall {
+  font-family: 'Pacifico', cursive;
+  font-weight: 100;
+  font-size: 1rem;
+  display: inline-block;
+  margin-left: 2rem;
+  padding-top: 2rem;
+  position: relative;
+  color: #444444;
+}
 
 /*      ---       Slideshow Images         --- */
 .intro {
@@ -100,12 +110,6 @@ nav li {
   margin-left: 4.3rem;
   padding-top: 3.5rem;
 
-  position: relative;
-}
-.logged-user{
-  display: inline-block;
-  margin-left: 2rem;
-  padding-top: 2rem;
   position: relative;
 }
 
@@ -355,12 +359,13 @@ width: 50%;
 text-align: center;
 }
 .productCardText {
-text-align: center;
-padding: 15px;
-width: 50%;
-display: flex;
+  text-align: center;
+  padding: 15px;
+  width: 50%;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: #444444;
 }
 .productButton button{
     text-transform: uppercase;
