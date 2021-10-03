@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico');
 @import url('https://fonts.googleapis.com/css2?family=Lato');
 
+
+
+/* Overall Styling */
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +12,7 @@
 }
 
 .page {
-  height: auto;
+  height: 80vh;
 }
 html {
   height: 20rem;
@@ -29,6 +32,15 @@ body {
   font-weight: 100;
   text-align: center;
   font-size: 3rem;
+  margin-bottom: 3rem;
+  color: #444444;
+}
+
+.headingSmall {
+  font-family: 'Pacifico', cursive;
+  font-weight: 100;
+  text-align: center;
+  font-size: 1.75rem;
   margin-bottom: 3rem;
   color: #444444;
 }
@@ -183,16 +195,15 @@ nav a:hover::before {
   align-items: center;
 }
 
-.btn-primary {} /*green*/
-.btn-danger {} /*red*/
-.btn-info {} /*light blue*/
 
 /*         ---         Footer         ---          */
 
 .social-footer {
+  position:fixed;
   left: 0;
   right: 0;
   bottom:0;
+  height: 4rem;
   padding: 1rem;
   background: #afaba2;
   display: flex;
@@ -202,7 +213,7 @@ nav a:hover::before {
 
 
 .icons {
-  max-height: 3.5rem;
+  max-height: 3rem;
   list-style-type: none;
   display: inline-block;
   margin: .4rem;
@@ -214,7 +225,7 @@ button{
   padding: 0.2rem;
   margin: 0.1rem;
   border-radius: 0.5rem;
-  border: 0.1rem black solid;
+  border: 0.13rem rgb(105, 105, 105) solid;
   background-color: #ecddad;
   width: 6rem;
   cursor: pointer;
@@ -368,9 +379,8 @@ display: flex;
 
 
 /*      ---       Cart       ---       */
-/*Added to be able to see the 
-checkout button and order total in cart 
-and profile pages because of footer*/
+
+
 .cart{
   margin: 10rem;
 }
@@ -454,4 +464,9 @@ input.inventoryInput {
 }
 h1 {
   text-align: center;
+}
+
+
+.space {
+  height: 10rem;
 }

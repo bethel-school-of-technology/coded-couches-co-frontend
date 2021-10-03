@@ -27,6 +27,7 @@ const Shop = (props) => {
                     <Product key={inventory.id} product={inventory} onAdd={onAdd}></Product>
                 ))}
             </div>
+            <div className="space"></div>
         </div>
     );
 };

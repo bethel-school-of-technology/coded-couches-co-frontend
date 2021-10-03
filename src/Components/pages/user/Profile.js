@@ -40,15 +40,16 @@ const Profile = () => {
                     <div className="heading">
                         <p>Your Profile</p> 
                     </div>
-
-
             <h4 className="recentOrder">Most Recent Order</h4>
-                <div>
+                <div >
                     {order.length === 0 && <div> No Order History </div>}
                     {order.map((order) =>(
-                        <div key={order.id}>
+                        <div className="productCard" key={order.id}>
+                            <div>
+                                <img className="small" src={order.image} alt={order.name}></img>
+                            </div>
+                            
                             <strong>{order.name}</strong>
-                            <img className="small" src={order.image} alt={order.name}></img>
                             <div>{order.description}</div>
                             <div>
                             <strong>${order.quantity * order.price}</strong>
