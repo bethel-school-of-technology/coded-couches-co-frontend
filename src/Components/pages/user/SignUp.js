@@ -19,7 +19,6 @@ const SignUp = (props) => {
             };
             axios.post(`${URL}/users/`, req).then(result => {
                 props.history.push("/login");
-                console.log(result.data);
             })
         } else {
             return alert("Username needs to be at least 3 characters, and Password at least 6 characters")

@@ -31,7 +31,6 @@ const Createusers = (props) => {
                 password: password
             };
             axios.post(`${URL}/users`, req).then(result => {
-                console.log(result.data);
                 document.getElementById("createUser").reset();
                 props.history.push("/admin/users");
             });
