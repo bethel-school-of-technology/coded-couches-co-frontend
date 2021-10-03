@@ -38,11 +38,11 @@ const Cart = () => {
                 <br></br>   
                 <p className="heading">Cart Items</p>
             <div>
-                {updatedItems.length === 0 && <div class="headingSmall">Cart Is Empty</div>}
+                {updatedItems.length === 0 && <div className="headingSmall">Cart Is Empty</div>}
         
                     {updatedItems.map((updatedItem) => (                    
-                    <div >
-                        <div className="productCard"  key={updatedItem.id}> 
+                    <div key={updatedItem.id}>
+                        <div className="productCard"> 
                             <div className="productImageBox">
                                 <img className="productImage" src={updatedItem.image} alt={updatedItem.name}></img>                  
                             </div>
